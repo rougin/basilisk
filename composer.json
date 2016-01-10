@@ -3,13 +3,14 @@
     "description": "A simple web application that is based on Slytherin",
     "keywords": [],
     "require": {
-        "rougin/slytherin": "0.4.0",
+        "rougin/slytherin": "0.4.1",
         "doctrine/orm": "^2.5",
         "jms/serializer": "^1.0",
         "zendframework/zend-diactoros": "^1.3",
         "filp/whoops": "^1.1",
         "vlucas/valitron": "^1.2",
-        "hassankhan/config": "^0.8.2"
+        "hassankhan/config": "^0.8.2",
+        "container-interop/container-interop": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
