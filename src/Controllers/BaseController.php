@@ -1,47 +1,39 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Http\Controllers;
+
+use App\Facades\Emitter;
+use App\Facades\Response;
+use App\Facades\Serializer;
 
 /**
  * Base Controller
  *
- * @package App
+ * @package Valkyrie
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class BaseController
 {
     /**
-     * @var \Zend\Diactoros\Response\SapiEmitter
-     */
-    protected $emitter;
-
-    /**
-     * @var \Psr\Http\Message\ResponseInterface
-     */
-    protected $response;
-
-    /**
-     * @var \JMS\Serializer\SerializerInterface
-     */
-    protected $serializer;
-
-    /**
      * Returns the data into a specified type.
      * 
-     * @param  mixed  $data
-     * @param  string $type
+     * @param  mixed   $data
+     * @param  integer $type
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function toResponse($data, $type = 'json')
+    public function toResponse($data, $code = 200)
     {
-        $data = $this->serializer->serialize($data, $type);
+        $content = [ 'code' => $code, 'data' => $data ];
+        $data = Serializer::serialize($content, 'json');
 
-        $response = $this->response
-            ->withStatus(200)
-            ->withHeader('Content-Type', 'application/' . $type);
+        $response = Response::get()
+            ->withStatus($code)
+            ->withHeader('Content-Type', 'application/json')
+            ->withHeader('Access-Control-Allow-Origin', config('app.client_url'))
+            ->withHeader('Access-Control-Allow-Credentials', 'true');
 
         $response->getBody()->write($data);
         
-        return $this->emitter->emit($response);
+        return Emitter::emit($response);
     }
 }

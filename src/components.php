@@ -30,6 +30,10 @@ $container->add(
     JMS\Serializer\SerializerBuilder::create()->build()
 );
 
+App\Facades\Serializer::set(
+    $container->get('JMS\Serializer\SerializerInterface')
+);
+
 /**
  * Dependencies for Psr\Http\Message\ResponseInterface
  */
@@ -42,6 +46,14 @@ $container->add(
 $container->add(
     'Zend\Diactoros\Response\EmitterInterface',
     new Zend\Diactoros\Response\SapiEmitter
+);
+
+App\Facades\Response::set(
+    $container->get('Psr\Http\Message\ResponseInterface')
+);
+
+App\Facades\Emitter::set(
+    $container->get('Zend\Diactoros\Response\EmitterInterface')
 );
 
 /**
