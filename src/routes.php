@@ -1,6 +1,6 @@
 <?php
 
 return [
-    ['GET', '/', ['App\Controllers\GreetController', 'index']],
-    ['GET', '/greet/:name', ['App\Controllers\GreetController', 'index']],
+    ['GET', '/', ['App\Http\Controllers\GreetController', 'index']],
+    ['GET', '/greet/:name', ['App\Http\Controllers\GreetController', 'index']],
 ];
