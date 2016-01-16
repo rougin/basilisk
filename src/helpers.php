@@ -11,12 +11,7 @@ if ( ! function_exists('config')) {
     function config($key = null, $default = null)
     {
         $data = explode('.', $key);
-
-        if ($data[0] == 'app') {
-            $data[0] = 'config';
-        }
-
-        $file = APP . '/' . $data[0] . '.php';
+        $file = APP . '/config/' . $data[0] . '.php';
 
         if ( ! file_exists($file)) {
             throw new InvalidArgumentException('File not found.');
@@ -24,10 +19,6 @@ if ( ! function_exists('config')) {
 
         if ($data[0] == $key) {
             return include $file;
-        }
-
-        if ($data[0] == 'config') {
-            $data[0] = 'app';
         }
 
         $config = new Noodlehaus\Config($file);
