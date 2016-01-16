@@ -16,7 +16,7 @@ $config->setAutoGenerateProxyClasses(config('doctrine.developer_mode'));
 
 $container->add(
     'Doctrine\ORM\EntityManager',
-    Doctrine\ORM\EntityManager::create(config('database'), $config)
+    Doctrine\ORM\EntityManager::create(config('database.mysql'), $config)
 );
 
 App\Facades\EntityManager::set($container->get('Doctrine\ORM\EntityManager'));
