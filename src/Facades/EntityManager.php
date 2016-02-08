@@ -57,6 +57,22 @@ class EntityManager
     }
 
     /**
+     * Removes an entity instance.
+     *
+     * A removed entity will be removed from the database at or before
+     * transaction commit or as a result of the flush operation.
+     *
+     * @param  object $entity The entity instance to remove.
+     * @return void
+     *
+     * @throws ORMInvalidArgumentException
+     */
+    public static function remove($entity)
+    {
+        return self::$entityManager->remove($entity);
+    }
+
+    /**
      * Sets the entity manager.
      * 
      * @param  \Doctrine\ORM\EntityManagerInterface $entityManager
