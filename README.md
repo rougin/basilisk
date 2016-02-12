@@ -1,6 +1,6 @@
 # Slytherin Skeleton
 
-A simple web application that is based on [Slytherin](https://github.com/rougin/slytherin).
+A simple [Slytherin](https://github.com/rougin/slytherin)-based web application.
 
 ## Install
 

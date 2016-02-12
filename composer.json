@@ -1,7 +1,12 @@
 {
     "name": "rougin/slytherin-skeleton",
-    "description": "A simple web application that is based on Slytherin",
-    "keywords": [],
+    "description": "A simple Slytherin-based web application",
+    "keywords": [
+        "php",
+        "application",
+        "skeleton",
+        "slytherin"
+    ],
     "require": {
         "rougin/slytherin": "0.4.1",
         "doctrine/orm": "^2.5",
