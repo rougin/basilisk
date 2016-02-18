@@ -14,82 +14,66 @@ $config = Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration(
 $config->setProxyDir(config('doctrine.proxy_path'));
 $config->setAutoGenerateProxyClasses(config('doctrine.developer_mode'));
 
-$container->add(
-    'Doctrine\ORM\EntityManager',
-    Doctrine\ORM\EntityManager::create(config('database.mysql'), $config)
-);
+$database = config('database.mysql');
 
-App\Facades\EntityManager::set($container->get('Doctrine\ORM\EntityManager'));
+$entityManager = Doctrine\ORM\EntityManager::create($database, $config);
+
+App\Facades\EntityManager::set($entityManager);
+
+$container->add('Doctrine\ORM\EntityManager', $entityManager);
 
 /**
  * Dependencies for JMS\Serializer\SerializerInterface
  */
 
-$container->add(
-    'JMS\Serializer\SerializerInterface',
-    JMS\Serializer\SerializerBuilder::create()->build()
-);
+$serializer = JMS\Serializer\SerializerBuilder::create()->build();
 
-App\Facades\Serializer::set(
-    $container->get('JMS\Serializer\SerializerInterface')
-);
+App\Facades\Serializer::set($serializer);
+
+$container->add('JMS\Serializer\SerializerInterface', $serializer);
 
 /**
  * Dependencies for Psr\Http\Message\ResponseInterface
  */
 
-$container->add(
-    'Psr\Http\Message\ResponseInterface',
-    new Zend\Diactoros\Response
-);
+$response = new Zend\Diactoros\Response;
+$emitter = new Zend\Diactoros\Response\SapiEmitter;
 
-$container->add(
-    'Zend\Diactoros\Response\EmitterInterface',
-    new Zend\Diactoros\Response\SapiEmitter
-);
+App\Facades\Emitter::set($emitter);
+App\Facades\Response::set($response);
 
-App\Facades\Response::set(
-    $container->get('Psr\Http\Message\ResponseInterface')
-);
-
-App\Facades\Emitter::set(
-    $container->get('Zend\Diactoros\Response\EmitterInterface')
-);
+$container->add('Psr\Http\Message\ResponseInterface', $response);
+$container->add('Zend\Diactoros\Response\EmitterInterface', $emitter);
 
 /**
  * Dependencies for Psr\Http\Message\RequestInterface
  */
 
-$container->add(
-    'Psr\Http\Message\RequestInterface',
-    Zend\Diactoros\ServerRequestFactory::fromGlobals()
-);
+$request = Zend\Diactoros\ServerRequestFactory::fromGlobals();
+
+$container->add('Psr\Http\Message\RequestInterface', $request);
 
 /**
  * Dependencies for Rougin\Slytherin\Debug\DebuggerInterface
  */
 
-$container->add(
-    'Rougin\Slytherin\Debug\DebuggerInterface',
-    new Rougin\Slytherin\Debug\WhoopsDebugger(new Whoops\Run)
-);
+$debugger = new Rougin\Slytherin\Debug\WhoopsDebugger(new Whoops\Run);
+
+$debugger->setEnvironment(config('app.environment'));
+
+$container->add('Rougin\Slytherin\Debug\DebuggerInterface', $debugger);
 
 /**
  * Dependencies for Rougin\Slytherin\Dispatching\RouterInterface and 
  * Rougin\Slytherin\Dispatching\DispatcherInterface
  */
 
-$container->add(
-    'Rougin\Slytherin\Dispatching\RouterInterface',
-    new Rougin\Slytherin\Dispatching\Router(require 'routes.php')
-);
+$routes = require 'routes.php';
+$router = new Rougin\Slytherin\Dispatching\Router($routes);
+$dispatcher = new Rougin\Slytherin\Dispatching\Dispatcher($router);
 
-$container->add(
-    'Rougin\Slytherin\Dispatching\DispatcherInterface',
-    new Rougin\Slytherin\Dispatching\Dispatcher(
-        $container->get('Rougin\Slytherin\Dispatching\RouterInterface')
-    )
-);
+$container->add('Rougin\Slytherin\Dispatching\RouterInterface', $router);
+$container->add('Rougin\Slytherin\Dispatching\DispatcherInterface', $dispatcher);
 
 /**
  * Integrates all components into Slytherin
@@ -99,11 +83,8 @@ $components = new Rougin\Slytherin\Components;
 
 $components
     ->setContainer($container)
-    ->setDispatcher($container->get('Rougin\Slytherin\Dispatching\DispatcherInterface'))
-    ->setDebugger($container->get('Rougin\Slytherin\Debug\DebuggerInterface'))
-    ->setHttp(
-        $container->get('Psr\Http\Message\RequestInterface'),
-        $container->get('Psr\Http\Message\ResponseInterface')
-    );
+    ->setDispatcher($dispatcher)
+    ->setDebugger($debugger)
+    ->setHttp($request, $response);
 
 return $components;
