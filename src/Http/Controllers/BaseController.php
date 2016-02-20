@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Facades\Emitter;
 use App\Facades\Response;
 use App\Facades\Serializer;
 
@@ -34,6 +33,6 @@ class BaseController
 
         $response->getBody()->write($data);
         
-        return Emitter::emit($response);
+        return $response;
     }
 }
