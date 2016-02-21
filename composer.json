@@ -8,7 +8,7 @@
         "slytherin"
     ],
     "require": {
-        "rougin/slytherin": "0.4.1",
+        "rougin/slytherin": "^0.4.0",
         "doctrine/orm": "^2.5",
         "jms/serializer": "^1.0",
         "zendframework/zend-diactoros": "^1.3",
