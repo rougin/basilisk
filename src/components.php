@@ -37,13 +37,10 @@ $container->add('JMS\Serializer\SerializerInterface', $serializer);
  */
 
 $response = new Zend\Diactoros\Response;
-$emitter = new Zend\Diactoros\Response\SapiEmitter;
 
-App\Facades\Emitter::set($emitter);
-App\Facades\Response::set($response);
+Landslide\Facades\Response::set($response);
 
 $container->add('Psr\Http\Message\ResponseInterface', $response);
-$container->add('Zend\Diactoros\Response\EmitterInterface', $emitter);
 
 /**
  * Dependencies for Psr\Http\Message\RequestInterface
