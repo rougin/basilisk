@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'environment' => 'development',
-    'base_url' => 'http://localhost:8000',
-    'client_url' => 'http://localhost:9000',
+    'environment' => $_ENV['ENVIRONMENT'],
+    'base_url' => $_ENV['BASE_URL'],
+    'client_url' => $_ENV['CLIENT_URL'],
 ];
