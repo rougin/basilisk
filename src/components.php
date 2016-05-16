@@ -38,7 +38,7 @@ $container->add('JMS\Serializer\SerializerInterface', $serializer);
 
 $response = new Zend\Diactoros\Response;
 
-Landslide\Facades\Response::set($response);
+App\Facades\Response::set($response);
 
 $container->add('Psr\Http\Message\ResponseInterface', $response);
 

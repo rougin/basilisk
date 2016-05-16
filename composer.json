@@ -7,15 +7,26 @@
         "skeleton",
         "slytherin"
     ],
+    "homepage": "https://github.com/rougin/slytherin-skeleton",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rougin Royce Gutib",
+            "email": "rougingutib@gmail.com",
+            "homepage": "http://rougin.github.io",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "rougin/slytherin": "^0.4.0",
+        "container-interop/container-interop": "^1.1",
         "doctrine/orm": "^2.5",
-        "jms/serializer": "^1.0",
-        "zendframework/zend-diactoros": "^1.3",
         "filp/whoops": "^1.1",
-        "vlucas/valitron": "^1.2",
         "hassankhan/config": "^0.8.2",
-        "container-interop/container-interop": "^1.1"
+        "jms/serializer": "^1.0",
+        "rougin/slytherin": "^0.5.0",
+        "vlucas/phpdotenv": "^2.2",
+        "vlucas/valitron": "^1.2",
+        "zendframework/zend-diactoros": "^1.3"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
