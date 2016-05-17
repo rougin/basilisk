@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via **Pull requests** on [Bitbucket](https://bitbucket.org/app/pull-requests).
+We accept contributions via **Pull requests** on [Github](https://github.com/rougin/slytherin-skeleton).
 
 ## Pull Requests
 
