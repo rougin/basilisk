@@ -4,6 +4,8 @@ namespace App\Validators;
 
 /**
  * Validator Interface
+ *
+ * An interface for handling validators.
  * 
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>

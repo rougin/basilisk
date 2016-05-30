@@ -10,8 +10,11 @@ if ( ! function_exists('config')) {
      */
     function config($key = null, $default = null)
     {
+        $seperator = DIRECTORY_SEPARATOR;
+        $directory = __DIR__ . $seperator . '..' . $seperator . 'app';
         $data = explode('.', $key);
-        $file = APP . '/config/' . $data[0] . '.php';
+
+        $file = $directory . $seperator . 'config' . $seperator . $data[0] . '.php';
 
         if ( ! file_exists($file)) {
             throw new InvalidArgumentException('File not found.');

@@ -6,6 +6,8 @@ use Valitron\Validator;
 
 /**
  * Base Validator
+ *
+ * A base class for a validator.
  * 
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
