@@ -2,7 +2,7 @@
 
 All Notable changes to `SlytherinSkeleton` will be documented in this file
 
-## [Unreleased](https://github.com/rougin/slytherin-skeleton/compare/v0.2.3...HEAD)
+## [0.2.4](https://github.com/rougin/slytherin-skeleton/compare/v0.2.3...v0.2.4) - 2015-05-30
 
 ### Changed
 - Application structure
