@@ -1,6 +1,6 @@
 <?php
 
-$container = new Rougin\Slytherin\IoC\Container;
+$container = new Rougin\Slytherin\IoC\Vanilla\Container;
 
 /**
  * Dependencies for Doctrine\ORM\EntityManager
@@ -54,7 +54,7 @@ $container->add('Psr\Http\Message\RequestInterface', $request);
  * Dependencies for Rougin\Slytherin\Debug\DebuggerInterface
  */
 
-$debugger = new Rougin\Slytherin\Debug\WhoopsDebugger(new Whoops\Run);
+$debugger = new Rougin\Slytherin\Debug\Whoops\Debugger(new Whoops\Run);
 
 $debugger->setEnvironment(config('app.environment'));
 
@@ -66,8 +66,8 @@ $container->add('Rougin\Slytherin\Debug\DebuggerInterface', $debugger);
  */
 
 $routes = require 'routes.php';
-$router = new Rougin\Slytherin\Dispatching\Router($routes);
-$dispatcher = new Rougin\Slytherin\Dispatching\Dispatcher($router);
+$router = new Rougin\Slytherin\Dispatching\Vanilla\Router($routes);
+$dispatcher = new Rougin\Slytherin\Dispatching\Vanilla\Dispatcher($router);
 
 $container->add('Rougin\Slytherin\Dispatching\RouterInterface', $router);
 $container->add('Rougin\Slytherin\Dispatching\DispatcherInterface', $dispatcher);
