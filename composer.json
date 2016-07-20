@@ -22,11 +22,15 @@
         "doctrine/orm": "^2.5",
         "filp/whoops": "2.*",
         "hassankhan/config": "^0.8.2",
-        "jms/serializer": "^1.0",
-        "rougin/slytherin": "^0.6.0",
+        "nesbot/carbon": "^1.21",
+        "pagerfanta/pagerfanta": "^1.0",
+        "robmorgan/phinx": "^0.6.2",
+        "rougin/slytherin": "^0.7.0",
+        "twig/twig": "^1.24",
         "vlucas/phpdotenv": "^2.2",
         "vlucas/valitron": "^1.2",
-        "zendframework/zend-diactoros": "^1.3"
+        "zendframework/zend-diactoros": "^1.3",
+        "zendframework/zend-stratigility": "^1.2"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",

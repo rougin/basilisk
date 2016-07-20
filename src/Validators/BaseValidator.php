@@ -39,7 +39,8 @@ class BaseValidator implements ValidatorInterface
     {
         $validator = new Validator($data);
 
-        $validator->rule('required', $this->required);
+        $this->setLabels($validator);
+        $this->setRules($validator, $data);
 
         if ( ! $validator->validate()) {
             $this->errors = $validator->errors();
