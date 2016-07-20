@@ -1,10 +1,12 @@
 <?php
 
-$separator = DIRECTORY_SEPARATOR;
-$base = __DIR__ . $separator . '..' . $separator;
-
+/**
+ * Configurations for Doctrine.
+ *
+ * @var array
+ */
 return [
-    'developer_mode' => true,
-    'model_paths' => [ $base . 'src' . $separator . 'Models' ],
-    'proxy_path' => $base . 'src' . $separator . 'Proxies',
+    'developer_mode' => $_ENV['ENVIRONMENT'] == 'development',
+    'model_paths'    => [ base('src/Models') ],
+    'proxy_path'     => base('src/Proxies'),
 ];

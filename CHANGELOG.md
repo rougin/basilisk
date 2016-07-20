@@ -2,17 +2,22 @@
 
 All Notable changes to `SlytherinSkeleton` will be documented in this file
 
-## [0.2.4](https://github.com/rougin/slytherin-skeleton/compare/v0.2.3...v0.2.4) - 2015-05-30
+## [0.3.0](https://github.com/rougin/slytherin-skeleton/compare/v0.2.4...v0.3.0) - 2016-07-21
 
 ### Changed
 - Application structure
 
-## [0.2.3](https://github.com/rougin/slytherin-skeleton/compare/v0.2.2...v0.2.3) - 2015-03-01
+## [0.2.4](https://github.com/rougin/slytherin-skeleton/compare/v0.2.3...v0.2.4) - 2016-05-30
+
+### Changed
+- Application structure
+
+## [0.2.3](https://github.com/rougin/slytherin-skeleton/compare/v0.2.2...v0.2.3) - 2016-03-01
 
 ### Removed
 - Implementation of `Facades\Emitter` in `components.php`
 
-## [0.2.2](https://github.com/rougin/slytherin-skeleton/compare/v0.2.1...v0.2.2) - 2015-02-24
+## [0.2.2](https://github.com/rougin/slytherin-skeleton/compare/v0.2.1...v0.2.2) - 2016-02-24
 
 ### Changed
 - `Slytherin` package to `^v0.4.0`
@@ -20,7 +25,7 @@ All Notable changes to `SlytherinSkeleton` will be documented in this file
 ### Removed
 - `Facades\Emitter`
 
-## [0.2.1](https://github.com/rougin/slytherin-skeleton/compare/v0.2.0...v0.2.1) - 2015-02-13
+## [0.2.1](https://github.com/rougin/slytherin-skeleton/compare/v0.2.0...v0.2.1) - 2016-02-13
 
 ### Added
 - [`setHeaders`](https://github.com/rougin/slytherin-skeleton/tree/v0.2.1/src/helpers.php#L31-L66)
@@ -29,12 +34,12 @@ All Notable changes to `SlytherinSkeleton` will be documented in this file
 ### Changed
 - Description of project
 
-## [0.2.0](https://github.com/rougin/slytherin-skeleton/compare/v0.1.0...v0.2.0) - 2015-01-16
+## [0.2.0](https://github.com/rougin/slytherin-skeleton/compare/v0.1.0...v0.2.0) - 2016-01-16
 
 ### Changed
 - Updated file and directory structure
 
-## 0.1.0 - 2016-01-01
+## 0.1.0 - 2016-01-10
 
 ### Added
 - `SlytherinSkeleton` file and directory structure

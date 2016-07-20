@@ -1,20 +1,28 @@
 <?php
 
-$slash = DIRECTORY_SEPARATOR;
-$base = __DIR__ . $slash . '..' . $slash;
+session_start();
 
-require $base . 'vendor' . $slash . 'autoload.php';
-require $base . 'src' . $slash . 'helpers.php';
+$base = str_replace('public', '', __DIR__);
+
+require $base . 'vendor/autoload.php';
 
 // Loads the environment variables from an .env file.
 $dotenv = new Dotenv\Dotenv($base);
 $dotenv->load();
 
-// Sets the headers for the current request.
-setHeaders($_SERVER, config('headers'));
+date_default_timezone_set($_ENV['TIMEZONE']);
 
-// Loads the components
-$components = require $base . 'src' . $slash . 'components.php';
+// Loads the helpers
+$helpers = glob($base . 'src/Helpers/*.php');
+array_map(function ($helper) { require $helper; }, $helpers);
+
+// Loads the specified components
+$components = Rougin\Slytherin\Component\Collector::get(
+    new Rougin\Slytherin\IoC\Vanilla\Container,
+    config('app.components'),
+    $GLOBALS
+);
+
 $application = new Rougin\Slytherin\Application($components);
 
 $application->run();

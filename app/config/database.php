@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Configurations for your database.
+ *
+ * @var array
+ */
 return [
     'mysql' => [
         'driver'   => $_ENV['MYSQL_DRIVER'],

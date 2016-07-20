@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
  *
  * A base class for HTTP controllers.
  * 
- * @package Valkyrie
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class BaseController {}
