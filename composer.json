@@ -25,7 +25,7 @@
         "nesbot/carbon": "^1.21",
         "pagerfanta/pagerfanta": "^1.0",
         "robmorgan/phinx": "^0.6.2",
-        "rougin/slytherin": "^0.7.0",
+        "rougin/slytherin": "~0.7",
         "twig/twig": "^1.24",
         "vlucas/phpdotenv": "^2.2",
         "vlucas/valitron": "^1.2",
