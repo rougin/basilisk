@@ -2,6 +2,11 @@
 
 All Notable changes to `SlytherinSkeleton` will be documented in this file
 
+## [0.3.1](https://github.com/rougin/slytherin-skeleton/compare/v0.3.0...v0.3.1) - 2016-09-09
+
+### Changed
+- `Slytherin` package to `~0.7`
+
 ## [0.3.0](https://github.com/rougin/slytherin-skeleton/compare/v0.2.4...v0.3.0) - 2016-07-21
 
 ### Changed
