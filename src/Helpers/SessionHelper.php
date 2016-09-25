@@ -14,12 +14,14 @@ if ( ! function_exists('session')) {
             return $_SESSION;
         }
 
-        $value = (isset($_SESSION[$variable])) ? $_SESSION[$variable] : $defaultValue;
+        if (isset($_SESSION[$variable])) {
+            $defaultValue = $_SESSION[$variable];
+        }
 
         if ($deleteAfter) {
             unset($_SESSION[$variable]);
         }
 
-        return $value;
+        return $defaultValue;
     }
 }

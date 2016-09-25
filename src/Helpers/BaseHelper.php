@@ -9,8 +9,9 @@ if ( ! function_exists('base')) {
      */
     function base($item = null)
     {
-        $base = str_replace('src' . DIRECTORY_SEPARATOR . 'Helpers', '', __DIR__);
+        $separator = DIRECTORY_SEPARATOR;
+        $basePath  = str_replace('src' . $separator . 'Helpers', '', __DIR__);
 
-        return $base . $item;
+        return $basePath . $item;
     }
 }
