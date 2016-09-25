@@ -10,8 +10,6 @@ if ( ! function_exists('validate')) {
 	 */
     function validate($validatorName, $data)
     {
-        container()->add($validatorName);
-
         $validator = container()->get($validatorName);
 
         if ( ! $validator->validate($data)) {
