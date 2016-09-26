@@ -11,7 +11,7 @@ return [
      *
      * @var string
      */
-    'base_url' => $_ENV['BASE_URL'],
+    'base_url' => env('base_url'),
 
     /**
      * Environment used in the application.
@@ -19,14 +19,14 @@ return [
      *
      * @var string
      */
-    'environment' => $_ENV['ENVIRONMENT'],
+    'environment' => env('environment'),
 
     /**
      * The default timezone for the application.
      *
      * @var string
      */
-    'timezone' => $_ENV['TIMEZONE'],
+    'timezone' => env('timezone'),
 
     /**
      * The list of components to be integrated in Slytherin.
@@ -34,6 +34,7 @@ return [
      * @var array
      */
     'components' => [
+        App\Components\BootstrapComponent::class,
         App\Components\DebuggerComponent::class,
         App\Components\DispatcherComponent::class,
         App\Components\DoctrineComponent::class,
