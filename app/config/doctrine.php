@@ -6,7 +6,7 @@
  * @var array
  */
 return [
-    'developer_mode' => $_ENV['ENVIRONMENT'] == 'development',
+    'developer_mode' => env('environment') == 'development',
     'model_paths'    => [ base('src/Models') ],
     'proxy_path'     => base('src/Proxies'),
 ];
