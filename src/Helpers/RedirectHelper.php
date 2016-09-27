@@ -12,12 +12,13 @@ if ( ! function_exists('redirect')) {
     {
         $url = ($url == '/') ? null : $url;
 
-        if (strpos($url, 'http://') === false && strpos($url, 'https://') === false) {
-            $url = config('app.base_url') . '/' . $url;
-        }
-
         foreach ($data as $key => $value) {
             $_SESSION[$key] = $value;
+        }
+
+
+        if (strpos($url, 'http') === false) {
+            $url = url('/' . $url);
         }
 
         header('Location: ' . $url); exit;
