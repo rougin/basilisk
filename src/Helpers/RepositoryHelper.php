@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists('repository')) {
+if (! function_exists('repository')) {
     /**
      * Returns an instance of an EntityRepository.
      *

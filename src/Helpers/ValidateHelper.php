@@ -1,19 +1,19 @@
 <?php
 
-if ( ! function_exists('validate')) {
-	/**
-	 * Validates the data from a specified validator.
-	 * 
-	 * @param  string  $validatorName
-	 * @param  mixed   $data
+if (! function_exists('validate')) {
+    /**
+     * Validates the data from a specified validator.
+     *
+     * @param  string  $validatorName
+     * @param  mixed   $data
      * @param  boolean $debugMode
-	 * @return void|redirect
-	 */
+     * @return void|redirect
+     */
     function validate($validatorName, $data, $debugMode = false)
     {
         $validator = new $validatorName;
 
-        if ( ! $validator->validate($data)) {
+        if (! $validator->validate($data)) {
             $flash = [];
 
             $flash['validation'] = $validator->getErrors();

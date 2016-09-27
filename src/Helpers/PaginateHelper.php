@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists('paginate')) {
+if (! function_exists('paginate')) {
     /**
      * Paginates the list of data.
      *
@@ -18,8 +18,7 @@ if ( ! function_exists('paginate')) {
         $pagerfanta->setMaxPerPage($itemsPerPage);
         $pagerfanta->setCurrentPage($currentPage);
 
-        $route = function ($page)
-        {
+        $route = function ($page) {
             $path = request()->getUri()->getPath();
 
             return $path . '?page=' . $page;

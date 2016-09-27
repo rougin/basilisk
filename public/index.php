@@ -14,7 +14,9 @@ date_default_timezone_set($_ENV['TIMEZONE']);
 
 // Loads the helpers
 $helpers = glob($base . 'src/Helpers/*.php');
-array_map(function ($helper) { require $helper; }, $helpers);
+array_map(function ($helper) {
+    require $helper;
+}, $helpers);
 
 // Loads the specified components
 $components = Rougin\Slytherin\Component\Collector::get(
