@@ -1,9 +1,9 @@
 <?php
 
-if ( ! function_exists('view')) {
+if (! function_exists('view')) {
     /**
      * Renders a view from a template.
-     * 
+     *
      * @param  string $template
      * @param  array  $data
      * @return string

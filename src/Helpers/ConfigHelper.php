@@ -1,9 +1,9 @@
 <?php
 
-if ( ! function_exists('config')) {
+if (! function_exists('config')) {
     /**
      * Gets the configuration from the specified file.
-     * 
+     *
      * @param  string $key
      * @param  string $default
      * @return string
@@ -14,7 +14,7 @@ if ( ! function_exists('config')) {
         $directory = base('app');
         $filePath  = $directory . '/config/' . $arrayKeys[0] . '.php';
 
-        if ( ! file_exists($filePath)) {
+        if (! file_exists($filePath)) {
             throw new InvalidArgumentException('File not found.');
         }
 

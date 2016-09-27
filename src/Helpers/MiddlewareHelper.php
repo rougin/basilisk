@@ -1,9 +1,9 @@
 <?php
 
-if ( ! function_exists('middleware')) {
+if (! function_exists('middleware')) {
     /**
      * Returns a listing of middleware/s.
-     * 
+     *
      * @param  string $location
      * @return array
      */

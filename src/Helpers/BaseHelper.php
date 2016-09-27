@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists('base')) {
+if (! function_exists('base')) {
     /**
      * Returns the base path of the application.
      *

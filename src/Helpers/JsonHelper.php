@@ -2,10 +2,10 @@
 
 use JMS\Serializer\SerializerInterface;
 
-if ( ! function_exists('json')) {
+if (! function_exists('json')) {
     /**
      * Parses the data to JSON format.
-     * 
+     *
      * @param  mixed $data
      * @return string
      */

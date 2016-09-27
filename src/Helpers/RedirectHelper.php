@@ -1,9 +1,9 @@
 <?php
 
-if ( ! function_exists('redirect')) {
+if (! function_exists('redirect')) {
     /**
      * Returns a redirect response.
-     * 
+     *
      * @param  string $url
      * @param  array  $data
      * @return \Psr\Http\Message\ResponseInterface
@@ -21,6 +21,7 @@ if ( ! function_exists('redirect')) {
             $url = url('/' . $url);
         }
 
-        header('Location: ' . $url); exit;
+        header('Location: ' . $url);
+        exit;
     }
 }

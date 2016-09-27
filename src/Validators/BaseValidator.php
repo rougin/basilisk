@@ -8,7 +8,7 @@ use Valitron\Validator;
  * Base Validator
  *
  * A base class for a validator.
- * 
+ *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
@@ -21,7 +21,7 @@ class BaseValidator implements ValidatorInterface
 
     /**
      * Returns a listing of error, if any.
-     * 
+     *
      * @return array
      */
     public function getErrors()
@@ -31,7 +31,7 @@ class BaseValidator implements ValidatorInterface
 
     /**
      * Validates the data from the registration page.
-     * 
+     *
      * @param  array  $data
      * @return boolean
      */
@@ -42,7 +42,7 @@ class BaseValidator implements ValidatorInterface
         $this->setLabels($validator);
         $this->setRules($validator, $data);
 
-        if ( ! $validator->validate()) {
+        if (! $validator->validate()) {
             $this->errors = $validator->errors();
 
             return false;
