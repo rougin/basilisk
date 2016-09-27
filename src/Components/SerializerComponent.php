@@ -3,7 +3,7 @@
 namespace App\Components;
 
 use JMS\Serializer\SerializerBuilder;
-use JMS\Serializer\SerializerInterface;
+use Interop\Container\ContainerInterface;
 
 use Rougin\Slytherin\Component\AbstractComponent;
 
@@ -16,19 +16,17 @@ use Rougin\Slytherin\Component\AbstractComponent;
 class SerializerComponent extends AbstractComponent
 {
     /**
-     * Name of the class to be added in the container.
-     * 
-     * @var string
-     */
-    protected $className = SerializerInterface::class;
-
-    /**
-     * Returns an instance from the named class.
+     * Sets the component and add it to the container of your choice.
      *
-     * @return mixed
+     * @param  \Interop\Container\ContainerInterface $container
+     * @return void
      */
-    public function get()
+    public function set(ContainerInterface &$container)
     {
-        return SerializerBuilder::create()->build();
+        $serializer = SerializerBuilder::create()->build();
+
+        $container->add('JMS\Serializer\SerializerInterface', $serializer);
+
+        return;
     }
 }
