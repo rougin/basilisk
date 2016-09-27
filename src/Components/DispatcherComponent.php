@@ -29,7 +29,7 @@ class DispatcherComponent extends AbstractComponent
      */
     public function get()
     {
-        $routes = require __DIR__ . '/../Http/routes.php';
+        $routes = require __DIR__ . '/../../src/Http/routes.php';
 
         return new Dispatcher(new Router($routes));
     }

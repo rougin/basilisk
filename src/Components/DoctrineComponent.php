@@ -4,6 +4,7 @@ namespace App\Components;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Interop\Container\ContainerInterface;
 
 use Rougin\Slytherin\Component\AbstractComponent;
 
@@ -16,18 +17,12 @@ use Rougin\Slytherin\Component\AbstractComponent;
 class DoctrineComponent extends AbstractComponent
 {
     /**
-     * Name of the class to be added in the container.
-     * 
-     * @var string
+     * Sets the component and add it to the container of your choice.
+     *
+     * @param  \Interop\Container\ContainerInterface $container
+     * @return void
      */
-    protected $className = EntityManager::class;
-
-    /**
-     * Returns an instance from the named class.
-     * 
-     * @return mixed
-     */
-    public function get()
+    public function set(ContainerInterface &$container)
     {
         $config = Setup::createAnnotationMetadataConfiguration(
             config('doctrine.model_paths'),
@@ -37,6 +32,10 @@ class DoctrineComponent extends AbstractComponent
         $config->setProxyDir(config('doctrine.proxy_path'));
         $config->setAutoGenerateProxyClasses(config('doctrine.developer_mode'));
 
-        return EntityManager::create(config('database.mysql'), $config);
+        $entityManager = EntityManager::create(config('database.mysql'), $config);
+
+        $container->add('Doctrine\ORM\EntityManager', $entityManager);
+
+        return;
     }
 }
