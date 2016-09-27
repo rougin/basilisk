@@ -14,14 +14,21 @@ if ( ! function_exists('session')) {
             return $_SESSION;
         }
 
-        if (isset($_SESSION[$variable])) {
-            $defaultValue = $_SESSION[$variable];
+        $multiArray = new Tebru\MultiArray($_SESSION);
+        $value = $defaultValue;
+
+        if ($multiArray->exists($variable)) {
+            $value = $multiArray->get($variable);
         }
 
         if ($deleteAfter) {
+            if ($multiArray->exists($variable)) {
+                $multiArray->remove($variable);
+            }
+
             unset($_SESSION[$variable]);
         }
 
-        return $defaultValue;
+        return $value;
     }
 }

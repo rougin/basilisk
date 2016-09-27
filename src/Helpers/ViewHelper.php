@@ -10,8 +10,7 @@ if ( ! function_exists('view')) {
      */
     function view($template, $data = [])
     {
-        $views  = __DIR__ . '/../../app/views';
-        $loader = new Twig_Loader_Filesystem($views);
+        $loader = new Twig_Loader_Filesystem(base('app/views'));
         $twig   = new Twig_Environment($loader);
 
         // Loads the filters
