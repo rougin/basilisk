@@ -34,13 +34,13 @@ return [
      * @var array
      */
     'components' => [
-        App\Components\BootstrapComponent::class,
-        App\Components\DebuggerComponent::class,
-        App\Components\DispatcherComponent::class,
-        App\Components\DoctrineComponent::class,
-        App\Components\HttpComponent::class,
-        App\Components\MiddlewareComponent::class,
-        App\Components\RepositoryComponent::class,
-        App\Components\SerializerComponent::class,
+        'App\Components\BootstrapComponent',
+        'App\Components\DebuggerComponent',
+        'App\Components\DispatcherComponent',
+        'App\Components\DoctrineComponent',
+        'App\Components\HttpComponent',
+        'App\Components\MiddlewareComponent',
+        'App\Components\RepositoryComponent',
+        'App\Components\SerializerComponent',
     ]
 ];
