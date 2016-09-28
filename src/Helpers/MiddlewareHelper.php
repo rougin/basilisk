@@ -4,11 +4,15 @@ if (! function_exists('middleware')) {
     /**
      * Returns a listing of middleware/s.
      *
-     * @param  string $location
+     * @param  string|null $location
      * @return array
      */
-    function middleware($location)
+    function middleware($item = null)
     {
-        return config('middlewares.' . $location);
+        if ($item == null) {
+            return config('middlewares');
+        }
+
+        return config('middlewares.' . $item);
     }
 }
