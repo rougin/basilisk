@@ -16,13 +16,10 @@ if (! function_exists('redirect')) {
             $_SESSION[$key] = $value;
         }
 
-
         if (strpos($url, 'http') === false) {
             $url = url('/' . $url);
         }
 
-        header('Location: ' . $url);
-
-        exit;
+        exit(header('Location: ' . $url));
     }
 }

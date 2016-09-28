@@ -10,12 +10,12 @@ namespace Test;
  */
 class SeleniumTestCase extends \PHPUnit_Extensions_Selenium2TestCase
 {
-	/**
-	 * Prepares the session.
-	 * This is a monkey patch for an issue that Selenium cannot set cookies.
-	 *
-	 * @return \PHPUnit_Extensions_Selenium2TestCase_Session
-	 */
+    /**
+     * Prepares the session.
+     * This is a monkey patch for an issue that Selenium cannot set cookies.
+     *
+     * @return \PHPUnit_Extensions_Selenium2TestCase_Session
+     */
     public function prepareSession()
     {
         $session = parent::prepareSession();

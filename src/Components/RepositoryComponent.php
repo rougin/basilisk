@@ -34,7 +34,7 @@ class RepositoryComponent extends AbstractComponent
 
             $metadata = $entityManager->getClassMetadata($model);
 
-            $container->add($name, new $name($entityManager, $metadata));
+            $container[$name] = new $name($entityManager, $metadata);
         }
 
         return;

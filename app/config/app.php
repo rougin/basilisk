@@ -11,7 +11,7 @@ return [
      *
      * @var string
      */
-    'base_url' => env('base_url'),
+    'base_url' => env('BASE_URL'),
 
     /**
      * Environment used in the application.
@@ -19,14 +19,14 @@ return [
      *
      * @var string
      */
-    'environment' => env('environment'),
+    'environment' => env('ENVIRONMENT'),
 
     /**
      * The default timezone for the application.
      *
      * @var string
      */
-    'timezone' => env('timezone'),
+    'timezone' => env('TIMEZONE'),
 
     /**
      * The list of components to be integrated in Slytherin.
@@ -41,6 +41,5 @@ return [
         'App\Components\HttpComponent',
         'App\Components\MiddlewareComponent',
         'App\Components\RepositoryComponent',
-        'App\Components\SerializerComponent',
     ]
 ];

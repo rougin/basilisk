@@ -6,7 +6,7 @@ if (! function_exists('config')) {
      *
      * @param  string $key
      * @param  string $default
-     * @return string
+     * @return mixed
      */
     function config($key = null, $default = null)
     {
