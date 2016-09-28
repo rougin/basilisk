@@ -9,7 +9,7 @@ if (! function_exists('middleware')) {
      */
     function middleware($item = null)
     {
-        if ($item == null) {
+        if ($item === null) {
             return config('middlewares');
         }
 

@@ -9,15 +9,18 @@ if (! function_exists('url')) {
      *
      * @return boolean
      */
-    function is_https()
+    function isHttps()
     {
         $server = request()->getServerParams();
 
+        $forwardedPhoto = $server['HTTP_X_FORWARDED_PROTO'];
+        $frontEndHttps  = $server['HTTP_FRONT_END_HTTPS'];
+
         if (! empty($server['HTTPS']) && strtolower($server['HTTPS']) !== 'off') {
             return true;
-        } elseif (isset($server['HTTP_X_FORWARDED_PROTO']) && strtolower($server['HTTP_X_FORWARDED_PROTO']) === 'https') {
+        } elseif (isset($forwardedPhoto) && strtolower($forwardedPhoto) === 'https') {
             return true;
-        } elseif (! empty($server['HTTP_FRONT_END_HTTPS']) && strtolower($server['HTTP_FRONT_END_HTTPS']) !== 'off') {
+        } elseif (! empty($frontEndHttps) && strtolower($frontEndHttps) !== 'off') {
             return true;
         }
 
@@ -51,7 +54,7 @@ if (! function_exists('url')) {
             $basename = basename($server['SCRIPT_FILENAME']);
             $position = strpos($server['SCRIPT_NAME'], $basename) - 1;
 
-            $http = (is_https()) ? 'https' : 'http';
+            $http = (isHttps()) ? 'https' : 'http';
             $url  = $http . '://' . $address . substr($server['SCRIPT_NAME'], 0, $position);
         }
 

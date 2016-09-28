@@ -1,6 +1,6 @@
 <?php
 
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityRepository;
 
 if (! function_exists('repository')) {
     /**
@@ -9,7 +9,7 @@ if (! function_exists('repository')) {
      * @param  \Doctrine\ORM\EntityRepository $entityRepository
      * @return \Doctrine\ORM\EntityRepository
      */
-    function repository(ObjectRepository $entityRepository)
+    function repository(EntityRepository $entityRepository)
     {
         return container()->get($entityRepository);
     }
