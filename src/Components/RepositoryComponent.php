@@ -2,7 +2,6 @@
 
 namespace App\Components;
 
-use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
 
 use Rougin\Slytherin\Component\AbstractComponent;
@@ -23,7 +22,7 @@ class RepositoryComponent extends AbstractComponent
      */
     public function set(ContainerInterface &$container)
     {
-        $entityManager = $container->get(EntityManager::class);
+        $entityManager = $container->get('Doctrine\ORM\EntityManager');
 
         $path  = base('src/Repositories/');
         $files = glob($path . '*Repository.php');

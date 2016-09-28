@@ -1,7 +1,5 @@
 <?php
 
-use Psr\Http\Message\ServerRequestInterface;
-
 if (! function_exists('request')) {
     /**
      * Returns an instance of a ServerRequest.
@@ -10,6 +8,6 @@ if (! function_exists('request')) {
      */
     function request()
     {
-        return container()->get(ServerRequestInterface::class);
+        return container()->get('Psr\Http\Message\ServerRequestInterface');
     }
 }
