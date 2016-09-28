@@ -1,5 +1,10 @@
 # Slytherin Skeleton
 
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Total Downloads][ico-downloads]][link-downloads]
+
 A simple [Slytherin](https://github.com/rougin/slytherin)-based web application.
 
 ## Install
@@ -48,3 +53,14 @@ $ composer test
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+[ico-version]: https://img.shields.io/packagist/v/rougin/slytherin-skeleton.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/rougin/slytherin-skeleton/master.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/rougin/slytherin-skeleton.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/rougin/slytherin-skeleton
+[link-travis]: https://travis-ci.org/rougin/slytherin-skeleton
+[link-downloads]: https://packagist.org/packages/rougin/slytherin-skeleton
+[link-author]: https://github.com/rougin
+[link-contributors]: ../../contributors

@@ -2,7 +2,12 @@
 
 All Notable changes to `SlytherinSkeleton` will be documented in this file
 
-## [0.3.2](https://github.com/rougin/slytherin-skeleton/compare/v0.3.1...HEAD) - 2016-09-09
+## [0.4.0](https://github.com/rougin/slytherin-skeleton/compare/v0.3.2...v0.4.0) - [CURRENT_DATE]
+
+### Added
+- Acceptance and unit tests
+
+## [0.3.2](https://github.com/rougin/slytherin-skeleton/compare/v0.3.1...v0.3.2) - 2016-09-09
 
 ### Changed
 - Conform to [PSR](http://www.php-fig.org/psr) standards

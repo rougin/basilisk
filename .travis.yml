@@ -23,15 +23,11 @@ before_script:
   - wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - chmod +x chromedriver
-  - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
   - cp .env.example .env
-  - php -S localhost:8000 -t public/ &
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
 
 script:
-  # - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
+  - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
+  - php -S localhost:8000 -t public/ &
   - vendor/bin/phpunit
-
-after_script:
-  - if [[ $TRAVIS_PHP_VERSION != 'hhvm' && $TRAVIS_PHP_VERSION != '7.0' ]]; then php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover; fi
