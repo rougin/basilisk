@@ -10,9 +10,11 @@ if (! function_exists('paginate')) {
      */
     function paginate($data, $itemsPerPage = 20)
     {
+        $get  = request()->getQueryParams();
+        $view = new Pagerfanta\View\TwitterBootstrap3View;
+
         $adapter     = new Pagerfanta\Adapter\ArrayAdapter($data);
-        $bootstrap   = new Pagerfanta\View\TwitterBootstrap3View;
-        $currentPage = (isset($_GET['page'])) ? $_GET['page'] : 1;
+        $currentPage = (isset($get['page'])) ? $get['page'] : 1;
         $pagerfanta  = new Pagerfanta\Pagerfanta($adapter);
 
         $pagerfanta->setMaxPerPage($itemsPerPage);
@@ -24,8 +26,6 @@ if (! function_exists('paginate')) {
             return $path . '?page=' . $page;
         };
 
-        $view = $view->render($pagerfanta, $route);
-
-        return [ $pagerfanta, $view ];
+        return [ $pagerfanta, $view->render($pagerfanta, $route) ];
     }
 }

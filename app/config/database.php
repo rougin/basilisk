@@ -7,11 +7,11 @@
  */
 return [
     'mysql' => [
-        'driver'   => env('mysql_driver'),
-        'host'     => env('mysql_hostname'),
-        'user'     => env('mysql_username'),
-        'password' => env('mysql_password'),
-        'dbname'   => env('mysql_database'),
-        'charset'  => env('mysql_charset'),
+        'driver'   => env('MYSQL_DRIVER'),
+        'host'     => env('MYSQL_HOSTNAME'),
+        'user'     => env('MYSQL_USERNAME'),
+        'password' => env('MYSQL_PASSWORD'),
+        'dbname'   => env('MYSQL_DATABASE'),
+        'charset'  => env('MYSQL_CHARSET'),
     ]
 ];

@@ -4,7 +4,7 @@ if (! function_exists('middleware')) {
     /**
      * Returns a listing of middleware/s.
      *
-     * @param  string|null $location
+     * @param  string|null $item
      * @return array
      */
     function middleware($item = null)
