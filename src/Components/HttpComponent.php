@@ -64,7 +64,7 @@ class HttpComponent extends AbstractComponent
      */
     public function set(ContainerInterface &$container)
     {
-        $container->instances['Psr\Http\Message\ServerRequestInterface'] = $this->request;
-        $container->instances['Psr\Http\Message\ResponseInterface']      = $this->response;
+        $container->add('Psr\Http\Message\ServerRequestInterface', $this->request);
+        $container->add('Psr\Http\Message\ResponseInterface', $this->response);
     }
 }
