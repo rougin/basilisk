@@ -1,7 +1,5 @@
 <?php
 
-use JMS\Serializer\SerializerInterface;
-
 if (! function_exists('json')) {
     /**
      * Parses the data to JSON format.
@@ -11,7 +9,7 @@ if (! function_exists('json')) {
      */
     function json($data)
     {
-        $serializer = container()->get(SerializerInterface::class);
+        $serializer = container()->get('JMS\Serializer\SerializerInterface');
 
         return $serializer->serialize($data, 'json');
     }
