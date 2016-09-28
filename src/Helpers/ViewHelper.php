@@ -27,8 +27,7 @@ if (! function_exists('view')) {
 
         $renderer = new Rougin\Slytherin\Template\Twig\Renderer($twig);
 
-        session('validation', null, true);
-        session('old', null, true);
+        session([ 'old' => null, 'validation' => null ]);
 
         return $renderer->render($template, $data, 'twig');
     }
