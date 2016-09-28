@@ -20,7 +20,7 @@
     "require": {
         "container-interop/container-interop": "^1.1",
         "doctrine/orm": "^2.5",
-        "filp/whoops": "2.*",
+        "filp/whoops": "1.*",
         "hassankhan/config": "^0.8.2",
         "nesbot/carbon": "^1.21",
         "pagerfanta/pagerfanta": "^1.0",
@@ -34,9 +34,9 @@
         "zendframework/zend-stratigility": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit" : "5.*",
+        "phpunit/phpunit" : "4.*",
         "scrutinizer/ocular": "~1.1",
-        "phpunit/phpunit-selenium": "^3.0"
+        "phpunit/phpunit-selenium": "^2.0"
     },
     "autoload": {
         "psr-4": {
