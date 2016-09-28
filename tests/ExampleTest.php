@@ -2,7 +2,7 @@
 
 namespace Test;
 
-class ExampleTest extends \PHPUnit_Extensions_Selenium2TestCase
+class ExampleTest extends SeleniumTestCase
 {
     /**
      * Sets up Selenium configuration.
