@@ -34,6 +34,6 @@ class DoctrineComponent extends AbstractComponent
 
         $entityManager = EntityManager::create(config('database.mysql'), $config);
 
-        $container->instances['Doctrine\ORM\EntityManager'] = $entityManager;
+        $container->add('Doctrine\ORM\EntityManager', $entityManager);
     }
 }
