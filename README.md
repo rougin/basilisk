@@ -25,11 +25,9 @@ Then go to [http://localhost:8000](http://localhost:8000).
 
 ## What's inside?
 
-* [Carbon](https://github.com/briannesbitt/Carbon) - a simple PHP API extension for DateTime
 * [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
 * [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html) - an object-relational mapper for PHP 5.4+
-* [Hassan Khan's Config](https://github.com/hassankhan/config) - a lightweight configuration file loader
-* [Johannes Schmitt's Serializer](http://jmsyst.com/libs/serializer) - allows you to (de-)serialize data of any complexity
+* [Config](https://github.com/hassankhan/config) - a lightweight configuration file loader
 * [MultiArray](https://github.com/tebru/multi-array) - provides easier access to multidimensional arrays
 * [Pagerfanta](https://github.com/whiteoctober/Pagerfanta) - a paginator for PHP
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone

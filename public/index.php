@@ -1,22 +1,18 @@
 <?php
 
-$base = str_replace('public', '', __DIR__);
+use Rougin\Slytherin\Component\Collector;
+use Rougin\Slytherin\IoC\Vanilla\Container;
+use Rougin\Slytherin\Application\Application;
 
-require $base . 'vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // Loads the helpers
-$helpers = glob($base . 'src/Helpers/*.php');
-array_map(function ($helper) {
-    require $helper;
-}, $helpers);
+$helpers = glob(__DIR__ . '/../src/Helpers/*.php');
+foreach ($helpers as $helper): require $helper; endforeach;
 
 // Loads the specified components
-$components = Rougin\Slytherin\Component\Collector::get(
-    new Rougin\Slytherin\IoC\Vanilla\Container,
-    config('app.components'),
-    $GLOBALS
-);
+$components = Collector::get(new Container, config('app.components'));
+$GLOBALS['container'] = $components->getContainer();
 
-$application = new Rougin\Slytherin\Application($components);
-
-$application->run();
+// Starts the Slytherin application
+(new Rougin\Slytherin\Application($components))->run();
