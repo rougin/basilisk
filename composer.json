@@ -25,7 +25,8 @@
         "nesbot/carbon": "^1.21",
         "pagerfanta/pagerfanta": "^1.0",
         "robmorgan/phinx": "^0.6.2",
-        "rougin/slytherin": "~0.7",
+        "rougin/slytherin": "dev-master",
+        "tebru/multi-array": "^0.2.1",
         "twig/twig": "^1.24",
         "vlucas/phpdotenv": "^2.2",
         "vlucas/valitron": "^1.2",
@@ -33,8 +34,9 @@
         "zendframework/zend-stratigility": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit" : "4.*",
-        "scrutinizer/ocular": "~1.1"
+        "phpunit/phpunit" : "5.*",
+        "scrutinizer/ocular": "~1.1",
+        "phpunit/phpunit-selenium": "^3.0"
     },
     "autoload": {
         "psr-4": {

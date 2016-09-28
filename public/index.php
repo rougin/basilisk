@@ -1,16 +1,8 @@
 <?php
 
-session_start();
-
 $base = str_replace('public', '', __DIR__);
 
 require $base . 'vendor/autoload.php';
-
-// Loads the environment variables from an .env file.
-$dotenv = new Dotenv\Dotenv($base);
-$dotenv->load();
-
-date_default_timezone_set($_ENV['TIMEZONE']);
 
 // Loads the helpers
 $helpers = glob($base . 'src/Helpers/*.php');

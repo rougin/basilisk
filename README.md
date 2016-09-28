@@ -25,6 +25,7 @@ Then go to [http://localhost:8000](http://localhost:8000).
 * [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html) - an object-relational mapper for PHP 5.4+
 * [Hassan Khan's Config](https://github.com/hassankhan/config) - a lightweight configuration file loader
 * [Johannes Schmitt's Serializer](http://jmsyst.com/libs/serializer) - allows you to (de-)serialize data of any complexity
+* [MultiArray](https://github.com/tebru/multi-array) - provides easier access to multidimensional arrays
 * [Pagerfanta](https://github.com/whiteoctober/Pagerfanta) - a paginator for PHP
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically
