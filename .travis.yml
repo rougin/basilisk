@@ -1,7 +1,7 @@
 language: php
 
 php:
-  - 5.5.9
+  - 5.5
   - 5.6
   - 7.0
   - hhvm
@@ -10,13 +10,6 @@ php:
 # See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: required  
 dist: trusty
-
-matrix:
-  allow_failures:
-    - php: 7.0
-  include:
-    - php: 5.4
-      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
   - export CHROME_BIN=/usr/bin/google-chrome
