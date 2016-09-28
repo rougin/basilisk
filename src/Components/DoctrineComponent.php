@@ -6,6 +6,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Interop\Container\ContainerInterface;
 
+use Rougin\Slytherin\IoC\Vanilla\Container;
 use Rougin\Slytherin\Component\AbstractComponent;
 
 /**
@@ -34,6 +35,8 @@ class DoctrineComponent extends AbstractComponent
 
         $entityManager = EntityManager::create(config('database.mysql'), $config);
 
-        $container->add('Doctrine\ORM\EntityManager', $entityManager);
+        if ($container instanceof Container) {
+            $container->add('Doctrine\ORM\EntityManager', $entityManager);
+        }
     }
 }

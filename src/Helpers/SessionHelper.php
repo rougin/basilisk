@@ -14,6 +14,12 @@ if (! function_exists('session')) {
             return $_SESSION;
         }
 
+        if (is_array($variable)) {
+            foreach ($variable as $key => $value) {
+                $_SESSION[$key] = $value;
+            }
+        }
+
         $multiArray = new Tebru\MultiArray($_SESSION);
         $value = $defaultValue;
 

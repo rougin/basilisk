@@ -6,8 +6,9 @@ use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 use Interop\Container\ContainerInterface;
 
-use Rougin\Slytherin\Component\AbstractComponent;
 use Rougin\Slytherin\Http\BaseUriGuesser;
+use Rougin\Slytherin\IoC\Vanilla\Container;
+use Rougin\Slytherin\Component\AbstractComponent;
 
 /**
  * HTTP Component
@@ -64,7 +65,9 @@ class HttpComponent extends AbstractComponent
      */
     public function set(ContainerInterface &$container)
     {
-        $container->add('Psr\Http\Message\ServerRequestInterface', $this->request);
-        $container->add('Psr\Http\Message\ResponseInterface', $this->response);
+        if ($container instanceof Container) {
+            $container->add('Psr\Http\Message\ServerRequestInterface', $this->request);
+            $container->add('Psr\Http\Message\ResponseInterface', $this->response);
+        }
     }
 }

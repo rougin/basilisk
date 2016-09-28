@@ -1,8 +1,10 @@
 <?php
 
-namespace Test;
+namespace Test\Controllers;
 
-class ExampleTest extends SeleniumTestCase
+use Test\SeleniumTestCase;
+
+class WelcomeControllerTest extends SeleniumTestCase
 {
     /**
      * Sets up Selenium configuration.
@@ -32,13 +34,26 @@ class ExampleTest extends SeleniumTestCase
      *
      * @return void
      */
-    public function testWelcomeMessage()
+    public function testIndexMethod()
     {
         $this->url('http://localhost:8000');
 
         $content = $this->byTag('div')->text();
 
         $this->assertEquals('Hello, Muggle.', $content);
-        $this->assertEquals('Slytherin', $this->title());
+    }
+
+    /**
+     * Tests if the welcome message is displayed.
+     *
+     * @return void
+     */
+    public function testHelloMethod()
+    {
+        $this->url('http://localhost:8000/hello/Rougin');
+
+        $content = $this->byTag('div')->text();
+
+        $this->assertEquals('Hello, Rougin!', $content);
     }
 }

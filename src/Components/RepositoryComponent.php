@@ -4,6 +4,7 @@ namespace App\Components;
 
 use Interop\Container\ContainerInterface;
 
+use Rougin\Slytherin\IoC\Vanilla\Container;
 use Rougin\Slytherin\Component\AbstractComponent;
 
 /**
@@ -34,7 +35,9 @@ class RepositoryComponent extends AbstractComponent
 
             $metadata = $entityManager->getClassMetadata($model);
 
-            $container->add($name, new $name($entityManager, $metadata));
+            if ($container instanceof Container) {
+                $container->add($name, new $name($entityManager, $metadata));
+            }
         }
     }
 }
