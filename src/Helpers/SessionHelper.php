@@ -10,7 +10,7 @@ if (! function_exists('session')) {
      */
     function session($variable = null, $defaultValue = null, $deleteAfter = false)
     {
-        if (! $variable) {
+        if ($variable == null) {
             return $_SESSION;
         }
 

@@ -43,7 +43,7 @@ class BaseValidator implements ValidatorInterface
         $this->setRules($validator, $data);
 
         if (! $validator->validate()) {
-            $this->errors = $validator->errors();
+            $this->errors = is_array($validator->errors()) ? $validator->errors() : [];
 
             return false;
         }

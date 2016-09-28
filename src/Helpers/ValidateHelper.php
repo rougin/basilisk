@@ -11,6 +11,8 @@ if (! function_exists('validate')) {
      */
     function validate($validatorName, $data, $debugMode = false)
     {
+        $server = request()->getServerParams();
+
         $validator = new $validatorName;
 
         if (! $validator->validate($data)) {
@@ -20,11 +22,14 @@ if (! function_exists('validate')) {
             $flash['old'] = $data;
 
             if ($debugMode) {
-                var_dump($flash);
-                exit;
+                echo '<pre>';
+                print_r($flash);
+                echo '</pre>';
+
+                return;
             }
 
-            return redirect($_SERVER['HTTP_REFERER'], $flash);
+            return redirect($server['HTTP_REFERER'], $flash);
         }
     }
 }
