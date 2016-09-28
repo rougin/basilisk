@@ -12,9 +12,7 @@ if (! function_exists('redirect')) {
     {
         $url = ($url == '/') ? null : $url;
 
-        foreach ($data as $key => $value) {
-            $_SESSION[$key] = $value;
-        }
+        session($data);
 
         if (strpos($url, 'http') === false) {
             $url = url('/' . $url);
