@@ -35,6 +35,7 @@ class ExampleTest extends \PHPUnit_Extensions_Selenium2TestCase
     public function testWelcomeMessage()
     {
         $this->url('http://localhost:8000');
+        $this->prepareSession();
 
         $content = $this->byTag('div')->text();
 
