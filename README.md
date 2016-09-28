@@ -47,6 +47,13 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
+$ wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
+$ wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
+$ unzip chromedriver_linux64.zip
+$ chmod +x chromedriver
+$ cp .env.example .env
+$ java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
+$ php -S localhost:8000 -t public/ &
 $ composer test
 ```
 
