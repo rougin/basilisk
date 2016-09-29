@@ -6,9 +6,9 @@ if (! function_exists('session')) {
      *
      * @param  array|string|null $variable
      * @param  mixed|null        $defaultValue
-     * @return mixed
+     * @return mixed|void
      */
-    function session($variable = null, $defaultValue = null, $deleteAfter = false)
+    function session($variable = null, $defaultValue = null)
     {
         if ($variable === null) {
             return $_SESSION;
@@ -17,28 +17,24 @@ if (! function_exists('session')) {
         $multiArray  = new Tebru\MultiArray($_SESSION);
         $returnValue = $defaultValue;
 
-        if (is_string($variable) && $multiArray->exists($variable)) {
-            $returnValue = $multiArray->get($variable);
-        }
-
-        if ($deleteAfter): $variable = [ $variable => null ]; endif;
-
-        if (is_array($variable)) {
-            foreach ($variable as $key => $returnValue) {
-                if ($returnValue === null) {
-                    if ($multiArray->exists($key)) {
-                        $multiArray->remove($key);
-                    }
-
-                    unset($_SESSION[$key]);
-
-                    continue;
-                }
-
-                $_SESSION[$key] = $returnValue;
+        if (is_string($variable)) {
+            if ($multiArray->exists($variable)) {
+                return $multiArray->get($variable);
             }
+
+            return $returnValue;
         }
 
-        return $returnValue;
+        foreach ($variable as $key => $returnValue) {
+            if ($returnValue === null && $multiArray->exists($key)) {
+                $multiArray->remove($key);
+
+                unset($_SESSION[$key]);
+
+                continue;
+            }
+
+            $_SESSION[$key] = $returnValue;
+        }
     }
 }

@@ -1,9 +1,15 @@
 <?php
 
-namespace Test\Controllers;
+namespace App\Controllers;
 
-use Test\SeleniumTestCase;
+use App\SeleniumTestCase;
 
+/**
+ * Welcome Controller Test
+ *
+ * @package App
+ * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ */
 class WelcomeControllerTest extends SeleniumTestCase
 {
     /**

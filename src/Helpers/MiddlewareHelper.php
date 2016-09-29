@@ -9,10 +9,8 @@ if (! function_exists('middleware')) {
      */
     function middleware($item = null)
     {
-        if ($item === null) {
-            return config('middlewares');
-        }
+        $item = ($item !== null) ? '.' . $item : '';
 
-        return config('middlewares.' . $item);
+        return config('middlewares' . $item);
     }
 }

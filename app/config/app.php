@@ -11,7 +11,7 @@ return [
      *
      * @var string
      */
-    'base_url' => env('BASE_URL'),
+    'base_url' => env('BASE_URL', 'http://localhost:8000'),
 
     /**
      * Environment used in the application.
@@ -19,14 +19,14 @@ return [
      *
      * @var string
      */
-    'environment' => env('ENVIRONMENT'),
+    'environment' => env('ENVIRONMENT', 'production'),
 
     /**
      * The default timezone for the application.
      *
      * @var string
      */
-    'timezone' => env('TIMEZONE'),
+    'timezone' => env('TIMEZONE', 'Asia/Manila'),
 
     /**
      * The list of components to be integrated in Slytherin.
