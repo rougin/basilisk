@@ -17,7 +17,9 @@ if (! function_exists('config')) {
             throw new InvalidArgumentException('File not found.');
         }
 
-        if ($arrayKeys[0] == $key): return include $filePath; endif;
+        if ($arrayKeys[0] == $key) {
+            return include $filePath;
+        }
 
         $newKey = str_replace($arrayKeys[0] . '.', '', $key);
 
