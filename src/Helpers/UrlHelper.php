@@ -2,10 +2,7 @@
 
 if (! function_exists('url')) {
     /**
-     * Is HTTPS?
-     *
-     * Determines if the application is accessed via an encrypted
-     * (HTTPS) connection.
+     * Determines if the application is accessed via an encrypted (HTTPS) connection.
      *
      * @return boolean
      */
