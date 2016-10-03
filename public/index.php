@@ -1,8 +1,8 @@
 <?php
 
+use Rougin\Slytherin\Application\Application;
 use Rougin\Slytherin\Component\Collector;
 use Rougin\Slytherin\IoC\Vanilla\Container;
-use Rougin\Slytherin\Application\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 
