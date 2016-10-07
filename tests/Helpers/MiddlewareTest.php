@@ -8,7 +8,7 @@ namespace App\Helpers;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class MiddlewareHelperTest extends \PHPUnit_Framework_TestCase
+class MiddlewareTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Loads the helpers.
@@ -19,7 +19,8 @@ class MiddlewareHelperTest extends \PHPUnit_Framework_TestCase
     {
         // Loads the helpers
         $helpers = glob(__DIR__ . '/../../src/Helpers/*.php');
-        foreach ($helpers as $helper): require $helper; endforeach;
+        foreach ($helpers as $helper): require $helper;
+        endforeach;
     }
 
     /**

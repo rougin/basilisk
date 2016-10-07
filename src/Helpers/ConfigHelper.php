@@ -19,7 +19,7 @@ if (! function_exists('config')) {
 
         $value = require $filePath;
 
-        for ($i = 1; $i < count($arrayKeys); $i++) { 
+        for ($i = 1; $i < count($arrayKeys); $i++) {
             $value = &$value[$arrayKeys[$i]];
         }
 
