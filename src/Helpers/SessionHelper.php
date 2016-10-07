@@ -15,7 +15,7 @@ if (! function_exists('session')) {
         if (is_string($variable)) {
             $value = $_SESSION;
 
-            for ($i = 0; $i < count($keys); $i++) { 
+            for ($i = 0; $i < count($keys); $i++) {
                 $value = &$value[$keys[$i]];
             }
 

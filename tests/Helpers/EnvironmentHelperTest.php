@@ -10,7 +10,7 @@ use Dotenv\Dotenv;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class EnvHelperTest extends \PHPUnit_Framework_TestCase
+class EnvironmentHelperTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Loads the helpers.
@@ -21,7 +21,8 @@ class EnvHelperTest extends \PHPUnit_Framework_TestCase
     {
         // Loads the helpers
         $helpers = glob(__DIR__ . '/../../src/Helpers/*.php');
-        foreach ($helpers as $helper): require $helper; endforeach;
+        foreach ($helpers as $helper): require $helper;
+        endforeach;
 
         (new Dotenv(base()))->load();
     }
