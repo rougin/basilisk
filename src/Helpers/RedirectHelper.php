@@ -6,18 +6,18 @@ if (! function_exists('redirect')) {
      *
      * @param  string $url
      * @param  array  $data
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return void
      */
-    function redirect($url, $data = [])
+    function redirect($url, $data = [], $exit = true)
     {
         $url = ($url == '/') ? null : $url;
 
         session($data);
 
-        if (strpos($url, 'http') === false) {
-            $url = url('/' . $url);
-        }
+        $url = (strpos($url, 'http') === false) ? url('/' . $url) : $url;
 
-        exit(header('Location: ' . $url));
+        header('Location: ' . $url);
+
+        return ($exit) ? exit : null;
     }
 }

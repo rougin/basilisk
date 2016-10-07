@@ -18,23 +18,20 @@
         }
     ],
     "require": {
-        "container-interop/container-interop": "^1.1",
-        "doctrine/orm": "^2.5",
-        "filp/whoops": "1.*",
-        "hassankhan/config": "^0.8.2",
-        "pagerfanta/pagerfanta": "^1.0",
-        "robmorgan/phinx": "^0.6.2",
+        "container-interop/container-interop": "~1.1",
+        "doctrine/orm": "~2.5",
+        "filp/whoops": "~2.0",
+        "pagerfanta/pagerfanta": "~1.0",
+        "robmorgan/phinx": "~0.6",
         "rougin/slytherin": "dev-master",
-        "tebru/multi-array": "^0.2.1",
-        "twig/twig": "^1.24",
-        "vlucas/phpdotenv": "^2.2",
-        "vlucas/valitron": "^1.2",
-        "zendframework/zend-diactoros": "^1.3",
-        "zendframework/zend-stratigility": "^1.2"
+        "twig/twig": "~1.2",
+        "vlucas/phpdotenv": "~2.2",
+        "vlucas/valitron": "~1.2",
+        "zendframework/zend-diactoros": "~1.3",
+        "zendframework/zend-stratigility": "~1.2"
     },
     "require-dev": {
         "phpunit/phpunit" : "4.*",
-        "scrutinizer/ocular": "~1.1",
         "phpunit/phpunit-selenium": "^2.0"
     },
     "autoload": {

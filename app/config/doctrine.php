@@ -12,21 +12,22 @@ return [
      *
      * If false, then proxy classes have to be explicitly created
      * through the command line.
+     *
      * @var boolean
      */
-    'developer_mode' => env('ENVIRONMENT', 'production') == 'development',
+    'developer_mode' => config('app.environment') == 'development',
 
     /**
      * Location of the Doctrine-based models.
      *
      * @var string
      */
-    'model_paths'    => [ base('src/Models') ],
+    'model_paths' => [ base('src/Models') ],
 
     /**
      * Location of the generated proxies for the models.
      *
      * @var string
      */
-    'proxy_path'     => base('src/Proxies'),
+    'proxy_path' => base('src/Proxies'),
 ];
