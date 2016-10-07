@@ -10,9 +10,8 @@ if (! function_exists('session')) {
      */
     function session($variable = null, $defaultValue = null)
     {
-        $keys = explode('.', $variable);
-
         if (is_string($variable)) {
+            $keys  = explode('.', $variable);
             $value = $_SESSION;
 
             for ($i = 0; $i < count($keys); $i++) {
