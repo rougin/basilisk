@@ -29,6 +29,14 @@ return [
     'timezone' => env('TIMEZONE', 'Asia/Manila'),
 
     /**
+     * The container to be used for setting up the dependencies.
+     * It must be implemented in Interop\Container\ContainerInterface.
+     *
+     * @var \Interop\Container\ContainerInterface
+     */
+    'container' => new Rougin\Slytherin\IoC\Vanilla\Container,
+
+    /**
      * The list of components to be integrated in Slytherin.
      *
      * @var array

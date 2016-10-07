@@ -10,27 +10,30 @@ if (! function_exists('session')) {
      */
     function session($variable = null, $defaultValue = null)
     {
-        $multiArray  = new Tebru\MultiArray($_SESSION);
-        $returnValue = $defaultValue;
+        $keys = explode('.', $variable);
 
-        if ($variable === null) {
-            return $_SESSION;
-        }
+        if (is_string($variable)) {
+            $value = $_SESSION;
 
-        if (is_string($variable) && $multiArray->exists($variable)) {
-            return $multiArray->get($variable);
-        }
-
-        foreach ($variable as $key => $returnValue) {
-            if ($returnValue !== null) {
-                unset($_SESSION[$key]);
-
-                continue;
+            for ($i = 0; $i < count($keys); $i++) { 
+                $value = &$value[$keys[$i]];
             }
 
-            $_SESSION[$key] = $returnValue;
+            return (empty($value)) ? $defaultValue : $value;
         }
 
-        return $returnValue;
+        if (is_array($variable)) {
+            foreach ($variable as $key => $returnValue) {
+                if ($returnValue !== null) {
+                    unset($_SESSION[$key]);
+
+                    continue;
+                }
+
+                $_SESSION[$key] = $returnValue;
+            }
+        }
+
+        return $defaultValue;
     }
 }

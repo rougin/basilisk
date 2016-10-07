@@ -17,12 +17,12 @@ if (! function_exists('config')) {
             throw new InvalidArgumentException('File not found.');
         }
 
-        if ($arrayKeys[0] == $key) {
-            return include $filePath;
+        $value = require $filePath;
+
+        for ($i = 1; $i < count($arrayKeys); $i++) { 
+            $value = &$value[$arrayKeys[$i]];
         }
 
-        $newKey = str_replace($arrayKeys[0] . '.', '', $key);
-
-        return (new Noodlehaus\Config($filePath))->get($newKey, $defaultValue);
+        return (empty($value)) ? $defaultValue : $value;
     }
 }
