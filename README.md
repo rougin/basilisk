@@ -71,8 +71,8 @@ $ composer test
 
 [link-packagist]: https://packagist.org/packages/rougin/slytherin-skeleton
 [link-travis]: https://travis-ci.org/rougin/slytherin-skeleton
-[link-scrutinizer]: https://scrutinizer-ci.com/g/rougin/slytherin/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/rougin/slytherin
+[link-scrutinizer]: https://scrutinizer-ci.com/g/rougin/slytherin-skeleton/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/rougin/slytherin-skeleton
 [link-downloads]: https://packagist.org/packages/rougin/slytherin-skeleton
 [link-author]: https://github.com/rougin
 [link-contributors]: ../../contributors
