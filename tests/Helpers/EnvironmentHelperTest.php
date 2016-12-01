@@ -2,31 +2,14 @@
 
 namespace App\Helpers;
 
-use Dotenv\Dotenv;
-
 /**
  * Environment Helper Test
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class EnvironmentHelperTest extends \PHPUnit_Framework_TestCase
+class EnvironmentHelperTest extends \App\TestCase
 {
-    /**
-     * Loads the helpers.
-     *
-     * @return void
-     */
-    public function setUp()
-    {
-        // Loads the helpers
-        $helpers = glob(__DIR__ . '/../../src/Helpers/*.php');
-        foreach ($helpers as $helper): require $helper;
-        endforeach;
-
-        (new Dotenv(base()))->load();
-    }
-
     /**
      * Tests the helper.
      *
