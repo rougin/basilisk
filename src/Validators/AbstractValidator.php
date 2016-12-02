@@ -10,7 +10,7 @@ namespace App\Validators;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-abstract class BaseValidator
+abstract class AbstractValidator
 {
     /**
      * @var array
