@@ -19,7 +19,7 @@ class RedirectHelperTest extends \App\TestCase
      */
     public function testHelper()
     {
-        redirect('/', [], false);
+        redirect('/', [ 'foo' => 'bar' ], false);
 
         $header = 'Location: http://localhost:8000/';
 

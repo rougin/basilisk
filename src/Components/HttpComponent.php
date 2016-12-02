@@ -6,7 +6,6 @@ use Zend\Diactoros\Response;
 use Zend\Diactoros\ServerRequestFactory;
 use Interop\Container\ContainerInterface;
 
-use Rougin\Slytherin\Http\BaseUriGuesser;
 use Rougin\Slytherin\IoC\Vanilla\Container;
 use Rougin\Slytherin\Component\AbstractComponent;
 
@@ -45,11 +44,6 @@ class HttpComponent extends AbstractComponent
     {
         $request  = ServerRequestFactory::fromGlobals();
         $response = new Response;
-
-        // Guess the protocol and the root URI
-        if ($request->getUri() && ! config('app.base_url')) {
-            $request = BaseUriGuesser::guess($request);
-        }
 
         $this->request  = $request;
         $this->response = $response;

@@ -21,4 +21,16 @@ class ConfigHelperTest extends \App\TestCase
 
         $this->assertEquals($expected, config('app.base_url'));
     }
+
+    /**
+     * Tests the exception from the helper.
+     *
+     * @return void
+     */
+    public function testException()
+    {
+        $this->setExpectedException('InvalidArgumentException');
+
+        config('test');
+    }
 }

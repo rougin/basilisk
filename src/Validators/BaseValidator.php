@@ -2,8 +2,6 @@
 
 namespace App\Validators;
 
-use Valitron\Validator;
-
 /**
  * Base Validator
  *
@@ -12,7 +10,7 @@ use Valitron\Validator;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class BaseValidator implements ValidatorInterface
+class BaseValidator
 {
     /**
      * @var array
@@ -37,17 +35,17 @@ class BaseValidator implements ValidatorInterface
      */
     public function validate(array $data)
     {
-        $validator = new Validator($data);
+        $validator = new \Valitron\Validator($data);
 
         $this->setLabels($validator);
         $this->setRules($validator, $data);
 
-        if (! $validator->validate()) {
-            $this->errors = is_array($validator->errors()) ? $validator->errors() : [];
+        $isValidated = $validator->validate();
 
-            return false;
+        if (! $isValidated) {
+            $this->errors = is_array($validator->errors()) ? $validator->errors() : [];
         }
 
-        return true;
+        return $isValidated;
     }
 }

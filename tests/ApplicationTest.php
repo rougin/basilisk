@@ -1,24 +1,26 @@
 <?php
 
-namespace App;
+namespace App\Helpers;
 
 use Rougin\Slytherin\Component\Collector;
 
 /**
- * Selenium TestCase
+ * Application Helper Test
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class TestCase extends \PHPUnit_Framework_TestCase
+class ApplicationHelperTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Loads the helpers.
+     * Tests the application.
      *
      * @return void
      */
-    public function setUp()
+    public function testApplication()
     {
+        $this->expectOutputRegex('/Hello/');
+
         // Loads the helpers
         $helpers = glob(__DIR__ . '/../src/Helpers/*.php');
 
@@ -32,5 +34,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $components = Collector::get(config('app.container'), config('app.components'));
 
         $GLOBALS['container'] = $components->getContainer();
+
+        (new \Rougin\Slytherin\Application($components))->run();
     }
 }
