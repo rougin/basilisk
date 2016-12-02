@@ -11,17 +11,19 @@ if (! function_exists('validate')) {
      */
     function validate($validatorName, $data, $redirect = true)
     {
+        $errors = [];
+        $flash  = [];
+
         $server = request()->getServerParams();
 
         $validator = new $validatorName;
 
         if (! $validator->validate($data)) {
-            $flash = [];
+            $flash['validation'] = $errors = $validator->getErrors();
 
-            $flash['validation'] = $validator->getErrors();
             $flash['old'] = $data;
         }
 
-        return $redirect ? redirect($server['HTTP_REFERER'], $flash) : $validator->getErrors();
+        return $redirect ? redirect($server['HTTP_REFERER'], $flash) : $errors;
     }
 }

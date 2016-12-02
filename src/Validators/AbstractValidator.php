@@ -10,7 +10,7 @@ namespace App\Validators;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class BaseValidator
+abstract class BaseValidator
 {
     /**
      * @var array
@@ -26,6 +26,23 @@ class BaseValidator
     {
         return $this->errors;
     }
+
+    /**
+     * Sets the labels in the validator.
+     *
+     * @param  \Valitron\Validator $validator
+     * @return void
+     */
+    abstract protected function setLabels(Validator &$validator);
+
+    /**
+     * Sets the rules in the validator.
+     *
+     * @param  \Valitron\Validator $validator
+     * @param  array               $data
+     * @return void
+     */
+    abstract protected function setRules(Validator &$validator, $data = []);
 
     /**
      * Validates the data from the registration page.

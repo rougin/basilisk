@@ -10,7 +10,7 @@ use Rougin\Slytherin\Component\Collector;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class ApplicationHelperTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Tests the application.
