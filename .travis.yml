@@ -6,10 +6,8 @@ php:
   - 5.6
   - 7.0
 
-# This triggers builds to run on the new TravisCI infrastructure.
-# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
-sudo: required  
-dist: trusty
+services:
+  - mysql
 
 before_script:
   # install Google Chrome
@@ -30,6 +28,11 @@ before_script:
   # runs the Selenium server and the application
   - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
   - php -S localhost:8000 -t public/ &
+  # create MySQL database
+  - mysql -u root -e 'CREATE DATABASE demo;'
+  - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `post` ( `id` int(10) NOT NULL AUTO_INCREMENT, `subject` varchar(100) NOT NULL, `message` varchar(500) NOT NULL, `user_id` int(10) NOT NULL, `description` varchar(100) DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `description` (`description`), KEY `user_id` (`user_id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
+  - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `user` ( `id` int(10) NOT NULL AUTO_INCREMENT, `name` varchar(200) NOT NULL, `age` int(2) NOT NULL, `gender` varchar(10) NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
+  - mysql -u root -e 'USE demo; ALTER TABLE `post` ADD CONSTRAINT `post_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;'
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source

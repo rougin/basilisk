@@ -21,4 +21,16 @@ class EnvironmentHelperTest extends \App\TestCase
 
         $this->assertEquals($expected, env('ENVIRONMENT'));
     }
+
+    /**
+     * Tests the helper.
+     *
+     * @return void
+     */
+    public function testHelperWithUndefinedVariable()
+    {
+        $expected = 'foobar';
+
+        $this->assertEquals($expected, env('TEST', $expected));
+    }
 }

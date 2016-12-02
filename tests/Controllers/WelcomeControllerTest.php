@@ -61,18 +61,4 @@ class WelcomeControllerTest extends \PHPUnit_Extensions_Selenium2TestCase
 
         $this->assertEquals('Hello, Muggle.', $content);
     }
-
-    /**
-     * Tests if the welcome message is displayed.
-     *
-     * @return void
-     */
-    public function testHelloMethod()
-    {
-        $this->url('http://localhost:8000/hello/Rougin');
-
-        $content = $this->byTag('div')->text();
-
-        $this->assertEquals('Hello, Rougin!', $content);
-    }
 }

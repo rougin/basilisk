@@ -3,12 +3,12 @@
 namespace App\Helpers;
 
 /**
- * Session Helper Test
+ * Validate Helper Test
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class SessionHelperTest extends \App\TestCase
+class ValidateHelperTest extends \App\TestCase
 {
     /**
      * Tests the helper.
@@ -19,10 +19,6 @@ class SessionHelperTest extends \App\TestCase
      */
     public function testHelper()
     {
-        $expected = 'foobar';
-
-        $_SESSION['foo'] = [ 'bar' => $expected ];
-
-        $this->assertEquals($expected, session('foo.bar'));
+        $this->assertCount(3, validate('App\Validators\UserValidator', [], false));
     }
 }

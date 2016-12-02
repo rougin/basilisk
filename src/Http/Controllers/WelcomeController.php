@@ -21,15 +21,4 @@ class WelcomeController extends BaseController
 
         return view('welcome/index', compact('url'));
     }
-
-    /**
-     * Returns the name from the URL.
-     *
-     * @param  string $name
-     * @return view
-     */
-    public function hello($name)
-    {
-        return view('welcome/hello', compact('name'));
-    }
 }

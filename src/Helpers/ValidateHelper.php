@@ -6,10 +6,10 @@ if (! function_exists('validate')) {
      *
      * @param  string  $validatorName
      * @param  mixed   $data
-     * @param  boolean $debugMode
+     * @param  boolean $redirect
      * @return void|redirect
      */
-    function validate($validatorName, $data, $debugMode = false)
+    function validate($validatorName, $data, $redirect = true)
     {
         $server = request()->getServerParams();
 
@@ -20,16 +20,8 @@ if (! function_exists('validate')) {
 
             $flash['validation'] = $validator->getErrors();
             $flash['old'] = $data;
-
-            if ($debugMode) {
-                echo '<pre>';
-                print_r($flash);
-                echo '</pre>';
-
-                return;
-            }
-
-            return redirect($server['HTTP_REFERER'], $flash);
         }
+
+        return $redirect ? redirect($server['HTTP_REFERER'], $flash) : $validator->getErrors();
     }
 }
