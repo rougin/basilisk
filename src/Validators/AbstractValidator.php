@@ -33,7 +33,7 @@ abstract class AbstractValidator
      * @param  \Valitron\Validator $validator
      * @return void
      */
-    abstract protected function setLabels(Validator &$validator);
+    abstract protected function setLabels(\Valitron\Validator &$validator);
 
     /**
      * Sets the rules in the validator.
@@ -42,7 +42,7 @@ abstract class AbstractValidator
      * @param  array               $data
      * @return void
      */
-    abstract protected function setRules(Validator &$validator, $data = []);
+    abstract protected function setRules(\Valitron\Validator &$validator, $data = []);
 
     /**
      * Validates the data from the registration page.
