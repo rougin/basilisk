@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers;
+namespace App;
 
 use Rougin\Slytherin\Component\Collector;
 
@@ -10,7 +10,7 @@ use Rougin\Slytherin\Component\Collector;
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class ApplicationHelperTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends TestCase
 {
     /**
      * Tests the application.
@@ -21,20 +21,24 @@ class ApplicationHelperTest extends \PHPUnit_Framework_TestCase
     {
         $this->expectOutputRegex('/Hello/');
 
-        // Loads the helpers
-        $helpers = glob(__DIR__ . '/../src/Helpers/*.php');
+        (new \Rougin\Slytherin\Application($this->components))->run();
+    }
 
-        foreach ($helpers as $helper) {
-            require $helper;
-        }
+    /**
+     * Tests the sample Doctrine model.
+     *
+     * @return void
+     */
+    public function testDoctrineModel()
+    {
+        $container  = $this->components->getContainer();
+        $expectedId = 1;
 
-        (new \Dotenv\Dotenv(base()))->load();
+        $entityManager  = $container->get('Doctrine\ORM\EntityManager');
+        $userRepository = $entityManager->getRepository('App\Models\User');
 
-        // Loads the components
-        $components = Collector::get(config('app.container'), config('app.components'));
+        $user = $userRepository->find($expectedId);
 
-        $GLOBALS['container'] = $components->getContainer();
-
-        (new \Rougin\Slytherin\Application($components))->run();
+        $this->assertEquals($expectedId, $user->getId());
     }
 }

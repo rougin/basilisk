@@ -13,6 +13,11 @@ use Rougin\Slytherin\Component\Collector;
 class TestCase extends \PHPUnit_Framework_TestCase
 {
     /**
+     * @var array
+     */
+    protected $components;
+
+    /**
      * Loads the helpers.
      *
      * @return void
@@ -29,8 +34,8 @@ class TestCase extends \PHPUnit_Framework_TestCase
         (new \Dotenv\Dotenv(base()))->load();
 
         // Loads the components
-        $components = Collector::get(config('app.container'), config('app.components'));
+        $this->components = Collector::get(config('app.container'), config('app.components'));
 
-        $GLOBALS['container'] = $components->getContainer();
+        $GLOBALS['container'] = $this->components->getContainer();
     }
 }

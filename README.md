@@ -51,9 +51,14 @@ $ wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-stand
 $ wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
 $ unzip chromedriver_linux64.zip
 $ chmod +x chromedriver
+```
+
+Prepare the application
+
+``` bash
 $ cp .env.example .env
 $ java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
-$ php -S localhost:8000 -t public/ &
+$ php -S localhost:8000 -t public/
 ```
 
 Run the test
