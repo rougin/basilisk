@@ -7,30 +7,25 @@ namespace App\Models;
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
- * 
+ *
  * @\Doctrine\ORM\Mapping\Entity(repositoryClass="App\Repositories\UserRepository")
- * @\Doctrine\ORM\Mapping\Table(name="user")
+ * @\Doctrine\ORM\Mapping\Table(name="users")
  */
 class User
 {
     /**
-     * @\Doctrine\ORM\Mapping\Id @\Doctrine\ORM\Mapping\GeneratedValue
-     * @\Doctrine\ORM\Mapping\Column(name="id", type="integer", length=10)
+     * @Id @GeneratedValue
+     * @Column(name="id", type="integer", length=10)
      */
     private $id;
 
     /**
-     * @\Doctrine\ORM\Mapping\Column(name="name", type="string", length=200)
+     * Returns the ID.
+     *
+     * @return integer
      */
-    private $name;
-
-    /**
-     * @\Doctrine\ORM\Mapping\Column(name="age", type="integer", length=2)
-     */
-    private $age;
-
-    /**
-     * @\Doctrine\ORM\Mapping\Column(name="gender", type="string", length=10)
-     */
-    private $gender;
+    public function getId()
+    {
+        return $this->id;
+    }
 }
