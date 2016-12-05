@@ -10,10 +10,8 @@ if (! function_exists('env')) {
      */
     function env($key, $default = null)
     {
-        if (! isset($_ENV[strtoupper($key)])) {
-            return $default;
-        }
+        $value = getenv(strtoupper($key));
 
-        return $_ENV[strtoupper($key)];
+        return ($value !== false) ? $value : $default;
     }
 }

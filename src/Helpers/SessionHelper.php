@@ -23,16 +23,14 @@ if (! function_exists('session')) {
 
         if (is_array($variable)) {
             foreach ($variable as $key => $returnValue) {
-                if ($returnValue !== null) {
-                    unset($_SESSION[$key]);
+                unset($_SESSION[$key]);
 
-                    continue;
+                if (! empty($returnValue)) {
+                    $_SESSION[$key] = $returnValue;
                 }
-
-                $_SESSION[$key] = $returnValue;
             }
         }
 
-        return $defaultValue;
+        return $_SESSION;
     }
 }

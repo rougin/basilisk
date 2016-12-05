@@ -6,13 +6,25 @@
  * @var array
  */
 return [
+    /**
+     * Returns the default configuration to be used.
+     *
+     * @var string
+     */
+    'default' => 'mysql',
+
+    /**
+     * Configuration for MySQL databases.
+     *
+     * @var array
+     */
     'mysql' => [
         /**
          * The driver to be used.
          *
          * @var string
          */
-        'driver' => env('MYSQL_DRIVER', 'pdo_mysql'),
+        'driver' => env('MYSQL_DRIVER', 'mysql'),
 
         /**
          * Hostname to be used.
@@ -26,7 +38,7 @@ return [
          *
          * @var string
          */
-        'user' => env('MYSQL_USERNAME', 'root'),
+        'username' => env('MYSQL_USERNAME', 'root'),
 
         /**
          * Password to be used when connecting.
@@ -40,7 +52,7 @@ return [
          *
          * @var string
          */
-        'dbname' => env('MYSQL_DATABASE', ''),
+        'database' => env('MYSQL_DATABASE', ''),
 
         /**
          * Character set to be used in the database.

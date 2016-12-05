@@ -19,9 +19,8 @@
     ],
     "require": {
         "container-interop/container-interop": "~1.1",
-        "doctrine/orm": "~2.5",
+        "illuminate/database": "5.2.*",
         "filp/whoops": "~1.0",
-        "pagerfanta/pagerfanta": "~1.0",
         "robmorgan/phinx": "~0.6",
         "rougin/slytherin": "dev-master",
         "twig/twig": "~1.2",

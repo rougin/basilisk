@@ -2,20 +2,13 @@
 
 namespace App\Components;
 
-use Zend\Diactoros\Response;
-use Zend\Diactoros\ServerRequestFactory;
-use Interop\Container\ContainerInterface;
-
-use Rougin\Slytherin\IoC\Vanilla\Container;
-use Rougin\Slytherin\Component\AbstractComponent;
-
 /**
  * HTTP Component
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class HttpComponent extends AbstractComponent
+class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
 {
     /**
      * Type of the component:
@@ -42,8 +35,8 @@ class HttpComponent extends AbstractComponent
      */
     public function get()
     {
-        $request  = ServerRequestFactory::fromGlobals();
-        $response = new Response;
+        $request  = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
+        $response = new \Zend\Diactoros\Response;
 
         $this->request  = $request;
         $this->response = $response;
@@ -57,9 +50,9 @@ class HttpComponent extends AbstractComponent
      * @param  \Interop\Container\ContainerInterface $container
      * @return void
      */
-    public function set(ContainerInterface &$container)
+    public function set(\Interop\Container\ContainerInterface &$container)
     {
-        if ($container instanceof Container) {
+        if ($container instanceof \Rougin\Slytherin\IoC\Vanilla\Container) {
             $container->add('Psr\Http\Message\ServerRequestInterface', $this->request);
             $container->add('Psr\Http\Message\ResponseInterface', $this->response);
         }
