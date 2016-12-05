@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple application skeleton on top of [Slytherin](https://github.com/rougin/slytherin).
+A simple web application skeleton on top of [Slytherin](https://github.com/rougin/slytherin) framework.
 
 ## Install
 

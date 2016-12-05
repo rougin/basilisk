@@ -1,8 +1,8 @@
 <?php
 
 /**
- * A listing of middlewares.
+ * A listing of available middlewares.
  *
  * @var array
  */
-return [ 'App\Http\Middlewares\LastMiddleware' ];
+return [ 'App\Http\Middleware\LastMiddleware' ];
