@@ -19,7 +19,7 @@ if (! function_exists('file_contents')) {
         $count = count($keys);
         $value = require $path;
 
-        for ($i = 1; $i < $count; $i++) {
+        for ($i = 0; $i < $count; $i++) {
             $value = &$value[$keys[$i]];
         }
 

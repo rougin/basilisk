@@ -12,7 +12,8 @@ if (! function_exists('config')) {
     {
         $arrayKeys = explode('.', $key);
         $filePath  = base('app/config/' . $arrayKeys[0] . '.php');
+        $arrayKey  = str_replace($arrayKeys[0] . '.', '', $key);
 
-        return file_contents($filePath, $key, $defaultValue);
+        return file_contents($filePath, $arrayKey, $defaultValue);
     }
 }
