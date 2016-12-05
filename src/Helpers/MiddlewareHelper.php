@@ -9,8 +9,8 @@ if (! function_exists('middleware')) {
      */
     function middleware($item = null)
     {
-        $item = ($item !== null) ? '.' . $item : '';
+        $items = require base('/src/Http/middlewares.php');
 
-        return config('middlewares' . $item);
+        return file_contents(base('/src/Http/middlewares.php'), $item, $items);
     }
 }

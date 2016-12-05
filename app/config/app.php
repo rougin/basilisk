@@ -45,9 +45,8 @@ return [
         'App\Components\BootstrapComponent',
         'App\Components\DebuggerComponent',
         'App\Components\DispatcherComponent',
-        'App\Components\DoctrineComponent',
+        'App\Components\EloquentComponent',
         'App\Components\HttpComponent',
         'App\Components\MiddlewareComponent',
-        'App\Components\RepositoryComponent',
     ]
 ];

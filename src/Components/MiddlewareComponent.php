@@ -2,18 +2,13 @@
 
 namespace App\Components;
 
-use Zend\Stratigility\MiddlewarePipe;
-
-use Rougin\Slytherin\Component\AbstractComponent;
-use Rougin\Slytherin\Middleware\Stratigility\Middleware;
-
 /**
  * Middleware Component
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class MiddlewareComponent extends AbstractComponent
+class MiddlewareComponent extends \Rougin\Slytherin\Component\AbstractComponent
 {
     /**
      * Type of the component:
@@ -30,6 +25,8 @@ class MiddlewareComponent extends AbstractComponent
      */
     public function get()
     {
-        return new Middleware(new MiddlewarePipe);
+        $pipe = new \Zend\Stratigility\MiddlewarePipe;
+
+        return new \Rougin\Slytherin\Middleware\Stratigility\Middleware($pipe);
     }
 }
