@@ -15,10 +15,11 @@ if (! function_exists('file_contents')) {
             throw new InvalidArgumentException('File not found.');
         }
 
+        $count = count($keys);
         $keys  = explode('.', $item);
         $value = require $path;
 
-        for ($i = 1; $i < count($keys); $i++) {
+        for ($i = 1; $i < $count; $i++) {
             $value = &$value[$keys[$i]];
         }
 

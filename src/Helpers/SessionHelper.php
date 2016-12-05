@@ -12,9 +12,10 @@ if (! function_exists('session')) {
     {
         if (is_string($variable)) {
             $keys  = explode('.', $variable);
+            $count = count($keys);
             $value = $_SESSION;
 
-            for ($i = 0; $i < count($keys); $i++) {
+            for ($i = 0; $i < $count; $i++) {
                 $value = &$value[$keys[$i]];
             }
 
