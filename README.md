@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple [Slytherin](https://github.com/rougin/slytherin)-based web application.
+A simple application skeleton on top of [Slytherin](https://github.com/rougin/slytherin).
 
 ## Install
 
@@ -28,6 +28,7 @@ Then go to [http://localhost:8000](http://localhost:8000).
 ## What's inside?
 
 * [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
+* [Eloquent](https://laravel.com/docs/5.0/eloquent) - provides a beautiful, simple ActiveRecord implementation for working with your database
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically
 * [Slytherin](https://github.com/rougin/slytherin) - an another extensible PHP library/framework
