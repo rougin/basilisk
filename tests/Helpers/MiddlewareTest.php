@@ -17,7 +17,7 @@ class MiddlewareTest extends \App\TestCase
      */
     public function testHelper()
     {
-        $expected = [ 'App\Http\Middlewares\LastMiddleware' ];
+        $expected = [ 'App\Http\Middleware\LastMiddleware' ];
 
         $this->assertEquals($expected, middleware());
     }

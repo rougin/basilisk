@@ -12,9 +12,10 @@ if (! function_exists('session')) {
     {
         if (is_string($variable)) {
             $keys  = explode('.', $variable);
+            $count = count($keys);
             $value = $_SESSION;
 
-            for ($i = 0; $i < count($keys); $i++) {
+            for ($i = 0; $i < $count; $i++) {
                 $value = &$value[$keys[$i]];
             }
 
@@ -23,16 +24,14 @@ if (! function_exists('session')) {
 
         if (is_array($variable)) {
             foreach ($variable as $key => $returnValue) {
-                if ($returnValue !== null) {
-                    unset($_SESSION[$key]);
+                unset($_SESSION[$key]);
 
-                    continue;
+                if (! empty($returnValue)) {
+                    $_SESSION[$key] = $returnValue;
                 }
-
-                $_SESSION[$key] = $returnValue;
             }
         }
 
-        return $defaultValue;
+        return $_SESSION;
     }
 }

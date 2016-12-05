@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple [Slytherin](https://github.com/rougin/slytherin)-based web application.
+A simple web application skeleton on top of [Slytherin](https://github.com/rougin/slytherin) framework.
 
 ## Install
 
@@ -28,8 +28,7 @@ Then go to [http://localhost:8000](http://localhost:8000).
 ## What's inside?
 
 * [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
-* [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html) - an object-relational mapper for PHP 5.4+
-* [Pagerfanta](https://github.com/whiteoctober/Pagerfanta) - a paginator for PHP
+* [Eloquent](https://laravel.com/docs/5.0/eloquent) - provides a beautiful, simple ActiveRecord implementation for working with your database
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically
 * [Slytherin](https://github.com/rougin/slytherin) - an another extensible PHP library/framework
@@ -44,20 +43,20 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-Install [Selenium](http://www.seleniumhq.org/download/)
+Install and run [Selenium](http://www.seleniumhq.org/download/)
 
 ``` bash
 $ wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
 $ wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
 $ unzip chromedriver_linux64.zip
 $ chmod +x chromedriver
+$ java -jar selenium-server-standalone-2.53.1.jar -port 4444
 ```
 
 Prepare the application
 
 ``` bash
 $ cp .env.example .env
-$ java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
 $ php -S localhost:8000 -t public/
 ```
 
