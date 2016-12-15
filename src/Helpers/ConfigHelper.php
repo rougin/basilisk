@@ -38,14 +38,14 @@ if (! function_exists('config')) {
         $count = count($keys);
         $value = require $path;
 
-        if (count($keys) == 0) {
-            return $value;
+        if (count($keys) != 0) {
+            for ($i = 0; $i < $count; $i++) {
+                $value = &$value[$keys[$i]];
+            }
+
+            $value = (empty($value)) ? $defaultValue : $value;
         }
 
-        for ($i = 0; $i < $count; $i++) {
-            $value = &$value[$keys[$i]];
-        }
-
-        return (empty($value)) ? $defaultValue : $value;
+        return $value;
     }
 }

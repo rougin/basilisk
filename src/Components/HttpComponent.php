@@ -94,10 +94,10 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
     {
         $headers = [];
 
-        if (function_exists('apache_request_headers')) {
-            foreach (apache_request_headers() as $key => $value) {
-                $headers[$key] = explode(',', $value);
-            }
+        foreach (headers_list() as $header) {
+            list($key, $value) = explode(': ', $header);
+
+            $headers[$key] = explode(',', str_replace(', ', ',', $value));
         }
 
         return $headers;
