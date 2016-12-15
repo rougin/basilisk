@@ -35,8 +35,8 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $httpMethod = isset($server['REQUEST_METHOD']) ? $server['REQUEST_METHOD'] : 'GET';
-        $requestUri = isset($server['REQUEST_URI']) ? $server['REQUEST_URI'] : '/';
+        $httpMethod = (isset($_SERVER['REQUEST_METHOD'])) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $requestUri = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '/';
         $streamData = new \Rougin\Slytherin\Http\Stream(fopen('php://temp', 'r+'));
 
         $urlLink = $this->prepareUri($_SERVER, $requestUri);
@@ -79,7 +79,7 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
     protected function prepareUri(array $server, $requestUri)
     {
         $protocol = (! empty($server['HTTPS']) && $server['HTTPS'] != 'off') ? 'https' : 'http';
-        $httpHost = isset($server['HTTP_HOST']) ? $server['HTTP_HOST'] : '127.0.0.1';
+        $httpHost = (isset($server['HTTP_HOST'])) ? $server['HTTP_HOST'] : '127.0.0.1';
         $endpoint = $protocol . '://' . $httpHost . $requestUri;
 
         return new \Rougin\Slytherin\Http\Uri($endpoint);
