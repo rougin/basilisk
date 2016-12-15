@@ -3,12 +3,12 @@
 namespace App\Helpers;
 
 /**
- * Base Helper Test
+ * Base Path Helper Test
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class BaseHelperTest extends \App\TestCase
+class BasePathHelperTest extends \App\TestCase
 {
     /**
      * Tests the helper.
@@ -17,7 +17,7 @@ class BaseHelperTest extends \App\TestCase
      */
     public function testHelper()
     {
-        $file = base('/src/Helpers/BaseHelper.php');
+        $file = base_path('src/Helpers/BasePathHelper.php');
 
         $this->assertTrue(file_exists($file));
     }

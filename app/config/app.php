@@ -7,11 +7,18 @@
  */
 return [
     /**
+     * Name of the application.
+     *
+     * @var string
+     */
+    'name' => getenv('APP_NAME'),
+
+    /**
      * The URL of your application root.
      *
      * @var string
      */
-    'base_url' => env('BASE_URL', 'http://localhost:8000'),
+    'base_url' => getenv('BASE_URL'),
 
     /**
      * Environment used in the application.
@@ -19,14 +26,14 @@ return [
      *
      * @var string
      */
-    'environment' => env('ENVIRONMENT', 'production'),
+    'environment' => getenv('ENVIRONMENT'),
 
     /**
      * The default timezone for the application.
      *
      * @var string
      */
-    'timezone' => env('TIMEZONE', 'Asia/Manila'),
+    'timezone' => getenv('TIMEZONE'),
 
     /**
      * The container to be used for setting up the dependencies.

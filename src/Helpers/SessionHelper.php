@@ -30,6 +30,8 @@ if (! function_exists('session')) {
                     $_SESSION[$key] = $returnValue;
                 }
             }
+
+            return null;
         }
 
         return $_SESSION;

@@ -15,7 +15,7 @@ if (! function_exists('redirect')) {
 
         session($data);
 
-        $url = (strpos($url, 'http') === false) ? url('/' . $url) : $url;
+        $url = (strpos($url, 'http') === false) ? config('app.base_url') . '/' . $url : $url;
 
         header('Location: ' . $url);
 
