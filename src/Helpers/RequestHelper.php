@@ -8,6 +8,8 @@ if (! function_exists('request')) {
      */
     function request()
     {
-        return container()->get('Psr\Http\Message\ServerRequestInterface');
+        global $container;
+
+        return $container->get('Psr\Http\Message\ServerRequestInterface');
     }
 }

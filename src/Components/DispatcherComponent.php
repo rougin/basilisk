@@ -25,7 +25,7 @@ class DispatcherComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $routes = require base('/src/Http/routes.php');
+        $routes = require base_path('src/Http/routes.php');
         $router = new \Rougin\Slytherin\Dispatching\Vanilla\Router($routes);
 
         return new \Rougin\Slytherin\Dispatching\Vanilla\Dispatcher($router);

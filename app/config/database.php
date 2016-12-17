@@ -24,41 +24,41 @@ return [
          *
          * @var string
          */
-        'driver' => env('MYSQL_DRIVER', 'mysql'),
+        'driver' => getenv('MYSQL_DRIVER'),
 
         /**
          * Hostname to be used.
          *
          * @var string
          */
-        'host' => env('MYSQL_HOSTNAME', 'localhost'),
+        'host' => getenv('MYSQL_HOSTNAME'),
 
         /**
          * Username to be used when connecting.
          *
          * @var string
          */
-        'username' => env('MYSQL_USERNAME', 'root'),
+        'username' => getenv('MYSQL_USERNAME'),
 
         /**
          * Password to be used when connecting.
          *
          * @var string
          */
-        'password' => env('MYSQL_PASSWORD', ''),
+        'password' => getenv('MYSQL_PASSWORD'),
 
         /**
          * Name of the database.
          *
          * @var string
          */
-        'database' => env('MYSQL_DATABASE', ''),
+        'database' => getenv('MYSQL_DATABASE'),
 
         /**
          * Character set to be used in the database.
          *
          * @var string
          */
-        'charset' => env('MYSQL_CHARSET', 'utf8'),
+        'charset' => getenv('MYSQL_CHARSET'),
     ]
 ];
