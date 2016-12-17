@@ -10,18 +10,20 @@ if (! function_exists('view')) {
      */
     function view($template, $data = [])
     {
-        $loader = new Twig_Loader_Filesystem(base('app/views'));
+        $loader = new Twig_Loader_Filesystem(base_path('app/views'));
         $twig   = new Twig_Environment($loader);
 
         // Loads the filters
-        $twig->addFilter(new Twig_SimpleFilter('url', 'url'));
-        $twig->addFilter(new Twig_SimpleFilter('json', 'json'));
+        $twig->addFilter(new Twig_SimpleFilter('url', function ($link = null) {
+            return config('app.base_url') . $link;
+        }));
 
         // Loads the globals
         $twig->addGlobal('request', request());
         $twig->addGlobal('session', session());
 
         // Loads the functions
+        $twig->addFunction(new Twig_SimpleFunction('config', 'config'));
         $twig->addFunction(new Twig_SimpleFunction('carbon', 'carbon'));
         $twig->addFunction(new Twig_SimpleFunction('session', 'session'));
 

@@ -24,14 +24,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        // Loads the helpers
-        $helpers = glob(__DIR__ . '/../src/Helpers/*.php');
-
-        foreach ($helpers as $helper) {
-            require $helper;
-        }
-
-        (new \Dotenv\Dotenv(base()))->load();
+        (new \Dotenv\Dotenv(base_path()))->load();
 
         // Loads the components
         $this->components = Collector::get(config('app.container'), config('app.components'));

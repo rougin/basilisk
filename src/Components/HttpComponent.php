@@ -35,8 +35,19 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $request  = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
-        $response = new \Zend\Diactoros\Response;
+        $httpMethod = (isset($_SERVER['REQUEST_METHOD'])) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $requestUri = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '/';
+        $streamData = new \Rougin\Slytherin\Http\Stream(fopen('php://temp', 'r+'));
+
+        $urlLink = $this->prepareUri($_SERVER, $requestUri);
+        $headers = $this->prepareHeaders();
+
+        $request = new \Rougin\Slytherin\Http\ServerRequest(
+            '1.1', $headers, $streamData, $requestUri, $httpMethod,
+            $urlLink, $_SERVER, $_COOKIE, $_GET, $_FILES, $_POST
+        );
+
+        $response = new \Rougin\Slytherin\Http\Response('1.1', $headers, $streamData, http_response_code());
 
         $this->request  = $request;
         $this->response = $response;
@@ -56,5 +67,39 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
             $container->add('Psr\Http\Message\ServerRequestInterface', $this->request);
             $container->add('Psr\Http\Message\ResponseInterface', $this->response);
         }
+    }
+
+    /**
+     * Prepares the URI instance to be used.
+     *
+     * @param  array  $server
+     * @param  string $requestUri
+     * @return \Psr\Http\Message\UriInterface
+     */
+    protected function prepareUri(array $server, $requestUri)
+    {
+        $protocol = (! empty($server['HTTPS']) && $server['HTTPS'] != 'off') ? 'https' : 'http';
+        $httpHost = (isset($server['HTTP_HOST'])) ? $server['HTTP_HOST'] : '127.0.0.1';
+        $endpoint = $protocol . '://' . $httpHost . $requestUri;
+
+        return new \Rougin\Slytherin\Http\Uri($endpoint);
+    }
+
+    /**
+     * Prepares the headers from the request.
+     *
+     * @return array
+     */
+    protected function prepareHeaders()
+    {
+        $headers = [];
+
+        foreach (headers_list() as $header) {
+            list($key, $value) = explode(': ', $header);
+
+            $headers[$key] = explode(',', str_replace(', ', ',', $value));
+        }
+
+        return $headers;
     }
 }

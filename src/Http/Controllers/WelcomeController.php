@@ -17,6 +17,6 @@ class WelcomeController extends BaseController
      */
     public function index()
     {
-        return view('welcome/index', [ 'url' => url() ]);
+        return view('welcome/index', [ 'url' => config('app.base_url') ]);
     }
 }

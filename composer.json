@@ -35,6 +35,16 @@
         "scrutinizer/ocular": "~1.0"
     },
     "autoload": {
+        "files": [
+            "src/Helpers/BasePathHelper.php",
+            "src/Helpers/ConfigHelper.php",
+            "src/Helpers/MiddlewareHelper.php",
+            "src/Helpers/RedirectHelper.php",
+            "src/Helpers/RequestHelper.php",
+            "src/Helpers/SessionHelper.php",
+            "src/Helpers/ValidateHelper.php",
+            "src/Helpers/ViewHelper.php"
+        ],
         "psr-4": {
             "App\\": "src/"
         }
