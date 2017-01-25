@@ -5,4 +5,6 @@
  *
  * @var array
  */
-return [ 'App\Http\Middleware\LastMiddleware' ];
+return [
+	'Skeleton\Http\Middlewares\LastMiddleware'
+];

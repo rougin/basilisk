@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Validators;
+namespace Skeleton\Validators;
 
 /**
  * User Validator
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class UserValidator extends AbstractValidator

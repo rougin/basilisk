@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Validators;
+namespace Skeleton\Validators;
 
 /**
  * Base Validator
  *
  * A base class for a validator.
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 abstract class AbstractValidator

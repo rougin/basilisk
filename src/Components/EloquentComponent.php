@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 use Interop\Container\ContainerInterface;
 
 /**
  * Eloquent Component
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class EloquentComponent extends \Rougin\Slytherin\Component\AbstractComponent
@@ -20,17 +20,19 @@ class EloquentComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function set(ContainerInterface &$container)
     {
-        $capsule = new \Illuminate\Database\Capsule\Manager;
+        if (class_exists('Illuminate\Database\Capsule\Manager')) {
+            $capsule = new \Illuminate\Database\Capsule\Manager;
 
-        $database = config('database.' . config('database.default'));
+            $database = config('database.' . config('database.default'));
 
-        $database['charset']   = 'utf8';
-        $database['collation'] = 'utf8_unicode_ci';
-        $database['prefix']    = '';
+            $database['charset']   = 'utf8';
+            $database['collation'] = 'utf8_unicode_ci';
+            $database['prefix']    = '';
 
-        $capsule->addConnection($database);
+            $capsule->addConnection($database);
 
-        $capsule->setAsGlobal();
-        $capsule->bootEloquent();
+            $capsule->setAsGlobal();
+            $capsule->bootEloquent();
+        }
     }
 }

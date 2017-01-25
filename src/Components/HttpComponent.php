@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * HTTP Component
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
@@ -35,19 +35,12 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $httpMethod = (isset($_SERVER['REQUEST_METHOD'])) ? $_SERVER['REQUEST_METHOD'] : 'GET';
-        $requestUri = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '/';
-        $streamData = new \Rougin\Slytherin\Http\Stream(fopen('php://temp', 'r+'));
+        list($request, $response) = $this->prepareSlytherinHttp();
 
-        $urlLink = $this->prepareUri($_SERVER, $requestUri);
-        $headers = $this->prepareHeaders();
-
-        $request = new \Rougin\Slytherin\Http\ServerRequest(
-            '1.1', $headers, $streamData, $requestUri, $httpMethod,
-            $urlLink, $_SERVER, $_COOKIE, $_GET, $_FILES, $_POST
-        );
-
-        $response = new \Rougin\Slytherin\Http\Response('1.1', $headers, $streamData, http_response_code());
+        if (class_exists('Zend\Diactoros\ServerRequestFactory')) {
+            $request  = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
+            $response = new \Zend\Diactoros\Response;
+        }
 
         $this->request  = $request;
         $this->response = $response;
@@ -92,14 +85,43 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     protected function prepareHeaders()
     {
-        $headers = [];
+        $original = headers_list();
+        $modified = [];
 
-        foreach (headers_list() as $header) {
-            list($key, $value) = explode(': ', $header);
-
-            $headers[$key] = explode(',', str_replace(', ', ',', $value));
+        if (function_exists('xdebug_get_headers')) {
+            $original = xdebug_get_headers();
         }
 
-        return $headers;
+        foreach ($original as $header) {
+            list($key, $value) = explode(': ', $header);
+
+            $modified[$key] = explode(',', str_replace(', ', ',', $value));
+        }
+
+        return $modified;
+    }
+
+    /**
+     * Prepares the HTTP component based from Slytherin.
+     *
+     * @return array
+     */
+    protected function prepareSlytherinHttp()
+    {
+        $httpMethod = (isset($_SERVER['REQUEST_METHOD'])) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $requestUri = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '/';
+        $streamData = new \Rougin\Slytherin\Http\Stream(fopen('php://temp', 'r+'));
+
+        $urlLink = $this->prepareUri($_SERVER, $requestUri);
+        $headers = $this->prepareHeaders();
+
+        $request = new \Rougin\Slytherin\Http\ServerRequest(
+            '1.1', $headers, $streamData, $requestUri, $httpMethod,
+            $urlLink, $_SERVER, $_COOKIE, $_GET, $_FILES, $_POST
+        );
+
+        $response = new \Rougin\Slytherin\Http\Response('1.1', $headers, $streamData, http_response_code());
+
+        return [ $request, $response ];
     }
 }

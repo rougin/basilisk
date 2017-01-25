@@ -6,6 +6,6 @@
  * @var array
  */
 return [
-    [ 'GET', '/', [ 'App\Http\Controllers\WelcomeController', 'index' ], middleware() ],
-    [ 'GET', '/hello/:name', [ 'App\Http\Controllers\WelcomeController', 'hello' ], middleware() ],
+    [ 'GET', '/', [ 'Skeleton\Http\Controllers\WelcomeController', 'index' ], middleware() ],
+    [ 'GET', '/hello/:name', [ 'Skeleton\Http\Controllers\WelcomeController', 'hello' ], middleware() ],
 ];

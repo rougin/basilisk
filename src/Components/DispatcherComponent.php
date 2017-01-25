@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Dispatcher Component
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class DispatcherComponent extends \Rougin\Slytherin\Component\AbstractComponent

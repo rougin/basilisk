@@ -49,11 +49,11 @@ return [
      * @var array
      */
     'components' => [
-        'App\Components\BootstrapComponent',
-        'App\Components\DebuggerComponent',
-        'App\Components\DispatcherComponent',
-        'App\Components\EloquentComponent',
-        'App\Components\HttpComponent',
-        'App\Components\MiddlewareComponent',
+        'Skeleton\Components\BootstrapComponent',
+        'Skeleton\Components\DebuggerComponent',
+        'Skeleton\Components\DispatcherComponent',
+        'Skeleton\Components\EloquentComponent',
+        'Skeleton\Components\HttpComponent',
+        'Skeleton\Components\MiddlewareComponent',
     ]
 ];

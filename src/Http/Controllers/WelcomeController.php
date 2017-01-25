@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Skeleton\Http\Controllers;
 
 /**
  * Welcome Controller
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class WelcomeController extends BaseController

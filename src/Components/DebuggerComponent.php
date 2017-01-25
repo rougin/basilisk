@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Debugger Component
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class DebuggerComponent extends \Rougin\Slytherin\Component\AbstractComponent
@@ -25,7 +25,11 @@ class DebuggerComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $debugger = new \Rougin\Slytherin\Debug\Whoops\Debugger(new \Whoops\Run);
+        $debugger = new \Rougin\Slytherin\Debug\Vanilla\Debugger;
+
+        if (class_exists('Whoops\Run')) {
+            $debugger = new \Rougin\Slytherin\Debug\Whoops\Debugger(new \Whoops\Run);
+        }
 
         $debugger->setEnvironment(config('app.environment'));
 

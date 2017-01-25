@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Skeleton\Http\Controllers;
 
 /**
  * Base Controller
  *
  * A base class for HTTP controllers.
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class BaseController

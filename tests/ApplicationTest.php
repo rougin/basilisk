@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Skeleton;
 
 use Rougin\Slytherin\Component\Collector;
 

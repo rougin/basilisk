@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace Skeleton;
 
 use Rougin\Slytherin\Component\Collector;
 
 /**
  * Selenium TestCase
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class TestCase extends \PHPUnit_Framework_TestCase

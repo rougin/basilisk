@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Middleware Component
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class MiddlewareComponent extends \Rougin\Slytherin\Component\AbstractComponent

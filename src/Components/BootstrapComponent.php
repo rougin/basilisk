@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Bootstrap Component
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class BootstrapComponent extends \Rougin\Slytherin\Component\AbstractComponent
