@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A listing of available routes.
+ * A listing of available HTTP routes.
  *
  * @var array
  */

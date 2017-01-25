@@ -6,5 +6,5 @@
  * @var array
  */
 return [
-    'Skeleton\Http\Middlewares\LastMiddleware'
+    'Skeleton\Http\Middleware\LastResponse'
 ];

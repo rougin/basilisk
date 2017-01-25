@@ -5,6 +5,8 @@ namespace Skeleton\Components;
 /**
  * Bootstrap Component
  *
+ * Loads the environment variables and enables the session.
+ *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */

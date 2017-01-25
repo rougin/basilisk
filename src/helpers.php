@@ -67,13 +67,13 @@ if (! function_exists('config')) {
      */
     function get_value($keys, $value, $defaultValue = null)
     {
-        $count = count($keys);
+        $keysCount = count($keys);
 
-        if (count($keys) == 0) {
+        if ($keysCount == 0) {
             return $value;
         }
 
-        for ($i = 0; $i < $count; $i++) {
+        for ($i = 0; $i < $keysCount; $i++) {
             $value = &$value[$keys[$i]];
         }
 

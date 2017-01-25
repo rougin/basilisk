@@ -5,6 +5,8 @@ namespace Skeleton\Components;
 /**
  * Middleware Component
  *
+ * Loads the middleware builder for gathering defined middlewares.
+ *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */

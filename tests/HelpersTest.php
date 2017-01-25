@@ -53,7 +53,7 @@ class HelpersTest extends \Skeleton\TestCase
      */
     public function testMiddleware()
     {
-        $expected = [ 'Skeleton\Http\Middlewares\LastMiddleware' ];
+        $expected = [ 'Skeleton\Http\Middleware\LastResponse' ];
 
         $this->assertEquals($expected, middleware());
     }

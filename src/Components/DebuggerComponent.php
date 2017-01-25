@@ -5,6 +5,8 @@ namespace Skeleton\Components;
 /**
  * Debugger Component
  *
+ * Enables the use of debugger or an exception handler.
+ *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */

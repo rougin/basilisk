@@ -1,17 +1,19 @@
 <?php
 
-namespace Skeleton\Http\Middlewares;
+namespace Skeleton\Http\Middleware;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
- * Last Middleware
+ * Last Response
+ *
+ * Returns the last HTTP response.
  *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class LastMiddleware
+class LastResponse
 {
     /**
      * @param  \Psr\Http\Message\ServerRequestInterface $request

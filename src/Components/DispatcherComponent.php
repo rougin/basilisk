@@ -5,6 +5,8 @@ namespace Skeleton\Components;
 /**
  * Dispatcher Component
  *
+ * Gathers the defined routes and initialize the route dispatcher.
+ *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */

@@ -5,6 +5,8 @@ namespace Skeleton\Components;
 /**
  * HTTP Component
  *
+ * Returns the HTTP request and response in order to be used in the project.
+ *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */

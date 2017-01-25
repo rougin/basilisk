@@ -7,6 +7,8 @@ use Interop\Container\ContainerInterface;
 /**
  * Eloquent Component
  *
+ * Setups the Eloquent instance to the project.
+ *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
