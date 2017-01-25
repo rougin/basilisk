@@ -39,7 +39,8 @@ before_script:
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
-  - composer require illuminate/database:~5.2 filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros
+  - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require illuminate/database filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:~5.2 filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros --dev; fi
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
