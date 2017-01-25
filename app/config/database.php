@@ -24,7 +24,7 @@ return [
          *
          * @var string
          */
-        'driver' => getenv('MYSQL_DRIVER'),
+        'driver' => 'pdo_mysql',
 
         /**
          * Hostname to be used.

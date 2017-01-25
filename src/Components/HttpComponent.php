@@ -24,7 +24,7 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
     protected $request;
 
     /**
-     * @var \Psr\Http\Message\ResponseInterface
+     * @var \Psr\Http\Message\ResponseInterface|\Zend\Diactoros\Response
      */
     protected $response;
 
@@ -35,15 +35,12 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        list($request, $response) = $this->prepareSlytherinHttp();
+        list($this->request, $this->response) = $this->prepareSlytherinHttp();
 
         if (class_exists('Zend\Diactoros\ServerRequestFactory')) {
-            $request  = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
-            $response = new \Zend\Diactoros\Response;
+            $this->request  = \Zend\Diactoros\ServerRequestFactory::fromGlobals();
+            $this->response = new \Zend\Diactoros\Response;
         }
-
-        $this->request  = $request;
-        $this->response = $response;
 
         return [ $this->request, $this->response ];
     }

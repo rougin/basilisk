@@ -137,16 +137,10 @@ if (! function_exists('session')) {
      *
      * @param  array|string|null $variable
      * @param  mixed|null        $defaultValue
-     * @return mixed
+     * @return mixed|null
      */
     function session($variable = null, $defaultValue = null)
     {
-        if (is_string($variable)) {
-            $keys = explode('.', $variable);
-
-            return get_value($keys, $_SESSION, $defaultValue);
-        }
-
         if (is_array($variable)) {
             foreach ($variable as $key => $returnValue) {
                 unset($_SESSION[$key]);
@@ -159,7 +153,9 @@ if (! function_exists('session')) {
             return null;
         }
 
-        return $_SESSION;
+        $keys = explode('.', $variable);
+
+        return get_value($keys, $_SESSION, $defaultValue);
     }
 }
 
