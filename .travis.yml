@@ -5,11 +5,19 @@ php:
   - 5.5
   - 5.6
   - 7.0
+  - hhvm
 
 sudo: required
 dist: trusty
 services:
   - mysql
+
+matrix:
+  allow_failures:
+    - php: 7.0
+  include:
+    - php: 5.4
+      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
   # install Google Chrome
@@ -35,7 +43,7 @@ before_script:
   - mysql -u root -e 'USE demo; INSERT INTO `users` (`name`, `age`, `gender`) VALUES ("Rougin", 21, "male");'
   # runs the Selenium server and the application
   - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
-  - php -S localhost:8000 -t public/ &
+  - php -S localhost:8000 -t app/web &
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
