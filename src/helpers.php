@@ -226,8 +226,7 @@ if (! function_exists('url')) {
     /**
      * Returns an URL with the specified link.
      *
-     * @param  string $template
-     * @param  array  $data
+     * @param  string|null $link
      * @return string
      */
     function url($link = null)
