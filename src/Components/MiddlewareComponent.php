@@ -27,8 +27,12 @@ class MiddlewareComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $pipe = new \Zend\Stratigility\MiddlewarePipe;
+        if (class_exists('Zend\Stratigility\MiddlewarePipe')) {
+            $pipe = new \Zend\Stratigility\MiddlewarePipe;
 
-        return new \Rougin\Slytherin\Middleware\Stratigility\Middleware($pipe);
+            return new \Rougin\Slytherin\Middleware\Stratigility\Middleware($pipe);
+        }
+
+        return new \Rougin\Slytherin\Middleware\Vanilla\Middleware;
     }
 }

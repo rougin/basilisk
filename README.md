@@ -31,15 +31,15 @@ Then go to [http://localhost:8000](http://localhost:8000).
 
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically
 * [Slytherin](https://github.com/rougin/slytherin) - a simple and extensible PHP library/framework
-* [Stratigility](https://github.com/zendframework/zend-stratigility) - a middleware for PHP built on top of PSR-7
 
 ### Optional
 
-The skeleton is prepared for the following packages. You just need to install them manually:
+The skeleton is tailored to work for the following packages. You just need to install them manually:
 
 * [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
 * [Eloquent](https://laravel.com/docs/5.0/eloquent) - provides a beautiful, simple ActiveRecord implementation for working with your database
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
+* [Stratigility](https://github.com/zendframework/zend-stratigility) - a middleware for PHP built on top of PSR-7
 * [Twig](https://github.com/twigphp/Twig) - a flexible, fast, and secure template language for PHP
 * [Valitron](http://vancelucas.com/blog/valitron-the-simple-validation-library-that-doesnt-suck) - a simple, elegant, stand-alone validation library
 * [Whoops!](https://filp.github.io/whoops) - a PHP error handler for cool kids
@@ -47,7 +47,7 @@ The skeleton is prepared for the following packages. You just need to install th
 If you want to get all the optional packages, paste this command to your terminal:
 
 ``` bash
-$ composer require illuminate/database filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros
+$ composer require illuminate/database filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility
 ```
 
 ## Change log
@@ -70,7 +70,7 @@ Prepare the application
 
 ``` bash
 $ cp .env.example .env
-$ php -S localhost:8000 -t public/
+$ php -S localhost:8000 -t app/web
 ```
 
 Run the test

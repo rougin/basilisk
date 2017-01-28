@@ -1,6 +1,6 @@
 {
     "name": "rougin/slytherin-skeleton",
-    "description": "A simple web application skeleton on top of Slytherin PHP framework",
+    "description": "A simple web application skeleton on top of Slytherin PHP framework.",
     "keywords": [ "php", "application", "skeleton", "slytherin" ],
     "homepage": "https://github.com/rougin/slytherin-skeleton",
     "license": "MIT",
@@ -14,9 +14,9 @@
     ],
     "require": {
         "container-interop/container-interop": "~1.0",
+        "psr/http-message": "~1.0",
         "rougin/slytherin": "dev-master",
-        "vlucas/phpdotenv": "~2.0",
-        "zendframework/zend-stratigility": "~1.0"
+        "vlucas/phpdotenv": "~2.0"
     },
     "require-dev": {
         "phpunit/phpunit" : "~4.0",

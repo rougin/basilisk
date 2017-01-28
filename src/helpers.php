@@ -9,11 +9,10 @@ if (! function_exists('base_path')) {
      */
     function base_path($item = null)
     {
-        $slash = DIRECTORY_SEPARATOR;
+        $item = str_replace([ '\\', '/' ], DIRECTORY_SEPARATOR, $item);
+        $path = str_replace('src', '', __DIR__);
 
-        $path = str_replace('src' . $slash . 'Helpers', '', __DIR__ . '/../');
-
-        return $path . str_replace([ '\\', '/' ], $slash, $item);
+        return $path . $item;
     }
 }
 

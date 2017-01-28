@@ -7,5 +7,4 @@
  */
 return [
     [ 'GET', '/', [ 'Skeleton\Http\Controllers\WelcomeController', 'index' ], middleware() ],
-    [ 'GET', '/hello/:name', [ 'Skeleton\Http\Controllers\WelcomeController', 'hello' ], middleware() ],
 ];
