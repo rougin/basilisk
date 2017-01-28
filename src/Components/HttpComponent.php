@@ -44,7 +44,7 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
             $this->response = new \Zend\Diactoros\Response;
         }
 
-        return [ $this->request, $this->response ];
+        return array($this->request, $this->response);
     }
 
     /**
@@ -85,7 +85,7 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
     protected function prepareHeaders()
     {
         $original = headers_list();
-        $modified = [];
+        $modified = array();
 
         if (function_exists('xdebug_get_headers')) {
             $original = xdebug_get_headers();

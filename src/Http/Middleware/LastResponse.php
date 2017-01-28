@@ -21,7 +21,7 @@ class LastResponse
      * @param  callable|null $next
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next = null)
     {
         return $response;
     }

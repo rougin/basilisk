@@ -9,7 +9,7 @@ if (! function_exists('base_path')) {
      */
     function base_path($item = null)
     {
-        $item = str_replace([ '\\', '/' ], DIRECTORY_SEPARATOR, $item);
+        $item = str_replace(array('\\', '/'), DIRECTORY_SEPARATOR, $item);
         $path = str_replace('src', '', __DIR__);
 
         return $path . $item;
@@ -102,7 +102,7 @@ if (! function_exists('redirect')) {
      * @param  boolean $exit
      * @return void
      */
-    function redirect($url, $data = [], $exit = true)
+    function redirect($url, $data = array(), $exit = true)
     {
         $url = ($url == '/') ? null : $url;
 
@@ -169,8 +169,8 @@ if (! function_exists('validate')) {
      */
     function validate($validatorName, $data, $redirect = true)
     {
-        $errors = [];
-        $flash  = [];
+        $errors = array();
+        $flash  = array();
 
         $server = request()->getServerParams();
 
@@ -194,9 +194,9 @@ if (! function_exists('view')) {
      * @param  array  $data
      * @return string
      */
-    function view($template, $data = [])
+    function view($template, $data = array())
     {
-        $renderer = new Rougin\Slytherin\Template\Vanilla\Renderer([ base_path('app/views') ]);
+        $renderer = new Rougin\Slytherin\Template\Vanilla\Renderer(array(base_path('app/views')));
 
         if (class_exists('Twig_Environment')) {
             $twig = new Twig_Environment(new Twig_Loader_Filesystem(base_path('app/views')));
@@ -211,7 +211,7 @@ if (! function_exists('view')) {
             $renderer = new Rougin\Slytherin\Template\Twig\Renderer($twig);
         }
 
-        session([ 'old' => null, 'validation' => null ]);
+        session(array('old' => null, 'validation' => null));
 
         return $renderer->render($template, $data);
     }

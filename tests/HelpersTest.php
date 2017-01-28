@@ -53,7 +53,7 @@ class HelpersTest extends \Skeleton\TestCase
      */
     public function testMiddleware()
     {
-        $expected = [ 'Skeleton\Http\Middleware\LastResponse' ];
+        $expected = array('Skeleton\Http\Middleware\LastResponse');
 
         $this->assertEquals($expected, middleware());
     }
@@ -67,7 +67,7 @@ class HelpersTest extends \Skeleton\TestCase
      */
     public function testRedirect()
     {
-        redirect('/', [ 'foo' => 'bar' ], false);
+        redirect('/', array('foo' => 'bar'), false);
 
         $header = 'Location: http://localhost:8000/';
 
@@ -89,7 +89,7 @@ class HelpersTest extends \Skeleton\TestCase
     {
         $expected = 'foobar';
 
-        $_SESSION['foo'] = [ 'bar' => $expected ];
+        $_SESSION['foo'] = array('bar' => $expected);
 
         $this->assertEquals($expected, session('foo.bar'));
     }
@@ -127,7 +127,7 @@ class HelpersTest extends \Skeleton\TestCase
      */
     public function testView()
     {
-        $view = view('welcome/index', [ 'url' => config('app.base_url') ]);
+        $view = view('welcome/index', array('url' => config('app.base_url')));
 
         $this->assertRegexp('/Hello/', $view);
     }

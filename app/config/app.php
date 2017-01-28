@@ -5,7 +5,7 @@
  *
  * @var array
  */
-return [
+return array(
     /**
      * Name of the application.
      *
@@ -48,12 +48,12 @@ return [
      *
      * @var array
      */
-    'components' => [
+    'components' => array(
         'Skeleton\Components\BootstrapComponent',
         'Skeleton\Components\DebuggerComponent',
         'Skeleton\Components\DispatcherComponent',
         'Skeleton\Components\EloquentComponent',
         'Skeleton\Components\HttpComponent',
         'Skeleton\Components\MiddlewareComponent',
-    ]
-];
+    )
+);

@@ -5,6 +5,6 @@
  *
  * @var array
  */
-return [
-    [ 'GET', '/', [ 'Skeleton\Http\Controllers\WelcomeController', 'index' ], middleware() ],
-];
+return array(
+    array('GET', '/', array('Skeleton\Http\Controllers\WelcomeController', 'index'), middleware()),
+);
