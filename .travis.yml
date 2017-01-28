@@ -11,6 +11,13 @@ dist: trusty
 services:
   - mysql
 
+matrix:
+  allow_failures:
+    - php: 7.0
+  include:
+    - php: 5.4
+      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
+
 before_script:
   # install Google Chrome
   - export CHROME_BIN=/usr/bin/google-chrome
@@ -35,10 +42,12 @@ before_script:
   - mysql -u root -e 'USE demo; INSERT INTO `users` (`name`, `age`, `gender`) VALUES ("Rougin", 21, "male");'
   # runs the Selenium server and the application
   - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
-  - php -S localhost:8000 -t public/ &
+  - php -S localhost:8000 -t app/web &
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+  - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require illuminate/database filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover

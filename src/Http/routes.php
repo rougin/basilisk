@@ -1,11 +1,10 @@
 <?php
 
 /**
- * A listing of available routes.
+ * A listing of available HTTP routes.
  *
  * @var array
  */
-return [
-    [ 'GET', '/', [ 'App\Http\Controllers\WelcomeController', 'index' ], middleware() ],
-    [ 'GET', '/hello/:name', [ 'App\Http\Controllers\WelcomeController', 'hello' ], middleware() ],
-];
+return array(
+    array('GET', '/', array('Skeleton\Http\Controllers\WelcomeController', 'index'), middleware()),
+);

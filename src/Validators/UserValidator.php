@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Validators;
+namespace Skeleton\Validators;
 
 /**
  * User Validator
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class UserValidator extends AbstractValidator
@@ -18,7 +18,7 @@ class UserValidator extends AbstractValidator
      */
     protected function setLabels(\Valitron\Validator &$validator)
     {
-        $validator->labels([ 'name' => 'Name', 'age' => 'Last name', 'gender' => 'Gender' ]);
+        $validator->labels(array('name' => 'Name', 'age' => 'Last name', 'gender' => 'Gender'));
     }
 
     /**

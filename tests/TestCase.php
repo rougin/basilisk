@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace Skeleton;
 
 use Rougin\Slytherin\Component\Collector;
 
 /**
  * Selenium TestCase
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class TestCase extends \PHPUnit_Framework_TestCase
@@ -24,7 +24,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        (new \Dotenv\Dotenv(base_path()))->load();
+        $dotenv = new \Dotenv\Dotenv(base_path());
+
+        $dotenv->load();
 
         // Loads the components
         $this->components = Collector::get(config('app.container'), config('app.components'));

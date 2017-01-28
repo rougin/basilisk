@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Dispatcher Component
  *
- * @package App
+ * Gathers the defined routes and initialize the route dispatcher.
+ *
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class DispatcherComponent extends \Rougin\Slytherin\Component\AbstractComponent

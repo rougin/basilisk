@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Validators;
+namespace Skeleton\Validators;
 
 /**
  * Base Validator
  *
  * A base class for a validator.
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 abstract class AbstractValidator
@@ -15,7 +15,7 @@ abstract class AbstractValidator
     /**
      * @var array
      */
-    protected $errors = [];
+    protected $errors = array();
 
     /**
      * Returns a listing of error, if any.
@@ -42,7 +42,7 @@ abstract class AbstractValidator
      * @param  array               $data
      * @return void
      */
-    abstract protected function setRules(\Valitron\Validator &$validator, $data = []);
+    abstract protected function setRules(\Valitron\Validator &$validator, $data = array());
 
     /**
      * Validates the data from the registration page.
@@ -59,8 +59,8 @@ abstract class AbstractValidator
 
         $isValidated = $validator->validate();
 
-        if (! $isValidated) {
-            $this->errors = is_array($validator->errors()) ? $validator->errors() : [];
+        if (! $isValidated && is_array($validator->errors())) {
+            $this->errors = $validator->errors();
         }
 
         return $isValidated;

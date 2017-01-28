@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Middleware Component
  *
- * @package App
+ * Loads the middleware builder for gathering defined middlewares.
+ *
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class MiddlewareComponent extends \Rougin\Slytherin\Component\AbstractComponent
@@ -25,8 +27,14 @@ class MiddlewareComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $pipe = new \Zend\Stratigility\MiddlewarePipe;
+        $middleware = new \Rougin\Slytherin\Middleware\Vanilla\Middleware;
 
-        return new \Rougin\Slytherin\Middleware\Stratigility\Middleware($pipe);
+        if (class_exists('Zend\Stratigility\MiddlewarePipe')) {
+            $pipe = new \Zend\Stratigility\MiddlewarePipe;
+
+            $middleware = new \Rougin\Slytherin\Middleware\Stratigility\Middleware($pipe);
+        }
+
+        return $middleware;
     }
 }

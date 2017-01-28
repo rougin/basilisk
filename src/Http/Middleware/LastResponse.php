@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Skeleton\Http\Middleware;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
- * Last Middleware
+ * Last Response
  *
- * @package App
+ * Returns the last HTTP response.
+ *
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class LastMiddleware
+class LastResponse
 {
     /**
      * @param  \Psr\Http\Message\ServerRequestInterface $request
@@ -19,7 +21,7 @@ class LastMiddleware
      * @param  callable|null $next
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next = null)
     {
         return $response;
     }

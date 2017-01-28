@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Skeleton\Http\Controllers;
 
 /**
  * Welcome Controller
  *
- * @package App
+ * A simple "Hello world" class.
+ *
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class WelcomeController extends BaseController
@@ -17,6 +19,6 @@ class WelcomeController extends BaseController
      */
     public function index()
     {
-        return view('welcome/index', [ 'url' => config('app.base_url') ]);
+        return view('welcome/index', array('url' => config('app.base_url')));
     }
 }

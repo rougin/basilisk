@@ -5,7 +5,7 @@
  *
  * @var array
  */
-return [
+return array(
     /**
      * Returns the default configuration to be used.
      *
@@ -18,13 +18,13 @@ return [
      *
      * @var array
      */
-    'mysql' => [
+    'mysql' => array(
         /**
          * The driver to be used.
          *
          * @var string
          */
-        'driver' => getenv('MYSQL_DRIVER'),
+        'driver' => 'pdo_mysql',
 
         /**
          * Hostname to be used.
@@ -60,5 +60,5 @@ return [
          * @var string
          */
         'charset' => getenv('MYSQL_CHARSET'),
-    ]
-];
+    )
+);

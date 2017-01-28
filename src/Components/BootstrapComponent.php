@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Components;
+namespace Skeleton\Components;
 
 /**
  * Bootstrap Component
  *
- * @package App
+ * Loads the environment variables and enables the session.
+ *
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class BootstrapComponent extends \Rougin\Slytherin\Component\AbstractComponent
@@ -19,7 +21,9 @@ class BootstrapComponent extends \Rougin\Slytherin\Component\AbstractComponent
     public function set(\Interop\Container\ContainerInterface &$container)
     {
         // Loads the environment variables from an .env file.
-        (new \Dotenv\Dotenv(base_path()))->load();
+        $dotenv = new \Dotenv\Dotenv(base_path());
+
+        $dotenv->load();
 
         // Sets the default timezone
         date_default_timezone_set(config('app.timezone'));
