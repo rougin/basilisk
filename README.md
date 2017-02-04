@@ -19,11 +19,13 @@ $ composer create-project rougin/slytherin-skeleton "acme"
 
 ## Getting Started
 
+**Run the application using PHP's built-in web server:**
+
 ``` bash
 $ php -S localhost:8000 -t app/web
 ```
 
-Then go to [http://localhost:8000](http://localhost:8000).
+Now open your web browser and go to [http://localhost:8000](http://localhost:8000).
 
 ## What's inside?
 
