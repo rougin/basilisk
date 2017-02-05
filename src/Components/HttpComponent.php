@@ -62,28 +62,15 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
     }
 
     /**
-     * Prepares the URI instance to be used.
-     *
-     * @param  array  $server
-     * @param  string $requestUri
-     * @return \Psr\Http\Message\UriInterface
-     */
-    protected function prepareUri(array $server, $requestUri)
-    {
-        $protocol = (! empty($server['HTTPS']) && $server['HTTPS'] != 'off') ? 'https' : 'http';
-        $httpHost = (isset($server['HTTP_HOST'])) ? $server['HTTP_HOST'] : '127.0.0.1';
-        $endpoint = $protocol . '://' . $httpHost . $requestUri;
-
-        return new \Rougin\Slytherin\Http\Uri($endpoint);
-    }
-
-    /**
-     * Prepares the headers from the request.
+     * Prepares the HTTP component based from Slytherin.
      *
      * @return array
      */
-    protected function prepareHeaders()
+    protected function prepareSlytherinHttp()
     {
+        $request  = new \Rougin\Slytherin\Http\ServerRequest($_SERVER, $_COOKIE, $_GET, $_FILES, $_POST);
+        $response = new \Rougin\Slytherin\Http\Response(http_response_code());
+
         $original = headers_list();
         $modified = array();
 
@@ -94,32 +81,8 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
         foreach ($original as $header) {
             list($key, $value) = explode(': ', $header);
 
-            $modified[$key] = explode(',', str_replace(', ', ',', $value));
+            $request = $request->withHeader($key, $value);
         }
-
-        return $modified;
-    }
-
-    /**
-     * Prepares the HTTP component based from Slytherin.
-     *
-     * @return array
-     */
-    protected function prepareSlytherinHttp()
-    {
-        $httpMethod = (isset($_SERVER['REQUEST_METHOD'])) ? $_SERVER['REQUEST_METHOD'] : 'GET';
-        $requestUri = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '/';
-        $streamData = new \Rougin\Slytherin\Http\Stream(fopen('php://temp', 'r+'));
-
-        $urlLink = $this->prepareUri($_SERVER, $requestUri);
-        $headers = $this->prepareHeaders();
-
-        $request = new \Rougin\Slytherin\Http\ServerRequest(
-            '1.1', $headers, $streamData, $requestUri, $httpMethod,
-            $urlLink, $_SERVER, $_COOKIE, $_GET, $_FILES, $_POST
-        );
-
-        $response = new \Rougin\Slytherin\Http\Response('1.1', $headers, $streamData, http_response_code());
 
         return [ $request, $response ];
     }
