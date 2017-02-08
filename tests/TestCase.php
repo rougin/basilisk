@@ -28,6 +28,11 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
         $dotenv->load();
 
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+        $_SERVER['REQUEST_URI']    = '/';
+        $_SERVER['SERVER_NAME']    = 'localhost';
+        $_SERVER['SERVER_PORT']    = '8000';
+
         // Loads the components
         $this->components = Collector::get(config('app.container'), config('app.components'));
 
