@@ -84,6 +84,6 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
             $request = $request->withHeader($key, $value);
         }
 
-        return [ $request, $response ];
+        return array($request, $response);
     }
 }
