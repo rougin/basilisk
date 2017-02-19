@@ -5,7 +5,7 @@ namespace Skeleton\Components;
 /**
  * Debugger Component
  *
- * Enables the use of debugger or an exception handler.
+ * Enables the use of error handler or an exception handler.
  *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
@@ -14,11 +14,11 @@ class DebuggerComponent extends \Rougin\Slytherin\Component\AbstractComponent
 {
     /**
      * Type of the component:
-     * dispatcher, debugger, http, middleware
+     * dispatcher, error handler, http, middleware
      *
      * @var string
      */
-    protected $type = 'debugger';
+    protected $type = 'error handler';
 
     /**
      * Returns an instance from the named class.
@@ -27,14 +27,15 @@ class DebuggerComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function get()
     {
-        $debugger = new \Rougin\Slytherin\Debug\Vanilla\Debugger;
+        $handler = new \Rougin\Slytherin\Debug\VanillaErrorHandler;
 
         if (class_exists('Whoops\Run')) {
-            $debugger = new \Rougin\Slytherin\Debug\Whoops\Debugger(new \Whoops\Run);
+            $whoops  = new \Whoops\Run;
+            $handler = new \Rougin\Slytherin\Debug\WhoopsErrorHandler($whoops);
         }
 
-        $debugger->setEnvironment(config('app.environment'));
+        $handler->setEnvironment(config('app.environment'));
 
-        return $debugger;
+        return $handler;
     }
 }
