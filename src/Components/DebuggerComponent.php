@@ -18,7 +18,7 @@ class DebuggerComponent extends \Rougin\Slytherin\Component\AbstractComponent
      *
      * @var string
      */
-    protected $type = 'error handler';
+    protected $type = 'error_handler';
 
     /**
      * Returns an instance from the named class.
