@@ -41,7 +41,7 @@ return array(
      *
      * @var \Interop\Container\ContainerInterface
      */
-    'container' => new Rougin\Slytherin\IoC\Vanilla\Container,
+    'container' => new Rougin\Slytherin\Container\VanillaContainer,
 
     /**
      * The list of components to be integrated in Slytherin.
