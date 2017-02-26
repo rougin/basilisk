@@ -2,8 +2,6 @@
 
 namespace Skeleton\Components;
 
-use Interop\Container\ContainerInterface;
-
 /**
  * Eloquent Component
  *
@@ -20,7 +18,7 @@ class EloquentComponent extends \Rougin\Slytherin\Component\AbstractComponent
      * @param  \Interop\Container\ContainerInterface $container
      * @return void
      */
-    public function set(ContainerInterface &$container)
+    public function set(\Interop\Container\ContainerInterface &$container)
     {
         if (class_exists('Illuminate\Database\Capsule\Manager')) {
             $capsule = new \Illuminate\Database\Capsule\Manager;
