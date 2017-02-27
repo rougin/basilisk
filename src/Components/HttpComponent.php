@@ -55,7 +55,7 @@ class HttpComponent extends \Rougin\Slytherin\Component\AbstractComponent
      */
     public function set(\Interop\Container\ContainerInterface &$container)
     {
-        if ($container instanceof \Rougin\Slytherin\IoC\Vanilla\Container) {
+        if ($container instanceof \Rougin\Slytherin\Container\VanillaContainer) {
             $container->add('Psr\Http\Message\ServerRequestInterface', $this->request);
             $container->add('Psr\Http\Message\ResponseInterface', $this->response);
         }
