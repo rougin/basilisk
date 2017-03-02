@@ -5,6 +5,4 @@
  *
  * @var array
  */
-return [
-    'Skeleton\Http\Middleware\LastResponse'
-];
+return array();
