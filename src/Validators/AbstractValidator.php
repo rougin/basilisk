@@ -57,12 +57,12 @@ abstract class AbstractValidator
         $this->setLabels($validator);
         $this->setRules($validator, $data);
 
-        $isValidated = $validator->validate();
+        $validated = $validator->validate();
 
-        if (! $isValidated && is_array($validator->errors())) {
+        if (! $validated && is_array($validator->errors())) {
             $this->errors = $validator->errors();
         }
 
-        return $isValidated;
+        return $validated;
     }
 }
