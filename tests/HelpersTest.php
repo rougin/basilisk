@@ -53,9 +53,7 @@ class HelpersTest extends \Skeleton\TestCase
      */
     public function testMiddleware()
     {
-        $expected = array('Skeleton\Http\Middleware\LastResponse');
-
-        $this->assertEquals($expected, middleware());
+        $this->assertEmpty(middleware());
     }
 
     /**
@@ -115,6 +113,10 @@ class HelpersTest extends \Skeleton\TestCase
      */
     public function testValidate()
     {
+        if (! class_exists('Valitron\Validator')) {
+            $this->markTestSkipped('Valitron is not installed.');
+        }
+
         $this->assertCount(3, validate('Skeleton\Validators\UserValidator', [], false));
     }
 
