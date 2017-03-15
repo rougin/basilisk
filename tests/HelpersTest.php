@@ -1,6 +1,6 @@
 <?php
 
-namespace Skeleton\Helpers;
+namespace Skeleton;
 
 /**
  * Helpers Test

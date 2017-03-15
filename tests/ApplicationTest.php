@@ -2,8 +2,6 @@
 
 namespace Skeleton;
 
-use Rougin\Slytherin\Component\Collector;
-
 /**
  * Application Helper Test
  *
