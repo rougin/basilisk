@@ -19,8 +19,6 @@ class WelcomeController extends BaseController
      */
     public function index()
     {
-        print_r(validate('Skeleton\Validators\UserValidator', array(), false));
-
         $data = array('url' => config('app.base_url'));
 
         return view('welcome/index', $data);
