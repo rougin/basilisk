@@ -1,15 +1,18 @@
 <?php
 
-use Rougin\Slytherin\Component\Collector;
+$root = str_replace(DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'web', '', __DIR__);
 
-require __DIR__ . '/../../vendor/autoload.php';
+require $root . '/vendor/autoload.php';
 
-// Loads the specified components
-$components = Collector::get(config('app.container'), config('app.components'));
+// Loads the environment variables from an .env file.
+$dotenv = new \Dotenv\Dotenv(base_path());
 
-$container = $components->getContainer();
+$dotenv->load();
 
-// Starts the Slytherin application
-$application = new Rougin\Slytherin\Application($components);
+// Loads the configuration data from a specified directory
+$configuration = new Rougin\Slytherin\Configuration($root . '/app/config');
+$application   = new Rougin\Slytherin\Application($configuration->get('app.container'));
 
-$application->run();
+$integrations = $configuration->get('app.integrations');
+
+$application->integrate($integrations, $configuration)->run();

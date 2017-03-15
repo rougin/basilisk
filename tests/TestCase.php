@@ -13,9 +13,9 @@ use Rougin\Slytherin\Component\Collector;
 class TestCase extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var array
+     * @var \Rougin\Slytherin\Application\Application
      */
-    protected $components;
+    protected $application;
 
     /**
      * Loads the helpers.
@@ -28,14 +28,19 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
         $dotenv->load();
 
-        $_SERVER['REQUEST_METHOD'] = 'GET';
-        $_SERVER['REQUEST_URI']    = '/';
-        $_SERVER['SERVER_NAME']    = 'localhost';
-        $_SERVER['SERVER_PORT']    = '8000';
+        $server = array();
 
-        // Loads the components
-        $this->components = Collector::get(config('app.container'), config('app.components'));
+        $server['REQUEST_METHOD'] = 'GET';
+        $server['REQUEST_URI']    = '/';
+        $server['SERVER_NAME']    = 'localhost';
+        $server['SERVER_PORT']    = '8000';
 
-        $GLOBALS['container'] = $this->components->getContainer();
+        $config = new \Rougin\Slytherin\Configuration(__DIR__ . '/../app/config');
+
+        $config->set('app.http.server', $server);
+
+        $this->application = new \Rougin\Slytherin\Application($config->get('app.container'));
+
+        $this->application->integrate($config->get('app.integrations'), $config);
     }
 }

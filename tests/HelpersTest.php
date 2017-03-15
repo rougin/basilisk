@@ -8,7 +8,7 @@ namespace Skeleton\Helpers;
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class HelpersTest extends \Skeleton\TestCase
+class HelpersTest extends TestCase
 {
     /**
      * Tests base_path().
@@ -32,18 +32,6 @@ class HelpersTest extends \Skeleton\TestCase
         $expected = 'http://localhost:8000';
 
         $this->assertEquals($expected, config('app.base_url'));
-    }
-
-    /**
-     * Tests the exception from config().
-     *
-     * @return void
-     */
-    public function testConfigException()
-    {
-        $this->setExpectedException('InvalidArgumentException');
-
-        config('test');
     }
 
     /**
@@ -83,14 +71,14 @@ class HelpersTest extends \Skeleton\TestCase
      *
      * @return void
      */
-    public function testSession()
-    {
-        $expected = 'foobar';
+    // public function testSession()
+    // {
+    //     $expected = 'foobar';
 
-        $_SESSION['foo'] = array('bar' => $expected);
+    //     $_SESSION['foo'] = array('bar' => $expected);
 
-        $this->assertEquals($expected, session('foo.bar'));
-    }
+    //     $this->assertEquals($expected, session('foo.bar'));
+    // }
 
     /**
      * Tests url().
@@ -117,7 +105,7 @@ class HelpersTest extends \Skeleton\TestCase
             $this->markTestSkipped('Valitron is not installed.');
         }
 
-        $this->assertCount(3, validate('Skeleton\Validators\UserValidator', [], false));
+        $this->assertCount(3, validate('Skeleton\Validators\UserValidator', array(), false));
     }
 
     /**

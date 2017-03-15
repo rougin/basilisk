@@ -21,8 +21,6 @@ class ApplicationTest extends TestCase
     {
         $this->expectOutputRegex('/Hello/');
 
-        $application = new \Rougin\Slytherin\Application($this->components);
-
-        $application->run();
+        $this->application->run();
     }
 }

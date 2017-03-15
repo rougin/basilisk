@@ -3,8 +3,11 @@
 /**
  * A listing of available HTTP routes.
  *
- * @var array
+ * @var \Rougin\Slytherin\Routing\RoutingInterface
  */
-return array(
-    array('GET', '/', array('Skeleton\Http\Controllers\WelcomeController', 'index'), middleware()),
-);
+
+$router = new Rougin\Slytherin\Routing\Vanilla\Router;
+
+$router->get('/', array('Skeleton\Http\Controllers\WelcomeController', 'index'));
+
+return $router;

@@ -3,7 +3,7 @@
 namespace Skeleton\Validators;
 
 /**
- * Base Validator
+ * Abstract Validator
  *
  * A base class for a validator.
  *
@@ -15,34 +15,32 @@ abstract class AbstractValidator
     /**
      * @var array
      */
-    protected $errors = array();
+    public $errors = array();
 
     /**
-     * Returns a listing of error, if any.
-     *
-     * @return array
+     * @var \Valitron\Validator
      */
-    public function getErrors()
+    protected $validator;
+
+    public function __construct()
     {
-        return $this->errors;
+        $this->validator = new \Valitron\Validator;
     }
 
     /**
      * Sets the labels in the validator.
      *
-     * @param  \Valitron\Validator $validator
      * @return void
      */
-    abstract protected function setLabels(\Valitron\Validator &$validator);
+    abstract protected function labels();
 
     /**
      * Sets the rules in the validator.
      *
-     * @param  \Valitron\Validator $validator
-     * @param  array               $data
+     * @param  array $data
      * @return void
      */
-    abstract protected function setRules(\Valitron\Validator &$validator, $data = array());
+    abstract protected function rules($data = array());
 
     /**
      * Validates the data from the registration page.
@@ -52,11 +50,11 @@ abstract class AbstractValidator
      */
     public function validate(array $data)
     {
-        $validator = new \Valitron\Validator($data);
+        $this->validator->labels($this->labels());
 
-        $this->setLabels($validator);
-        $this->setRules($validator, $data);
+        $this->rules($data);
 
+        $validator = $this->validator->withData($data);
         $validated = $validator->validate();
 
         if (! $validated && is_array($validator->errors())) {

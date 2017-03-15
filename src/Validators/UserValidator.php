@@ -13,25 +13,29 @@ class UserValidator extends AbstractValidator
     /**
      * Sets the labels in the validator.
      *
-     * @param  \Valitron\Validator $validator
      * @return void
      */
-    protected function setLabels(\Valitron\Validator &$validator)
+    protected function labels()
     {
-        $validator->labels(array('name' => 'Name', 'age' => 'Last name', 'gender' => 'Gender'));
+        $labels = array();
+
+        $labels['age']    = 'Age';
+        $labels['gender'] = 'Gender';
+        $labels['name']   = 'Name';
+
+        return $labels;
     }
 
     /**
      * Sets the rules in the validator.
      *
-     * @param  \Valitron\Validator $validator
-     * @param  array               $data
+     * @param  array $data
      * @return void
      */
-    protected function setRules(\Valitron\Validator &$validator, $data = [])
+    protected function rules($data = [])
     {
-        $validator->rule('required', 'name');
-        $validator->rule('required', 'age');
-        $validator->rule('required', 'gender');
+        $this->validator->rule('required', 'name');
+        $this->validator->rule('required', 'age');
+        $this->validator->rule('required', 'gender');
     }
 }

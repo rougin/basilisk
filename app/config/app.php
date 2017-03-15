@@ -36,24 +36,61 @@ return array(
     'timezone' => getenv('TIMEZONE'),
 
     /**
+     * The directory name which contains the template files.
+     *
+     * @var string
+     */
+    'views' => __DIR__ . '/../views',
+
+    /**
      * The container to be used for setting up the dependencies.
-     * It must be implemented in Interop\Container\ContainerInterface.
+     * It must be implemented in \Interop\Container\ContainerInterface.
      *
      * @var \Interop\Container\ContainerInterface
      */
     'container' => new Rougin\Slytherin\Container\VanillaContainer,
 
     /**
-     * The list of components to be integrated in Slytherin.
+     * Contains the global variables provided by PHP. It was intended to be
+     * separated in order for the developers to easily mock these variables.
+     */
+    'http' => array(
+        'cookies' => $_COOKIE,
+        'files'   => $_FILES,
+        'get'     => $_GET,
+        'post'    => $_POST,
+        'server'  => $_SERVER,
+    ),
+
+    /**
+     * Contains the listing of available HTTP routes from a class object.
+     * It must be implemented in \Rougin\Slytherin\Routing\RouterInterface.
+     *
+     * @var \Rougin\Slytherin\Routing\RouterInterface
+     */
+    'router' => require __DIR__ . '/../../src/Http/routes.php',
+
+    /**
+     * A listing of middlewares available to be injected in routes.
      *
      * @var array
      */
-    'components' => array(
-        'Skeleton\Components\BootstrapComponent',
-        'Skeleton\Components\DebuggerComponent',
-        'Skeleton\Components\DispatcherComponent',
-        'Skeleton\Components\EloquentComponent',
-        'Skeleton\Components\HttpComponent',
-        'Skeleton\Components\MiddlewareComponent',
-    )
+    'middlewares' => require __DIR__ . '/../../src/Http/middlewares.php',
+
+    /**
+     * The list of integrations to be included in Slytherin core.
+     *
+     * @var array
+     */
+    'integrations' => array(
+        'Rougin\Slytherin\Debug\ErrorHandlerIntegration',
+        'Rougin\Slytherin\Http\HttpIntegration',
+        'Rougin\Slytherin\Integration\ConfigurationIntegration',
+        'Rougin\Slytherin\Middleware\MiddlewareIntegration',
+        'Rougin\Slytherin\Routing\RoutingIntegration',
+        'Rougin\Slytherin\Template\RendererIntegration',
+
+        'Skeleton\Integrations\EloquentIntegration',
+        'Skeleton\Integrations\SkeletonIntegration',
+    ),
 );
