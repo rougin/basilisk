@@ -20,38 +20,36 @@ matrix:
       env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
 
 before_script:
-  # install Google Chrome
+  # # install Google Chrome
   # - export CHROME_BIN=/usr/bin/google-chrome
-  - export CHROME_BIN=/usr/bin/chromium-browser
-  - export DISPLAY=:99.0 
-  - sh -e /etc/init.d/xvfb start
-  - sudo apt-get update
-  - sudo apt-get install chromium-browser
+  # - export DISPLAY=:99.0 
+  # - sh -e /etc/init.d/xvfb start
+  # - sudo apt-get update
   # - sudo apt-get install -y libappindicator1 fonts-liberation
   # - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   # - sudo dpkg -i google-chrome*.deb
-  # install Selenium server and the Chrome driver
-  - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
-  - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
-  - chmod +x chromedriver
-  # copies the .env sample for testing
-  - cp .env.example .env
-  # create MySQL database
-  - mysql -u root -e 'CREATE DATABASE demo;'
-  - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `posts` ( `id` int(10) NOT NULL AUTO_INCREMENT, `subject` varchar(100) NOT NULL, `message` varchar(500) NOT NULL, `user_id` int(10) NOT NULL, `description` varchar(100) DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `description` (`description`), KEY `user_id` (`user_id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
-  - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `users` ( `id` int(10) NOT NULL AUTO_INCREMENT, `name` varchar(200) NOT NULL, `age` int(2) NOT NULL, `gender` varchar(10) NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
-  - mysql -u root -e 'USE demo; ALTER TABLE `posts` ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;'
-  - mysql -u root -e 'USE demo; INSERT INTO `users` (`name`, `age`, `gender`) VALUES ("Rougin", 21, "male");'
-  # runs the Selenium server and the application
-  - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
-  - php -S localhost:8000 -t app/web &
+  # # install Selenium server and the Chrome driver
+  # - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
+  # - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
+  # - unzip chromedriver_linux64.zip
+  # - chmod +x chromedriver
+  # # copies the .env sample for testing
+  # - cp .env.example .env
+  # # create MySQL database
+  # - mysql -u root -e 'CREATE DATABASE demo;'
+  # - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `posts` ( `id` int(10) NOT NULL AUTO_INCREMENT, `subject` varchar(100) NOT NULL, `message` varchar(500) NOT NULL, `user_id` int(10) NOT NULL, `description` varchar(100) DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `description` (`description`), KEY `user_id` (`user_id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
+  # - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `users` ( `id` int(10) NOT NULL AUTO_INCREMENT, `name` varchar(200) NOT NULL, `age` int(2) NOT NULL, `gender` varchar(10) NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
+  # - mysql -u root -e 'USE demo; ALTER TABLE `posts` ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;'
+  # - mysql -u root -e 'USE demo; INSERT INTO `users` (`name`, `age`, `gender`) VALUES ("Rougin", 21, "male");'
+  # # runs the Selenium server and the application
+  # - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
+  # - php -S localhost:8000 -t app/web &
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
   - if [[ $TRAVIS_PHP_VERSION == '5.3' ]]; then composer require filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron --dev; fi
   - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require illuminate/database filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
-  - if [[ $TRAVIS_PHP_VERSION != '5.3' && $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
