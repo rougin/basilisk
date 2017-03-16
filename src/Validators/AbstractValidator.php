@@ -30,7 +30,7 @@ abstract class AbstractValidator
     /**
      * Sets the labels in the validator.
      *
-     * @return void
+     * @return array
      */
     abstract protected function labels();
 
@@ -40,7 +40,7 @@ abstract class AbstractValidator
      * @param  array $data
      * @return void
      */
-    abstract protected function rules($data = array());
+    abstract protected function rules(array $data = array());
 
     /**
      * Validates the data from the registration page.

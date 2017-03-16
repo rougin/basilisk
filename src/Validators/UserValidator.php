@@ -13,7 +13,7 @@ class UserValidator extends AbstractValidator
     /**
      * Sets the labels in the validator.
      *
-     * @return void
+     * @return array
      */
     protected function labels()
     {
@@ -32,7 +32,7 @@ class UserValidator extends AbstractValidator
      * @param  array $data
      * @return void
      */
-    protected function rules($data = [])
+    protected function rules(array $data = array())
     {
         $this->validator->rule('required', 'name');
         $this->validator->rule('required', 'age');
