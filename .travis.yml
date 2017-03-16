@@ -33,8 +33,6 @@ before_script:
   # - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
   # - unzip chromedriver_linux64.zip
   # - chmod +x chromedriver
-  # # copies the .env sample for testing
-  # - cp .env.example .env
   # # create MySQL database
   # - mysql -u root -e 'CREATE DATABASE demo;'
   # - mysql -u root -e 'USE demo; CREATE TABLE IF NOT EXISTS `posts` ( `id` int(10) NOT NULL AUTO_INCREMENT, `subject` varchar(100) NOT NULL, `message` varchar(500) NOT NULL, `user_id` int(10) NOT NULL, `description` varchar(100) DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `description` (`description`), KEY `user_id` (`user_id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;'
@@ -44,12 +42,14 @@ before_script:
   # # runs the Selenium server and the application
   # - java -jar selenium-server-standalone-2.53.1.jar -port 4444 &
   # - php -S localhost:8000 -t app/web &
+  # copies the .env sample for testing
+  - cp .env.example .env
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
-  - if [[ $TRAVIS_PHP_VERSION == '5.3' ]]; then composer require filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION == '5.3' ]]; then composer require filp/whoops robmorgan/phinx twig/twig vlucas/valitron --dev; fi
   - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require illuminate/database filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
-  - if [[ $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION != '5.3' && $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
