@@ -21,13 +21,14 @@ matrix:
 
 before_script:
   # install Google Chrome
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0 
-  - sh -e /etc/init.d/xvfb start
+  # - export CHROME_BIN=/usr/bin/google-chrome
+  # - export DISPLAY=:99.0 
+  # - sh -e /etc/init.d/xvfb start
   - sudo apt-get update
-  - sudo apt-get install -y libappindicator1 fonts-liberation
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
+  - sudo apt-get install chromium-browser
+  # - sudo apt-get install -y libappindicator1 fonts-liberation
+  # - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  # - sudo dpkg -i google-chrome*.deb
   # install Selenium server and the Chrome driver
   - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
   - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
