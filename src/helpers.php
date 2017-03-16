@@ -66,20 +66,14 @@ if (! function_exists('redirect')) {
     /**
      * Returns a redirect response.
      *
-     * @param  string  $url
-     * @param  array   $data
-     * @param  boolean $exit
+     * @param  string $url
      * @return void
      */
-    function redirect($url, $data = array(), $exit = true)
+    function redirect($url)
     {
-        $url = ($url == '/') ? null : $url;
+        $response = app('Psr\Http\Message\ResponseInterface');
 
-        $url = (strpos($url, 'http') === false) ? config('app.base_url') . '/' . $url : $url;
-
-        header('Location: ' . $url);
-
-        return ($exit) ? exit : null;
+        return $response->withStatus(302)->withHeader('Location', $url);
     }
 }
 

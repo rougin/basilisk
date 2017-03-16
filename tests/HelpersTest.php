@@ -53,15 +53,9 @@ class HelpersTest extends TestCase
      */
     public function testRedirect()
     {
-        redirect('/', array('foo' => 'bar'), false);
+        $response = redirect('/', array('foo' => 'bar'));
 
-        $header = 'Location: http://localhost:8000/';
-
-        if (function_exists('xdebug_get_headers')) {
-            $this->assertContains($header, xdebug_get_headers());
-        } else {
-            $this->assertTrue(true);
-        }
+        $this->assertTrue($response->hasHeader('Location'));
     }
 
     /**
