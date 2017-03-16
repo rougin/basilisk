@@ -22,8 +22,9 @@ matrix:
 before_script:
   # install Google Chrome
   # - export CHROME_BIN=/usr/bin/google-chrome
-  # - export DISPLAY=:99.0 
-  # - sh -e /etc/init.d/xvfb start
+  - export CHROME_BIN=/usr/bin/chromium-browser
+  - export DISPLAY=:99.0 
+  - sh -e /etc/init.d/xvfb start
   - sudo apt-get update
   - sudo apt-get install chromium-browser
   # - sudo apt-get install -y libappindicator1 fonts-liberation
@@ -48,8 +49,9 @@ before_script:
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+  - if [[ $TRAVIS_PHP_VERSION == '5.3' ]]; then composer require illuminate/database filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron --dev; fi
   - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require illuminate/database filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
-  - if [[ $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION != '5.3' && $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require illuminate/database:5.2.* filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
