@@ -11,8 +11,8 @@ $dotenv->load();
 
 // Loads the configuration data from a specified directory
 $configuration = new Rougin\Slytherin\Configuration($root . '/app/config');
-$application   = new Rougin\Slytherin\Application($configuration->get('app.container'));
+$integrations  = $configuration->get('app.integrations');
 
-$integrations = $configuration->get('app.integrations');
+$application = new Rougin\Slytherin\Application($configuration->get('app.container'));
 
 $application->integrate($integrations, $configuration)->run();

@@ -83,6 +83,7 @@ return array(
      * @var array
      */
     'integrations' => array(
+        // Slytherin Integrations
         'Rougin\Slytherin\Debug\ErrorHandlerIntegration',
         'Rougin\Slytherin\Http\HttpIntegration',
         'Rougin\Slytherin\Integration\ConfigurationIntegration',
@@ -90,6 +91,7 @@ return array(
         'Rougin\Slytherin\Routing\RoutingIntegration',
         'Rougin\Slytherin\Template\RendererIntegration',
 
+        // Application Integrations
         'Skeleton\Integrations\EloquentIntegration',
         'Skeleton\Integrations\SkeletonIntegration',
     ),
