@@ -55,10 +55,39 @@ return array(
      * separated in order for the developers to easily mock these variables.
      */
     'http' => array(
+        /**
+         * HTTP Cookies.
+         *
+         * @var array
+         */
         'cookies' => $_COOKIE,
+
+        /**
+         * HTTP File Upload variables.
+         *
+         * @var array
+         */
         'files'   => $_FILES,
+
+        /**
+         * HTTP GET variables.
+         *
+         * @var array
+         */
         'get'     => $_GET,
+
+        /**
+         * HTTP POST variables.
+         *
+         * @var array
+         */
         'post'    => $_POST,
+
+        /**
+         * Server and execution environment information.
+         *
+         * @var array
+         */
         'server'  => $_SERVER,
     ),
 
@@ -92,7 +121,7 @@ return array(
         'Rougin\Slytherin\Template\RendererIntegration',
 
         // Application Integrations
-        'Skeleton\Integrations\EloquentIntegration',
         'Skeleton\Integrations\SkeletonIntegration',
+        'Skeleton\Integrations\EloquentIntegration',
     ),
 );

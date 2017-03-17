@@ -5,7 +5,7 @@ namespace Skeleton\Validators;
 /**
  * Abstract Validator
  *
- * A base class for a validator.
+ * An abstract class for a validator.
  *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>

@@ -27,9 +27,6 @@ class SkeletonIntegration implements \Rougin\Slytherin\Integration\IntegrationIn
         // Sets the default timezone
         date_default_timezone_set(config('app.timezone'));
 
-        // Start the session
-        session_start();
-
         return $container;
     }
 }

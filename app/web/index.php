@@ -2,17 +2,12 @@
 
 $root = str_replace(DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'web', '', __DIR__);
 
+// Loads the Composer autoloader
 require $root . '/vendor/autoload.php';
 
-// Loads the environment variables from an .env file.
-$dotenv = new \Dotenv\Dotenv(base_path());
+// Bootstraps the configuration before integrating it to Slytherin
+$config = require $root . '/app/bootstrap.php';
 
-$dotenv->load();
+$application = new Rougin\Slytherin\Application($config->get('app.container'));
 
-// Loads the configuration data from a specified directory
-$configuration = new Rougin\Slytherin\Configuration($root . '/app/config');
-$integrations  = $configuration->get('app.integrations');
-
-$application = new Rougin\Slytherin\Application($configuration->get('app.container'));
-
-$application->integrate($integrations, $configuration)->run();
+$application->integrate($config->get('app.integrations'), $config)->run();
