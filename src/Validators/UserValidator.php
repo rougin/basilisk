@@ -34,8 +34,8 @@ class UserValidator extends AbstractValidator
      */
     protected function rules(array $data = array())
     {
-        $this->validator->rule('required', 'name');
         $this->validator->rule('required', 'age');
         $this->validator->rule('required', 'gender');
+        $this->validator->rule('required', 'name');
     }
 }

@@ -67,25 +67,13 @@ if (! function_exists('redirect')) {
      * Returns a redirect response.
      *
      * @param  string $url
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      */
     function redirect($url)
     {
         $response = app('Psr\Http\Message\ResponseInterface');
 
         return $response->withStatus(302)->withHeader('Location', $url);
-    }
-}
-
-if (! function_exists('request')) {
-    /**
-     * Returns an instance of a ServerRequest.
-     *
-     * @return \Psr\Http\Message\ServerRequestInterface
-     */
-    function request()
-    {
-        return app('Psr\Http\Message\ServerRequestInterface');
     }
 }
 
@@ -103,17 +91,19 @@ if (! function_exists('validate')) {
         $errors = array();
         $flash  = array();
 
-        $server = request()->getServerParams();
-
         $validator = new $validator;
 
         if (! $validator->validate($data)) {
-            $flash['validation'] = $errors = $validator->errors;
+            $errors = $validator->errors;
+
+            $flash['validation'] = $errors;
 
             $flash['old'] = $data;
         }
 
-        return $redirect && ! empty($flash) ? redirect($server['HTTP_REFERER'], $flash) : $errors;
+        $response = redirect(config('app.http.server.HTTP_REFERER'), $flash);
+
+        return $redirect && ! empty($flash) ? $response : $errors;
     }
 }
 
@@ -128,18 +118,6 @@ if (! function_exists('view')) {
     function view($template, $data = array())
     {
         $renderer = app('Rougin\Slytherin\Template\RendererInterface');
-
-        if (class_exists('Twig_Environment')) {
-            $twig = new Twig_Environment(new Twig_Loader_Filesystem(config('app.views')));
-
-            $twig->addGlobal('request', request());
-
-            $twig->addFunction(new Twig_SimpleFunction('config', 'config'));
-            $twig->addFunction(new Twig_SimpleFunction('session', 'session'));
-            $twig->addFunction(new Twig_SimpleFunction('url', 'url'));
-
-            $renderer = new Rougin\Slytherin\Template\Twig\Renderer($twig);
-        }
 
         return $renderer->render($template, $data);
     }
