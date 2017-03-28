@@ -1,8 +1,9 @@
 <?php
 
 /**
- * A listing of available middlewares.
+ * A listing of available HTTP middlewares.
  *
- * @var array
+ * @return array
  */
+
 return array();

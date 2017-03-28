@@ -33,7 +33,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $server['SERVER_NAME']    = 'localhost';
         $server['SERVER_PORT']    = '8000';
 
-        $config = new \Rougin\Slytherin\Configuration(__DIR__ . '/../app/config');
+        $config = new \Rougin\Slytherin\Configuration(base_path('app/config'));
 
         $config->set('app.http.server', $server);
 

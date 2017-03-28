@@ -59,6 +59,30 @@ class HelpersTest extends TestCase
     }
 
     /**
+     * Tests request().
+     *
+     * @return void
+     */
+    public function testRequest()
+    {
+        $interface = 'Psr\Http\Message\ServerRequestInterface';
+
+        $this->assertInstanceOf($interface, request());
+    }
+
+    /**
+     * Tests response().
+     *
+     * @return void
+     */
+    public function testResponse()
+    {
+        $interface = 'Psr\Http\Message\ResponseInterface';
+
+        $this->assertInstanceOf($interface, response());
+    }
+
+    /**
      * Tests session().
      *
      * @runInSeparateProcess

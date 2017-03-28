@@ -40,7 +40,7 @@ return array(
      *
      * @var string
      */
-    'views' => __DIR__ . '/../views',
+    'views' => base_path('app/views'),
 
     /**
      * The container to be used for setting up the dependencies.
@@ -48,7 +48,7 @@ return array(
      *
      * @var \Interop\Container\ContainerInterface
      */
-    'container' => new Rougin\Slytherin\Container\VanillaContainer,
+    'container' => new Rougin\Slytherin\Container\Container,
 
     /**
      * Contains the global variables provided by PHP. It was intended to be
@@ -67,28 +67,28 @@ return array(
          *
          * @var array
          */
-        'files'   => $_FILES,
+        'files' => $_FILES,
 
         /**
          * HTTP GET variables.
          *
          * @var array
          */
-        'get'     => $_GET,
+        'get' => $_GET,
 
         /**
          * HTTP POST variables.
          *
          * @var array
          */
-        'post'    => $_POST,
+        'post' => $_POST,
 
         /**
          * Server and execution environment information.
          *
          * @var array
          */
-        'server'  => $_SERVER,
+        'server' => $_SERVER,
     ),
 
     /**
@@ -97,14 +97,14 @@ return array(
      *
      * @var \Rougin\Slytherin\Routing\RouterInterface
      */
-    'router' => require __DIR__ . '/../../src/Http/routes.php',
+    'router' => require base_path('src/Http/routes.php'),
 
     /**
      * A listing of middlewares available to be injected in routes.
      *
      * @var array
      */
-    'middlewares' => require __DIR__ . '/../../src/Http/middlewares.php',
+    'middlewares' => require base_path('src/Http/middlewares.php'),
 
     /**
      * The list of integrations to be included in Slytherin core.

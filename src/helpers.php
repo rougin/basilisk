@@ -77,6 +77,30 @@ if (! function_exists('redirect')) {
     }
 }
 
+if (! function_exists('request')) {
+    /**
+     * Returns a \Psr\Http\Message\ServerRequestInterface instance.
+     *
+     * @return \Psr\Http\Message\ServerRequestInterface
+     */
+    function request()
+    {
+        return app('Psr\Http\Message\ServerRequestInterface');
+    }
+}
+
+if (! function_exists('response')) {
+    /**
+     * Returns a \Psr\Http\Message\ResponseInterface instance.
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    function response()
+    {
+        return app('Psr\Http\Message\ResponseInterface');
+    }
+}
+
 if (! function_exists('validate')) {
     /**
      * Validates the data from a specified validator.
@@ -101,7 +125,7 @@ if (! function_exists('validate')) {
             $flash['old'] = $data;
         }
 
-        $response = redirect(config('app.http.server.HTTP_REFERER'), $flash);
+        $response = redirect(config('app.http.server.HTTP_REFERER'));
 
         return $redirect && ! empty($flash) ? $response : $errors;
     }

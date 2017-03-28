@@ -13,6 +13,8 @@ class ApplicationTest extends TestCase
     /**
      * Tests the application.
      *
+     * @runInSeparateProcess
+     *
      * @return void
      */
     public function testApplication()

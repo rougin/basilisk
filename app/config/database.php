@@ -24,7 +24,7 @@ return array(
          *
          * @var string
          */
-        'driver' => 'pdo_mysql',
+        'driver' => 'mysql',
 
         /**
          * Hostname to be used.
