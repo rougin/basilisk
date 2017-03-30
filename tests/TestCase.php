@@ -33,12 +33,16 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $server['SERVER_NAME']    = 'localhost';
         $server['SERVER_PORT']    = '8000';
 
+        $container = new \Rougin\Slytherin\Container\Container;
+
         $config = new \Rougin\Slytherin\Configuration(base_path('app/config'));
 
         $config->set('app.http.server', $server);
 
-        $this->application = new \Rougin\Slytherin\Application($config->get('app.container'));
+        $application = new \Rougin\Slytherin\Application($container);
 
-        $this->application->integrate($config->get('app.integrations'), $config);
+        $application->integrate($config->get('app.integrations'), $config);
+
+        $this->application = $application;
     }
 }

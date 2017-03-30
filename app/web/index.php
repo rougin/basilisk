@@ -6,8 +6,8 @@ $root = str_replace(DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'web', '
 require $root . '/vendor/autoload.php';
 
 // Bootstraps the configuration before integrating it to Slytherin
-$config = require $root . '/app/bootstrap.php';
+list($config, $container) = require $root . '/app/bootstrap.php';
 
-$application = new Rougin\Slytherin\Application($config->get('app.container'));
+$application = new Rougin\Slytherin\Application($container);
 
 $application->integrate($config->get('app.integrations'), $config)->run();

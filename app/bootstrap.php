@@ -8,9 +8,15 @@
  * \Rougin\Slytherin\Integration\Configuration as it will be used for defining
  * the integrations provided in app/config/app.php file.
  *
- * @var \Rougin\Slytherin\Integration\Configuration
+ * @return array
  */
 
+// Loads the container based on \Interop\Container\ContainerInterface
+$container = new Rougin\Slytherin\Container\Container;
+
+// Set your definitions to the container here...
+
+// Loads the object for storing configurations
 $config = new Rougin\Slytherin\Configuration;
 
 // Loads the environment variables from an .env file.
@@ -25,4 +31,6 @@ $config->load(__DIR__ . '/config');
 // Set session variables.
 $config->set('app.http.session', $_SESSION);
 
-return $config;
+// This must return \Rougin\Slytherin\Integration\Configuration and 
+// \Interop\Container\ContainerInterface in the same order.
+return array($config, $container);

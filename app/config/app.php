@@ -43,14 +43,6 @@ return array(
     'views' => base_path('app/views'),
 
     /**
-     * The container to be used for setting up the dependencies.
-     * It must be implemented in \Interop\Container\ContainerInterface.
-     *
-     * @var \Interop\Container\ContainerInterface
-     */
-    'container' => new Rougin\Slytherin\Container\Container,
-
-    /**
      * Contains the global variables provided by PHP. It was intended to be
      * separated in order for the developers to easily mock these variables.
      */
