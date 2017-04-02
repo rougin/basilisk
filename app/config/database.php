@@ -7,58 +7,44 @@
  */
 return array(
     /**
-     * Returns the default configuration to be used.
+     * The driver to be used.
      *
      * @var string
      */
-    'default' => 'mysql',
+    'driver' => getenv('DATABASE_DRIVER'),
 
     /**
-     * Configuration for MySQL databases.
+     * Hostname to be used.
      *
-     * @var array
+     * @var string
      */
-    'mysql' => array(
-        /**
-         * The driver to be used.
-         *
-         * @var string
-         */
-        'driver' => 'mysql',
+    'host' => getenv('DATABASE_HOSTNAME'),
 
-        /**
-         * Hostname to be used.
-         *
-         * @var string
-         */
-        'host' => getenv('MYSQL_HOSTNAME'),
+    /**
+     * Username to be used when connecting.
+     *
+     * @var string
+     */
+    'username' => getenv('DATABASE_USERNAME'),
 
-        /**
-         * Username to be used when connecting.
-         *
-         * @var string
-         */
-        'username' => getenv('MYSQL_USERNAME'),
+    /**
+     * Password to be used when connecting.
+     *
+     * @var string
+     */
+    'password' => getenv('DATABASE_PASSWORD'),
 
-        /**
-         * Password to be used when connecting.
-         *
-         * @var string
-         */
-        'password' => getenv('MYSQL_PASSWORD'),
+    /**
+     * Name of the database.
+     *
+     * @var string
+     */
+    'database' => getenv('DATABASE_NAME'),
 
-        /**
-         * Name of the database.
-         *
-         * @var string
-         */
-        'database' => getenv('MYSQL_DATABASE'),
-
-        /**
-         * Character set to be used in the database.
-         *
-         * @var string
-         */
-        'charset' => getenv('MYSQL_CHARSET'),
-    )
+    /**
+     * Character set to be used in the database.
+     *
+     * @var string
+     */
+    'charset' => getenv('DATABASE_CHARSET'),
 );
