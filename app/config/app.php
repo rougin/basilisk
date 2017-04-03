@@ -18,7 +18,7 @@ return array(
      *
      * @var string
      */
-    'base_url' => getenv('BASE_URL'),
+    'base_url' => getenv('APP_URL'),
 
     /**
      * Environment used in the application.
@@ -26,14 +26,14 @@ return array(
      *
      * @var string
      */
-    'environment' => getenv('ENVIRONMENT'),
+    'environment' => getenv('APP_ENVIRONMENT'),
 
     /**
      * The default timezone for the application.
      *
      * @var string
      */
-    'timezone' => getenv('TIMEZONE'),
+    'timezone' => getenv('APP_TIMEZONE'),
 
     /**
      * The directory name which contains the template files.
