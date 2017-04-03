@@ -27,7 +27,7 @@ class EloquentIntegration implements \Rougin\Slytherin\Integration\IntegrationIn
         if (class_exists('Illuminate\Database\Capsule\Manager')) {
             $capsule = new \Illuminate\Database\Capsule\Manager;
 
-            $database = $config->get('database.' . $config->get('database.default'));
+            $database = $config->get('database');
 
             $database['charset']   = 'utf8';
             $database['collation'] = 'utf8_unicode_ci';
