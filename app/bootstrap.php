@@ -31,6 +31,6 @@ $config->load(__DIR__ . '/config');
 // Set session variables.
 $config->set('app.http.session', $_SESSION);
 
-// This must return \Rougin\Slytherin\Integration\Configuration and 
+// This must return \Rougin\Slytherin\Integration\Configuration and
 // \Interop\Container\ContainerInterface in the same order.
 return array($config, $container);
