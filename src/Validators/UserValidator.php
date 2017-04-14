@@ -19,9 +19,7 @@ class UserValidator extends AbstractValidator
     {
         $labels = array();
 
-        $labels['age']    = 'Age';
-        $labels['gender'] = 'Gender';
-        $labels['name']   = 'Name';
+        // $labels['column'] = 'value';
 
         return $labels;
     }
@@ -34,8 +32,6 @@ class UserValidator extends AbstractValidator
      */
     protected function rules(array $data = array())
     {
-        $this->validator->rule('required', 'age');
-        $this->validator->rule('required', 'gender');
-        $this->validator->rule('required', 'name');
+        // $this->validator->rule('rules', 'column');
     }
 }

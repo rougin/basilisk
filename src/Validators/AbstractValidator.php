@@ -22,9 +22,12 @@ abstract class AbstractValidator
      */
     protected $validator;
 
-    public function __construct()
+    /**
+     * @param \Valitron\Validator $validator
+     */
+    public function __construct(\Valitron\Validator $validator)
     {
-        $this->validator = new \Valitron\Validator;
+        $this->validator = $validator;
     }
 
     /**
@@ -55,6 +58,7 @@ abstract class AbstractValidator
         $this->rules($data);
 
         $validator = $this->validator->withData($data);
+
         $validated = $validator->validate();
 
         if (! $validated && is_array($validator->errors())) {

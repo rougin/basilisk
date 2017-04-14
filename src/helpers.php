@@ -36,14 +36,14 @@ if (! function_exists('config')) {
      * Gets the configuration from the specified file.
      *
      * @param  string      $key
-     * @param  string|null $defaultValue
+     * @param  string|null $default
      * @return mixed
      */
-    function config($key, $defaultValue = null)
+    function config($key, $default = null)
     {
         $config = app('Rougin\Slytherin\Integration\Configuration');
 
-        return $config->get($key, $defaultValue);
+        return $config->get($key, $default);
     }
 }
 
@@ -113,9 +113,10 @@ if (! function_exists('validate')) {
     function validate($validator, $data, $redirect = true)
     {
         $errors = array();
-        $flash  = array();
 
-        $validator = new $validator;
+        $flash = array();
+
+        $validator = new $validator(new \Valitron\Validator);
 
         if (! $validator->validate($data)) {
             $errors = $validator->errors;
@@ -125,7 +126,7 @@ if (! function_exists('validate')) {
             $flash['old'] = $data;
         }
 
-        $response = redirect(config('app.http.server.HTTP_REFERER'));
+        $response = redirect(config('app.http.server.HTTP_REFERER', '/'));
 
         return $redirect && ! empty($flash) ? $response : $errors;
     }

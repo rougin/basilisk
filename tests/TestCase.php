@@ -29,9 +29,9 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $server = array();
 
         $server['REQUEST_METHOD'] = 'GET';
-        $server['REQUEST_URI']    = '/';
-        $server['SERVER_NAME']    = 'localhost';
-        $server['SERVER_PORT']    = '8000';
+        $server['REQUEST_URI'] = '/';
+        $server['SERVER_NAME'] = 'localhost';
+        $server['SERVER_PORT'] = '8000';
 
         $container = new \Rougin\Slytherin\Container\Container;
 

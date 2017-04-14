@@ -78,7 +78,7 @@ $ php -S localhost:8000 -t app/web
 Run the test
 
 ``` bash
-$ composer test
+$ vendor/bin/phpunit
 ```
 
 [ico-version]: https://img.shields.io/packagist/v/rougin/slytherin-skeleton.svg?style=flat-square

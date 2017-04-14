@@ -83,22 +83,6 @@ class HelpersTest extends TestCase
     }
 
     /**
-     * Tests session().
-     *
-     * @runInSeparateProcess
-     *
-     * @return void
-     */
-    // public function testSession()
-    // {
-    //     $expected = 'foobar';
-
-    //     $_SESSION['foo'] = array('bar' => $expected);
-
-    //     $this->assertEquals($expected, session('foo.bar'));
-    // }
-
-    /**
      * Tests url().
      *
      * @return void
@@ -123,7 +107,9 @@ class HelpersTest extends TestCase
             $this->markTestSkipped('Valitron is not installed.');
         }
 
-        $this->assertCount(3, validate('Skeleton\Validators\UserValidator', array(), false));
+        $result = validate('Skeleton\Validators\UserValidator', array(), false);
+
+        $this->assertCount(0, $result);
     }
 
     /**

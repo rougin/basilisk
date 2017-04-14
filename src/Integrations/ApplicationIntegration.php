@@ -6,14 +6,14 @@ use Rougin\Slytherin\Integration\Configuration;
 use Rougin\Slytherin\Container\ContainerInterface;
 
 /**
- * Skeleton Integration
+ * Application Integration
  *
  * Bootstraps the application and integrate it to Slytherin.
  *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class SkeletonIntegration implements \Rougin\Slytherin\Integration\IntegrationInterface
+class ApplicationIntegration implements \Rougin\Slytherin\Integration\IntegrationInterface
 {
     /**
      * Defines the specified integration.
@@ -31,9 +31,9 @@ class SkeletonIntegration implements \Rougin\Slytherin\Integration\IntegrationIn
         if (class_exists('Twig_Environment')) {
             $interface = 'Rougin\Slytherin\Template\RendererInterface';
 
-            $renderer = app($interface);
-
             $request = $container->get('Psr\Http\Message\ServerRequestInterface');
+
+            $renderer = app($interface);
 
             $renderer->addGlobal('request', $request);
 

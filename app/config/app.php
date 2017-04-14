@@ -113,7 +113,7 @@ return array(
         'Rougin\Slytherin\Template\RendererIntegration',
 
         // Application Integrations
-        'Skeleton\Integrations\SkeletonIntegration',
+        'Skeleton\Integrations\ApplicationIntegration',
         'Skeleton\Integrations\EloquentIntegration',
     ),
 );
