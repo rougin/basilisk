@@ -11,7 +11,7 @@
  * @return array
  */
 
-// Loads the container based on \Interop\Container\ContainerInterface
+// Loads the container based on \Psr\Container\ContainerInterface
 $container = new Rougin\Slytherin\Container\Container;
 
 // Set your definitions to the container here...
@@ -32,5 +32,5 @@ $config->load(__DIR__ . '/config');
 $config->set('app.http.session', $_SESSION);
 
 // This must return \Rougin\Slytherin\Integration\Configuration and
-// \Interop\Container\ContainerInterface in the same order.
+// \Psr\Container\ContainerInterface in the same order.
 return array($config, $container);
