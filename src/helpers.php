@@ -25,9 +25,8 @@ if (! function_exists('base_path')) {
     function base_path($item = null)
     {
         $item = str_replace(array('\\', '/'), DIRECTORY_SEPARATOR, $item);
-        $path = str_replace('src', '', __DIR__);
 
-        return $path . $item;
+        return str_replace('src', '', __DIR__) . $item;
     }
 }
 

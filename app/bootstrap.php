@@ -22,14 +22,8 @@ $config = new Rougin\Slytherin\Configuration;
 // Loads the environment variables from an .env file.
 (new Dotenv\Dotenv(base_path()))->load();
 
-// Start the session.
-session_start();
-
 // Loads configuration values from the specified directory.
 $config->load(__DIR__ . '/config');
-
-// Set session variables.
-$config->set('app.http.session', $_SESSION);
 
 // This must return \Rougin\Slytherin\Integration\Configuration and
 // \Psr\Container\ContainerInterface in the same order.
