@@ -7,44 +7,79 @@
  */
 return array(
     /**
-     * The driver to be used.
+     * Default connection to be used.
      *
      * @var string
      */
-    'driver' => getenv('DATABASE_DRIVER'),
+    'default' => 'mysql',
 
     /**
-     * Hostname to be used.
+     * Configuration for the SQLite connection.
      *
-     * @var string
+     * @link https://www.mysql.com
      */
-    'host' => getenv('DATABASE_HOSTNAME'),
+    'sqlite' => array(
+        /**
+         * Name of the driver.
+         *
+         * @var string
+         */
+        'driver' => 'sqlite',
+
+        /**
+         * Path to SQLite database.
+         *
+         * @var string
+         */
+        'database' => 'path/to/sqlite/database',
+    ),
 
     /**
-     * Username to be used when connecting.
+     * Configuration for the MySQL connection.
      *
-     * @var string
+     * @link https://www.mysql.com
      */
-    'username' => getenv('DATABASE_USERNAME'),
+    'mysql' => array(
+        /**
+         * Name of the driver.
+         *
+         * @var string
+         */
+        'driver' => 'mysql',
 
-    /**
-     * Password to be used when connecting.
-     *
-     * @var string
-     */
-    'password' => getenv('DATABASE_PASSWORD'),
+        /**
+         * Hostname to be used.
+         *
+         * @var string
+         */
+        'host' => getenv('MYSQL_HOSTNAME'),
 
-    /**
-     * Name of the database.
-     *
-     * @var string
-     */
-    'database' => getenv('DATABASE_NAME'),
+        /**
+         * Username to be used when connecting.
+         *
+         * @var string
+         */
+        'username' => getenv('MYSQL_USERNAME'),
 
-    /**
-     * Character set to be used in the database.
-     *
-     * @var string
-     */
-    'charset' => getenv('DATABASE_CHARSET'),
+        /**
+         * Password to be used when connecting.
+         *
+         * @var string
+         */
+        'password' => getenv('MYSQL_PASSWORD'),
+
+        /**
+         * Name of the database.
+         *
+         * @var string
+         */
+        'database' => getenv('MYSQL_NAME'),
+
+        /**
+         * Character set to be used in the database.
+         *
+         * @var string
+         */
+        'charset' => getenv('MYSQL_CHARSET'),
+    ),
 );
