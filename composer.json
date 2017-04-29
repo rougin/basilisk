@@ -13,8 +13,8 @@
         }
     ],
     "require": {
-        "http-interop/http-middleware": "~0.4",
         "rougin/slytherin": "dev-master",
+        "rougin/weasley": "dev-master",
         "vlucas/phpdotenv": "~2.0"
     },
     "require-dev": {
@@ -22,6 +22,6 @@
         "phpunit/phpunit-selenium": "~2.0",
         "scrutinizer/ocular": "~1.0"
     },
-    "autoload": { "psr-4": { "Skeleton\\": "src/" }, "files": [ "src/helpers.php" ] },
+    "autoload": { "psr-4": { "Skeleton\\": "src" }, "files": [ "src/helpers.php" ] },
     "autoload-dev": { "psr-4": { "Skeleton\\": "tests" } }
 }

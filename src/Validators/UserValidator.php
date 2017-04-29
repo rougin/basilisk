@@ -2,6 +2,8 @@
 
 namespace Skeleton\Validators;
 
+use Rougin\Weasley\Validators\AbstractValidator;
+
 /**
  * User Validator
  *

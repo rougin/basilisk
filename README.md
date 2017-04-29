@@ -33,6 +33,7 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically
 * [Slytherin](https://github.com/rougin/slytherin) - a simple and extensible PHP library/framework
+* [Weasley](https://github.com/rougin/weasley) - provides generators and helpers for improving your Slytherin workflow
 
 ### Optional
 

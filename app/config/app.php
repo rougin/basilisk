@@ -114,6 +114,6 @@ return array(
 
         // Application Integrations
         'Skeleton\Integrations\ApplicationIntegration',
-        'Skeleton\Integrations\EloquentIntegration',
+        'Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration',
     ),
 );

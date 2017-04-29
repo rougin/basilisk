@@ -31,11 +31,9 @@ class ApplicationIntegration implements \Rougin\Slytherin\Integration\Integratio
         if (class_exists('Twig_Environment')) {
             $interface = 'Rougin\Slytherin\Template\RendererInterface';
 
-            $request = $container->get('Psr\Http\Message\ServerRequestInterface');
-
             $renderer = app($interface);
 
-            $renderer->addGlobal('request', $request);
+            $renderer->addGlobal('request', request());
 
             $renderer->addFunction(new \Twig_SimpleFunction('config', 'config'));
             $renderer->addFunction(new \Twig_SimpleFunction('url', 'url'));
