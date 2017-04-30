@@ -8,7 +8,7 @@ namespace Skeleton\Validators;
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class UserValidator extends \Rougin\Weasley\Validators\AbstractValidator
+class UserValidator extends AbstractValidator
 {
     /**
      * Sets the labels in the validator.
