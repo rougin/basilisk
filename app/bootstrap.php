@@ -20,7 +20,7 @@ $container = new Rougin\Slytherin\Container\Container;
 $config = new Rougin\Slytherin\Configuration;
 
 // Loads the environment variables from an .env file.
-(new Dotenv\Dotenv(base_path()))->load();
+(new Dotenv\Dotenv(path()))->load();
 
 // Loads configuration values from the specified directory.
 $config->load(__DIR__ . '/config');

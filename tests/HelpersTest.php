@@ -11,13 +11,13 @@ namespace Skeleton;
 class HelpersTest extends TestCase
 {
     /**
-     * Tests base_path().
+     * Tests path().
      *
      * @return void
      */
-    public function testBasePath()
+    public function testPathMethod()
     {
-        $file = base_path('src/helpers.php');
+        $file = path('src/helpers.php');
 
         $this->assertTrue(file_exists($file));
     }
@@ -27,7 +27,7 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testConfig()
+    public function testConfigMethod()
     {
         $expected = 'http://localhost:8000';
 
@@ -39,7 +39,7 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testMiddleware()
+    public function testMiddlewareMethod()
     {
         $this->assertEmpty(middleware());
     }
@@ -51,7 +51,7 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testRedirect()
+    public function testRedirectMethod()
     {
         $response = redirect('/', array('foo' => 'bar'));
 
@@ -63,7 +63,7 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testRequest()
+    public function testRequestMethod()
     {
         $interface = 'Psr\Http\Message\ServerRequestInterface';
 
@@ -75,23 +75,11 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testResponse()
+    public function testResponseMethod()
     {
         $interface = 'Psr\Http\Message\ResponseInterface';
 
         $this->assertInstanceOf($interface, response());
-    }
-
-    /**
-     * Tests url().
-     *
-     * @return void
-     */
-    public function testUrl()
-    {
-        $expected = config('app.base_url') . 'test';
-
-        $this->assertEquals($expected, url('test'));
     }
 
     /**
@@ -101,7 +89,7 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testValidate()
+    public function testValidateMethod()
     {
         if (! class_exists('Valitron\Validator')) {
             $this->markTestSkipped('Valitron is not installed.');
@@ -119,7 +107,7 @@ class HelpersTest extends TestCase
      *
      * @return void
      */
-    public function testView()
+    public function testViewMethod()
     {
         $view = view('welcome/index', array('url' => config('app.base_url')));
 

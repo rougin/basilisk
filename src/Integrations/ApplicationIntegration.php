@@ -31,12 +31,17 @@ class ApplicationIntegration implements \Rougin\Slytherin\Integration\Integratio
         if (class_exists('Twig_Environment')) {
             $interface = 'Rougin\Slytherin\Template\RendererInterface';
 
-            $renderer = app($interface);
+            $renderer = container($interface);
 
             $renderer->addGlobal('request', request());
 
             $renderer->addFunction(new \Twig_SimpleFunction('config', 'config'));
-            $renderer->addFunction(new \Twig_SimpleFunction('url', 'url'));
+
+            $callback = function ($link = null) {
+                return config('app.base_url') . $link;
+            };
+
+            $renderer->addFunction(new \Twig_SimpleFunction('url', $callback));
 
             $container->set($interface, $renderer);
         }

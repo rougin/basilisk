@@ -40,7 +40,7 @@ return array(
      *
      * @var string
      */
-    'views' => base_path('app/views'),
+    'views' => path('app/views'),
 
     /**
      * Contains the global variables provided by PHP. It was intended to be
@@ -89,14 +89,14 @@ return array(
      *
      * @var \Rougin\Slytherin\Routing\RouterInterface
      */
-    'router' => require base_path('src/Http/routes.php'),
+    'router' => require path('src/Http/routes.php'),
 
     /**
      * A listing of middlewares available to be injected in routes.
      *
      * @var array
      */
-    'middlewares' => require base_path('src/Http/middlewares.php'),
+    'middlewares' => require path('src/Http/middlewares.php'),
 
     /**
      * The list of integrations to be included in Slytherin core.
@@ -112,8 +112,10 @@ return array(
         'Rougin\Slytherin\Routing\RoutingIntegration',
         'Rougin\Slytherin\Template\RendererIntegration',
 
+        // Weasley Integrations
+        'Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration',
+
         // Application Integrations
         'Skeleton\Integrations\ApplicationIntegration',
-        'Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration',
     ),
 );
