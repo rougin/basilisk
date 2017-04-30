@@ -1,13 +1,13 @@
 <?php
 
-if (! function_exists('container')) {
+if (! function_exists('app')) {
     /**
      * Returns the available container instance.
      *
      * @param  string $key
      * @return mixed
      */
-    function container($key = null)
+    function app($key = null)
     {
         $container = \Rougin\Slytherin\Application::container();
 
@@ -15,14 +15,14 @@ if (! function_exists('container')) {
     }
 }
 
-if (! function_exists('path')) {
+if (! function_exists('base_path')) {
     /**
      * Returns the base path of the application.
      *
      * @param  string|null $item
      * @return string
      */
-    function path($item = null)
+    function base_path($item = null)
     {
         $item = str_replace(array('\\', '/'), DIRECTORY_SEPARATOR, $item);
 
@@ -40,7 +40,7 @@ if (! function_exists('config')) {
      */
     function config($key, $default = null)
     {
-        $config = container('Rougin\Slytherin\Integration\Configuration');
+        $config = app('Rougin\Slytherin\Integration\Configuration');
 
         return $config->get($key, $default);
     }
@@ -70,7 +70,7 @@ if (! function_exists('redirect')) {
      */
     function redirect($url)
     {
-        $response = container('Psr\Http\Message\ResponseInterface');
+        $response = app('Psr\Http\Message\ResponseInterface');
 
         return $response->withStatus(302)->withHeader('Location', $url);
     }
@@ -84,7 +84,7 @@ if (! function_exists('request')) {
      */
     function request()
     {
-        return container('Psr\Http\Message\ServerRequestInterface');
+        return app('Psr\Http\Message\ServerRequestInterface');
     }
 }
 
@@ -96,7 +96,7 @@ if (! function_exists('response')) {
      */
     function response()
     {
-        return container('Psr\Http\Message\ResponseInterface');
+        return app('Psr\Http\Message\ResponseInterface');
     }
 }
 
@@ -131,6 +131,19 @@ if (! function_exists('validate')) {
     }
 }
 
+if (! function_exists('url')) {
+    /**
+     * Returns an URL with the specified link.
+     *
+     * @param  string|null $link
+     * @return string
+     */
+    function url($link = null)
+    {
+        return config('app.base_url') . $link;
+    }
+}
+
 if (! function_exists('view')) {
     /**
      * Renders a view from a template.
@@ -141,7 +154,7 @@ if (! function_exists('view')) {
      */
     function view($template, $data = array())
     {
-        $renderer = container('Rougin\Slytherin\Template\RendererInterface');
+        $renderer = app('Rougin\Slytherin\Template\RendererInterface');
 
         return $renderer->render($template, $data);
     }

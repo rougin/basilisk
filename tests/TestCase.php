@@ -22,7 +22,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $dotenv = new \Dotenv\Dotenv(path());
+        $dotenv = new \Dotenv\Dotenv(base_path());
 
         $dotenv->load();
 
@@ -35,7 +35,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
         $container = new \Rougin\Slytherin\Container\Container;
 
-        $config = new \Rougin\Slytherin\Configuration(path('app/config'));
+        $config = new \Rougin\Slytherin\Configuration(base_path('app/config'));
 
         $config->set('app.http.server', $server);
 

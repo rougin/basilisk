@@ -40,7 +40,6 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 The skeleton is tailored to work for the following packages. You just need to install them manually:
 
 * [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
-* [Eloquent](https://laravel.com/docs/5.0/eloquent) - provides a beautiful, simple ActiveRecord implementation for working with your database
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
 * [Stratigility](https://github.com/zendframework/zend-stratigility) - a middleware for PHP built on top of PSR-7
 * [Twig](https://github.com/twigphp/Twig) - a flexible, fast, and secure template language for PHP

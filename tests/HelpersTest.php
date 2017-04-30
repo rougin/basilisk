@@ -11,13 +11,13 @@ namespace Skeleton;
 class HelpersTest extends TestCase
 {
     /**
-     * Tests path().
+     * Tests base_path().
      *
      * @return void
      */
-    public function testPathMethod()
+    public function testBasePathMethod()
     {
-        $file = path('src/helpers.php');
+        $file = base_path('src/helpers.php');
 
         $this->assertTrue(file_exists($file));
     }
@@ -98,6 +98,18 @@ class HelpersTest extends TestCase
         $result = validate('Skeleton\Validators\UserValidator', array(), false);
 
         $this->assertCount(0, $result);
+    }
+
+    /**
+     * Tests url().
+     *
+     * @return void
+     */
+    public function testUrl()
+    {
+        $expected = config('app.base_url') . 'test';
+      
+        $this->assertEquals($expected, url('test'));
     }
 
     /**
