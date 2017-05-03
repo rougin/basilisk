@@ -25,20 +25,18 @@ class ApplicationIntegration implements \Rougin\Slytherin\Integration\Integratio
     public function define(ContainerInterface $container, Configuration $config)
     {
         // Sets the default timezone
-        date_default_timezone_set(config('app.timezone'));
+        date_default_timezone_set($config->get('app.timezone'));
 
         // If Twig is installed, add additional globals and functions to it.
         if (class_exists('Twig_Environment')) {
-            $interface = 'Rougin\Slytherin\Template\RendererInterface';
+            $renderer = app('Rougin\Slytherin\Template\RendererInterface');
 
-            $renderer = app($interface);
-
-            $renderer->addGlobal('request', request());
+            $renderer->addGlobal('request', app('Psr\Http\Message\ServerRequestInterface'));
 
             $renderer->addFunction(new \Twig_SimpleFunction('config', 'config'));
             $renderer->addFunction(new \Twig_SimpleFunction('url', 'url'));
 
-            $container->set($interface, $renderer);
+            $container->set('Rougin\Slytherin\Template\RendererInterface', $renderer);
         }
 
         return $container;
