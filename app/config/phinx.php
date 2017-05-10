@@ -1,7 +1,9 @@
 <?php
 
 // Loads the environment variables from an .env file.
-(new Dotenv\Dotenv(base_path()))->load();
+$dotenv = new Dotenv\Dotenv(base_path());
+
+$dotenv->load();
 
 /**
  * Configurations for Phinx.
