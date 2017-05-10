@@ -16,7 +16,7 @@ return array(
     /**
      * Configuration for the SQLite connection.
      *
-     * @link https://sqliteonline.com
+     * @link https://www.sqlite.org
      */
     'sqlite' => array(
         /**

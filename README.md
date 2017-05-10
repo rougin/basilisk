@@ -40,6 +40,7 @@ The skeleton is tailored to work for the following packages. You just need to in
 
 * [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
+	* Use this command when seeding or migrating: `vendor/bin/phinx migrate -c app/config/phinx.php`
 * [Stratigility](https://github.com/zendframework/zend-stratigility) - a middleware for PHP built on top of PSR-7
 * [Twig](https://github.com/twigphp/Twig) - a flexible, fast, and secure template language for PHP
 * [Valitron](http://vancelucas.com/blog/valitron-the-simple-validation-library-that-doesnt-suck) - a simple, elegant, stand-alone validation library
