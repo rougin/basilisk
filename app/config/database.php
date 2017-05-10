@@ -16,7 +16,7 @@ return array(
     /**
      * Configuration for the SQLite connection.
      *
-     * @link https://www.mysql.com
+     * @link https://sqliteonline.com
      */
     'sqlite' => array(
         /**
@@ -24,14 +24,14 @@ return array(
          *
          * @var string
          */
-        'driver' => 'sqlite',
+        'driver' => getenv('SQLITE_DRIVER'),
 
         /**
          * Path to SQLite database.
          *
          * @var string
          */
-        'database' => 'path/to/sqlite/database',
+        'database' => getenv('SQLITE_DATABASE'),
     ),
 
     /**
@@ -73,7 +73,14 @@ return array(
          *
          * @var string
          */
-        'database' => getenv('MYSQL_NAME'),
+        'database' => getenv('MYSQL_DATABASE'),
+
+        /**
+         * Port to be used when accessing the database.
+         *
+         * @var integer
+         */
+        'port' => getenv('MYSQL_PORT'),
 
         /**
          * Character set to be used in the database.
