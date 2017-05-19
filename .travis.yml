@@ -8,11 +8,6 @@ php:
   - 7.0
   - hhvm
 
-sudo: required
-dist: precise
-services:
-  - mysql
-
 matrix:
   allow_failures:
     - php: 7.0
