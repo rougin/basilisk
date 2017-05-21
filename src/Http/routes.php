@@ -8,6 +8,8 @@
 
 $router = new Rougin\Slytherin\Routing\Router;
 
-$router->get('/', array('Skeleton\Http\Controllers\WelcomeController', 'index'));
+$router->prefix('', 'Skeleton\Http\Controllers');
+
+$router->get('/', 'WelcomeController@index');
 
 return $router;
