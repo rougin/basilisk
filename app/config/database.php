@@ -14,27 +14,6 @@ return array(
     'default' => 'mysql',
 
     /**
-     * Configuration for the SQLite connection.
-     *
-     * @link https://www.sqlite.org
-     */
-    'sqlite' => array(
-        /**
-         * Name of the driver.
-         *
-         * @var string
-         */
-        'driver' => getenv('SQLITE_DRIVER'),
-
-        /**
-         * Path to SQLite database.
-         *
-         * @var string
-         */
-        'database' => getenv('SQLITE_DATABASE'),
-    ),
-
-    /**
      * Configuration for the MySQL connection.
      *
      * @link https://www.mysql.com
@@ -88,5 +67,26 @@ return array(
          * @var string
          */
         'charset' => getenv('MYSQL_CHARSET'),
+    ),
+
+    /**
+     * Configuration for the SQLite connection.
+     *
+     * @link https://www.sqlite.org
+     */
+    'sqlite' => array(
+        /**
+         * Name of the driver.
+         *
+         * @var string
+         */
+        'driver' => getenv('SQLITE_DRIVER'),
+
+        /**
+         * Path to SQLite database.
+         *
+         * @var string
+         */
+        'database' => getenv('SQLITE_DATABASE'),
     ),
 );
