@@ -111,16 +111,12 @@ if (! function_exists('validate')) {
      */
     function validate($validator, $data, $redirect = true)
     {
-        $errors = array();
-
-        $flash = array();
+        list($errors, $flash) = array(array(), array());
 
         $validator = new $validator(new \Valitron\Validator);
 
-        if (! $validator->validate($data)) {
-            $errors = $validator->errors;
-
-            $flash['validation'] = $errors;
+        if ($validator->validate($data) === false) {
+            $flash['validation'] = $errors = $validator->errors;
 
             $flash['old'] = $data;
         }

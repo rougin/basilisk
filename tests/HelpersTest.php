@@ -91,13 +91,11 @@ class HelpersTest extends TestCase
      */
     public function testValidateMethod()
     {
-        if (! class_exists('Valitron\Validator')) {
-            $this->markTestSkipped('Valitron is not installed.');
-        }
+        class_exists('Valitron\Validator') || $this->markTestSkipped('Valitron is not installed.');
 
         $result = validate('Skeleton\Validators\UserValidator', array(), false);
 
-        $this->assertCount(0, $result);
+        $this->assertCount(1, $result);
     }
 
     /**
