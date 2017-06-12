@@ -31,7 +31,7 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 ### Installed
 
-* [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically
+* [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
 * [Slytherin](https://github.com/rougin/slytherin) - a simple and extensible PHP library/framework
 
 ### Optional
