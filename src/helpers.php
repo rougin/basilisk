@@ -92,11 +92,14 @@ if (! function_exists('response')) {
     /**
      * Returns a \Psr\Http\Message\ResponseInterface instance.
      *
+     * @param  integer|null $status
      * @return \Psr\Http\Message\ResponseInterface
      */
-    function response()
+    function response($status = null)
     {
-        return app('Psr\Http\Message\ResponseInterface');
+        $response = app('Psr\Http\Message\ResponseInterface');
+
+        return $response->withStatus($status ? $status : 200);
     }
 }
 
