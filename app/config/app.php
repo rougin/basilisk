@@ -14,6 +14,13 @@ return array(
     'name' => getenv('APP_NAME'),
 
     /**
+     * Version number of the application, if applicable.
+     *
+     * @var string
+     */
+    'version' => getenv('APP_VERSION'),
+
+    /**
      * The URL of your application root.
      *
      * @var string
