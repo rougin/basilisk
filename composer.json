@@ -20,7 +20,7 @@
     "require": {
         "php": ">=5.3.0",
         "http-interop/http-middleware": "~0.4",
-        "rougin/slytherin": "dev-master",
+        "rougin/slytherin": "~0.9",
         "vlucas/phpdotenv": "~2.0"
     },
     "require-dev": {
