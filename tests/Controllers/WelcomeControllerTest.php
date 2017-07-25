@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace Skeleton\Controllers;
 
 /**
  * Welcome Controller Test
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class WelcomeControllerTest extends \PHPUnit_Extensions_Selenium2TestCase
@@ -55,10 +55,12 @@ class WelcomeControllerTest extends \PHPUnit_Extensions_Selenium2TestCase
      */
     public function testIndexMethod()
     {
+        $expected = 'Hello, Muggle.';
+
         $this->url('http://localhost:8000');
 
         $content = $this->byTag('div')->text();
 
-        $this->assertEquals('Hello, Muggle.', $content);
+        $this->assertEquals($expected, $content);
     }
 }

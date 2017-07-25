@@ -3,7 +3,7 @@
 namespace Skeleton;
 
 /**
- * Selenium TestCase
+ * Selenium Test Case
  *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>

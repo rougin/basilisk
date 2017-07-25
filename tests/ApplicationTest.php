@@ -5,7 +5,7 @@ namespace Skeleton;
 /**
  * Application Helper Test
  *
- * @package App
+ * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class ApplicationTest extends TestCase
