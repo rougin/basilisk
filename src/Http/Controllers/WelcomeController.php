@@ -13,9 +13,9 @@ namespace Skeleton\Http\Controllers;
 class WelcomeController extends BaseController
 {
     /**
-     * Returns the view page.
+     * Returns the welcome page.
      *
-     * @return view
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function index()
     {
