@@ -110,13 +110,13 @@ if (! function_exists('validate')) {
      * @param  string  $validator
      * @param  mixed   $data
      * @param  boolean $redirect
-     * @return void|redirect
+     * @return \Psr\Http\Message\ResponseInterface|array
      */
     function validate($validator, $data, $redirect = true)
     {
         list($errors, $flash) = array(array(), array());
 
-        $validator = new $validator(new \Valitron\Validator);
+        $validator = new $validator;
 
         if ($validator->validate($data) === false) {
             $flash['validation'] = $errors = $validator->errors;
