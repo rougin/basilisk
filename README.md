@@ -14,7 +14,7 @@ A simple web application skeleton on top of [Slytherin](https://github.com/rougi
 Via Composer
 
 ``` bash
-$ composer create-project rougin/slytherin-skeleton:dev-master "acme"
+$ composer create-project rougin/slytherin-skeleton:dev-master "project"
 ```
 
 ## Getting Started
