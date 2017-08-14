@@ -5,7 +5,7 @@ namespace Skeleton\Http\Controllers;
 /**
  * Welcome Controller
  *
- * A simple "Hello world" class.
+ * Displays a simple "Hello world" class.
  *
  * @package Skeleton
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
