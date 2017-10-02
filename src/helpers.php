@@ -139,6 +139,8 @@ if (! function_exists('url')) {
      */
     function url($link = null)
     {
+        $link = ($link[0] != '/') ? '/' . $link : $link;
+
         return config('app.base_url') . $link;
     }
 }
