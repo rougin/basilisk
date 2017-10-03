@@ -49,9 +49,9 @@ before_script:
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
-  - if [[ $TRAVIS_PHP_VERSION == '5.3' ]]; then composer require filp/whoops robmorgan/phinx twig/twig vlucas/valitron --dev; fi
-  - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
-  - if [[ $TRAVIS_PHP_VERSION != '5.3' && $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION == '5.3' ]]; then composer require filp/whoops robmorgan/phinx vlucas/valitron --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION == '5.4' ]]; then composer require filp/whoops robmorgan/phinx symfony/console:~2.8 symfony/yaml:~2.8 vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
+  - if [[ $TRAVIS_PHP_VERSION != '5.3' && $TRAVIS_PHP_VERSION != '5.4' ]]; then composer require filp/whoops robmorgan/phinx vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility --dev; fi
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
