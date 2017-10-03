@@ -1,11 +1,11 @@
 <?php
 
-namespace Skeleton\Models;
+namespace App\Models;
 
 /**
  * User Model
  *
- * @package Skeleton
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class User extends \Illuminate\Database\Eloquent\Model

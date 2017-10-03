@@ -1,11 +1,11 @@
 <?php
 
-namespace Skeleton;
+namespace App;
 
 /**
  * Selenium Test Case
  *
- * @package Skeleton
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class TestCase extends \PHPUnit_Framework_TestCase

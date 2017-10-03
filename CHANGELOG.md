@@ -1,8 +1,8 @@
 # Changelog
 
-All notable changes to `Skeleton` will be documented in this file.
+All notable changes to `App` will be documented in this file.
 
 ## 0.1.0 - CURRENT_DATE
 
 ### Added
-- `Skeleton` file and directory structure
+- `App` file and directory structure

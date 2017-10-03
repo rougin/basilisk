@@ -88,6 +88,13 @@ return array(
          * @var array
          */
         'server' => $_SERVER,
+
+        /**
+         * Session variables.
+         *
+         * @var array
+         */
+        'session' => isset($_SESSION) ? $_SESSION : array(),
     ),
 
     /**
@@ -120,6 +127,6 @@ return array(
         'Rougin\Slytherin\Template\RendererIntegration',
 
         // Application Integrations
-        'Skeleton\Integrations\ApplicationIntegration',
+        'App\Integrations\AppIntegration',
     ),
 );

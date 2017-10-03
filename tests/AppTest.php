@@ -1,14 +1,14 @@
 <?php
 
-namespace Skeleton;
+namespace App;
 
 /**
  * Application Helper Test
  *
- * @package Skeleton
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class ApplicationTest extends TestCase
+class AppTest extends TestCase
 {
     /**
      * Tests the application.
@@ -17,7 +17,7 @@ class ApplicationTest extends TestCase
      *
      * @return void
      */
-    public function testApplication()
+    public function testApp()
     {
         $this->expectOutputRegex('/Hello/');
 

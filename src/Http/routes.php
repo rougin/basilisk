@@ -8,7 +8,7 @@
 
 $router = new Rougin\Slytherin\Routing\Router;
 
-$router->prefix('', 'Skeleton\Http\Controllers');
+$router->prefix('', 'App\Http\Controllers');
 
 $router->get('/', 'WelcomeController@index');
 

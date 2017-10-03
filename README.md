@@ -14,7 +14,7 @@ A simple web application skeleton on top of [Slytherin](https://github.com/rougi
 Via Composer
 
 ``` bash
-$ composer create-project rougin/slytherin-skeleton:dev-master "project"
+$ composer create-project rougin/slytherin-skeleton:dev-master "acme"
 ```
 
 ## Getting Started
@@ -22,6 +22,7 @@ $ composer create-project rougin/slytherin-skeleton:dev-master "project"
 **Run the application using PHP's built-in web server:**
 
 ``` bash
+$ cp .env.example .env
 $ php -S localhost:8000 -t app/web
 ```
 
@@ -42,7 +43,6 @@ The skeleton is tailored to work for the following packages. You just need to in
 * [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
     * Use this command when seeding or migrating: `vendor/bin/phinx migrate -c app/config/phinx.php`
 * [Stratigility](https://github.com/zendframework/zend-stratigility) - a middleware for PHP built on top of PSR-7
-* [Twig](https://github.com/twigphp/Twig) - a flexible, fast, and secure template language for PHP
 * [Valitron](http://vancelucas.com/blog/valitron-the-simple-validation-library-that-doesnt-suck) - a simple, elegant, stand-alone validation library
 * [Whoops!](https://filp.github.io/whoops) - a PHP error handler for cool kids
 
@@ -57,25 +57,6 @@ $ composer require illuminate/database filp/whoops robmorgan/phinx twig/twig vlu
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Testing
-
-Install and run [Selenium](http://www.seleniumhq.org/download/)
-
-``` bash
-$ wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
-$ wget http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip
-$ unzip chromedriver_linux64.zip
-$ chmod +x chromedriver
-$ java -jar selenium-server-standalone-2.53.1.jar -port 4444
-```
-
-Prepare the application
-
-``` bash
-$ cp .env.example .env
-$ php -S localhost:8000 -t app/web
-```
-
-Run the test
 
 ``` bash
 $ vendor/bin/phpunit

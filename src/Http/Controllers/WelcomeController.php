@@ -1,13 +1,13 @@
 <?php
 
-namespace Skeleton\Http\Controllers;
+namespace App\Http\Controllers;
 
 /**
  * Welcome Controller
  *
- * Displays a simple "Hello world" class.
+ * Displays a simple "Hello, Muggle" text.
  *
- * @package Skeleton
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class WelcomeController extends BaseController
@@ -21,6 +21,6 @@ class WelcomeController extends BaseController
     {
         $data = array('url' => config('app.base_url'));
 
-        return view('welcome/index', $data);
+        return view('index', $data);
     }
 }

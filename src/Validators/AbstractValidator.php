@@ -1,11 +1,11 @@
 <?php
 
-namespace Skeleton\Validators;
+namespace App\Validators;
 
 /**
  * Abstract Validator
  *
- * @package Skeleton
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 abstract class AbstractValidator

@@ -1,11 +1,11 @@
 <?php
 
-namespace Skeleton;
+namespace App;
 
 /**
  * Helpers Test
  *
- * @package Skeleton
+ * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
 class HelpersTest extends TestCase
@@ -93,7 +93,7 @@ class HelpersTest extends TestCase
     {
         class_exists('Valitron\Validator') || $this->markTestSkipped('Valitron is not installed.');
 
-        $result = validate('Skeleton\Validators\UserValidator', array(), false);
+        $result = validate('App\Validators\UserValidator', array(), false);
 
         $this->assertCount(1, $result);
     }
@@ -105,8 +105,8 @@ class HelpersTest extends TestCase
      */
     public function testUrl()
     {
-        $expected = config('app.base_url') . 'test';
-      
+        $expected = config('app.base_url') . '/test';
+
         $this->assertEquals($expected, url('test'));
     }
 
@@ -119,7 +119,7 @@ class HelpersTest extends TestCase
      */
     public function testViewMethod()
     {
-        $view = view('welcome/index', array('url' => config('app.base_url')));
+        $view = view('index', array('url' => config('app.base_url')));
 
         $this->assertRegexp('/Hello/', $view);
     }

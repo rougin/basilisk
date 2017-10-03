@@ -11,6 +11,9 @@
  * @return array
  */
 
+// Starts the session if it's loaded from a web server
+// if (php_sapi_name() !== 'cli') session_start();
+
 // Loads the container based on \Psr\Container\ContainerInterface
 $container = new Rougin\Slytherin\Container\Container;
 
