@@ -23,10 +23,10 @@ $container = new Rougin\Slytherin\Container\Container;
 $config = new Rougin\Slytherin\Configuration;
 
 // Loads the environment variables from an .env file.
-(new Dotenv\Dotenv(__DIR__ . '/../'))->load();
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
 
 // Loads configuration values from the specified directory.
-$config->load(__DIR__ . '/config');
+$dotenv->load() && $config->load(__DIR__ . '/config');
 
 // This must return \Rougin\Slytherin\Integration\Configuration and
 // \Psr\Container\ContainerInterface in the same order.
