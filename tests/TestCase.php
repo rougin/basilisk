@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Rougin\Slytherin\Integration\Configuration;
+
 /**
  * Selenium Test Case
  *
@@ -13,7 +15,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * @var \Rougin\Slytherin\Application\Application
      */
-    protected $application;
+    protected $app;
 
     /**
      * Loads the helpers.
@@ -22,27 +24,17 @@ class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $dotenv = new \Dotenv\Dotenv(base_path());
+        list($config, $container) = require path('app/bootstrap.php');
 
-        $dotenv->load();
+        $app = new \Rougin\Slytherin\Application($container);
 
-        $server = array();
+        $config->set('app.http.server.REQUEST_METHOD', 'GET');
+        $config->set('app.http.server.REQUEST_URI', '/');
+        $config->set('app.http.server.SERVER_NAME', 'localhost');
+        $config->set('app.http.server.SERVER_PORT', '8000');
 
-        $server['REQUEST_METHOD'] = 'GET';
-        $server['REQUEST_URI'] = '/';
-        $server['SERVER_NAME'] = 'localhost';
-        $server['SERVER_PORT'] = '8000';
+        $integrations = $config->get('app.integrations');
 
-        $container = new \Rougin\Slytherin\Container\Container;
-
-        $config = new \Rougin\Slytherin\Configuration(base_path('app/config'));
-
-        $config->set('app.http.server', $server);
-
-        $application = new \Rougin\Slytherin\Application($container);
-
-        $application->integrate($config->get('app.integrations'), $config);
-
-        $this->application = $application;
+        $this->app = $app->integrate($integrations, $config);
     }
 }

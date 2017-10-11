@@ -21,6 +21,6 @@ class AppTest extends TestCase
     {
         $this->expectOutputRegex('/Hello/');
 
-        $this->application->run();
+        $this->app->run();
     }
 }

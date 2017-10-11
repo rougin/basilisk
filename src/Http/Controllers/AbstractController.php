@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 /**
- * Base Controller
+ * Abstract Controller
  *
- * A base class for HTTP controllers.
+ * An abstract class for HTTP controllers.
  *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class BaseController
+abstract class AbstractController
 {
 }

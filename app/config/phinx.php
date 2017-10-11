@@ -1,7 +1,7 @@
 <?php
 
 // Loads the environment variables from an .env file.
-$dotenv = new Dotenv\Dotenv(base_path());
+$dotenv = new Dotenv\Dotenv(path());
 
 $dotenv->load();
 
@@ -14,8 +14,8 @@ $dotenv->load();
  */
 return array(
     'paths' => array(
-        'migrations' => array(base_path('app/database/migrations')),
-        'seeds' => array(base_path('app/database/seeds')),
+        'migrations' => array(path('app/database/migrations')),
+        'seeds' => array(path('app/database/seeds')),
     ),
     'environments' => array(
         'default_migration_table' => 'phinxlog',
