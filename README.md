@@ -1,4 +1,4 @@
-# Slytherin Skeleton
+# Basilisk
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,14 +7,14 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A simple web application skeleton on top of [Slytherin](https://github.com/rougin/slytherin) PHP framework.
+A [Slytherin](https://github.com/rougin/slytherin) skeleton application.
 
 ## Install
 
 Via Composer
 
 ``` bash
-$ composer create-project rougin/slytherin-skeleton:dev-master "acme"
+$ composer create-project rougin/basilisk:dev-master "acme"
 ```
 
 ## Getting Started
@@ -33,23 +33,21 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 ### Installed
 
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
-* [Slytherin](https://github.com/rougin/slytherin) - a simple and extensible PHP library/framework
+* [Slytherin](https://github.com/rougin/slytherin) - yet another extensible library/framework for PHP
 
 ### Optional
 
-The skeleton is tailored to work for the following packages. You just need to install them manually:
+The skeleton is tailored to work for the following packages. You just need to install them manually through Composer:
 
-* [Diactoros](https://github.com/zendframework/zend-diactoros) - a PSR-7 HTTP Message implementation
-* [Phinx](https://github.com/robmorgan/phinx) - a PHP Database Migrations for everyone
-    * Use this command when seeding or migrating: `vendor/bin/phinx migrate -c app/config/phinx.php`
-* [Stratigility](https://github.com/zendframework/zend-stratigility) - a middleware for PHP built on top of PSR-7
+* [Eloquent](https://laravel.com/docs/5.5/eloquent) - a simple ActiveRecord implementation for Laravel
+* [Phinx](https://phinx.org/) - a PHP Database Migrations for everyone (for seeding/migrating, use the command `vendor/bin/phinx migrate -c app/config/phinx.php`)
 * [Valitron](http://vancelucas.com/blog/valitron-the-simple-validation-library-that-doesnt-suck) - a simple, elegant, stand-alone validation library
 * [Whoops!](https://filp.github.io/whoops) - a PHP error handler for cool kids
 
 If you want to get all the optional packages, paste this command to your terminal:
 
 ``` bash
-$ composer require illuminate/database filp/whoops robmorgan/phinx twig/twig vlucas/valitron zendframework/zend-diactoros zendframework/zend-stratigility
+$ composer require illuminate/database filp/whoops robmorgan/phinx vlucas/valitron
 ```
 
 ## Change log
@@ -62,17 +60,17 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 $ vendor/bin/phpunit
 ```
 
-[ico-version]: https://img.shields.io/packagist/v/rougin/slytherin-skeleton.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/rougin/basilisk.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/rougin/slytherin-skeleton/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/rougin/slytherin-skeleton.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/rougin/slytherin-skeleton.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/rougin/slytherin-skeleton.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/rougin/basilisk/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/rougin/basilisk.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/rougin/basilisk.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/rougin/basilisk.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/rougin/slytherin-skeleton
-[link-travis]: https://travis-ci.org/rougin/slytherin-skeleton
-[link-scrutinizer]: https://scrutinizer-ci.com/g/rougin/slytherin-skeleton/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/rougin/slytherin-skeleton
-[link-downloads]: https://packagist.org/packages/rougin/slytherin-skeleton
+[link-packagist]: https://packagist.org/packages/rougin/basilisk
+[link-travis]: https://travis-ci.org/rougin/basilisk
+[link-scrutinizer]: https://scrutinizer-ci.com/g/rougin/basilisk/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/rougin/basilisk
+[link-downloads]: https://packagist.org/packages/rougin/basilisk
 [link-author]: https://github.com/rougin
 [link-contributors]: ../../contributors

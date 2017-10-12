@@ -11,11 +11,13 @@
  * @return array
  */
 
-// Starts the session if it's loaded from a web server
+// Starts the session if it's called from a web server
 // if (php_sapi_name() !== 'cli') session_start();
 
+$reflection = new Rougin\Slytherin\Container\ReflectionContainer;
+
 // Loads the container based on \Psr\Container\ContainerInterface
-$container = new Rougin\Slytherin\Container\Container;
+$container = new Rougin\Slytherin\Container\Container(array(), $reflection);
 
 // Set your definitions to the container here...
 
@@ -23,7 +25,7 @@ $container = new Rougin\Slytherin\Container\Container;
 $config = new Rougin\Slytherin\Configuration;
 
 // Loads the environment variables from an .env file.
-$dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+$dotenv = new Dotenv\Dotenv(__DIR__ . '/../', '.env');
 
 // Loads configuration values from the specified directory.
 $dotenv->load() && $config->load(__DIR__ . '/config');
