@@ -31,6 +31,10 @@ class ValidatorsTest extends TestCase
 
         $data = array('name' => 'Harry James Potter');
 
+        $data['email'] = 'hjpotter@hogwarts.co.uk';
+        $data['password'] = '1234567890';
+        $data['password_confirmation'] = '1234567890';
+
         $this->assertTrue($validator->validate($data));
     }
 }

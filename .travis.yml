@@ -49,7 +49,7 @@ before_script:
   # installs Composer packages
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
-  - composer require filp/whoops ircmaxell/password-compat robmorgan/phinx vlucas/valitron --dev
+  - composer require filp/whoops ircmaxell/password-compat vlucas/valitron --dev
 
 script:
   - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
