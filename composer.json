@@ -1,6 +1,6 @@
 {
     "name": "rougin/basilisk",
-    "description": "A Slytherin skeleton application.",
+    "description": "A Slytherin skeleton application",
     "keywords": ["basilisk", "skeleton application", "slytherin"],
     "homepage": "https://github.com/rougin/basilisk",
     "license": "MIT",
