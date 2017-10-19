@@ -40,8 +40,6 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 ## What's inside?
 
-### Installed
-
 * [Blade](https://laravel.com/docs/5.5/blade) - a templating engine provided by [Laravel](https://laravel.com/)
 * [Dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
 * [Phinx](https://phinx.org/) - a PHP Database Migrations for everyone (use `vendor/bin/phinx :command -c app/config/phinx.php`)
