@@ -128,5 +128,8 @@ return array(
 
         // Application Integrations
         'App\Integrations\AppIntegration',
+
+        // Weasley Integrations
+        'Rougin\Weasley\Integrations\Illuminate\ViewIntegration',
     ),
 );

@@ -1,1 +1,0 @@
-Hello, <a href="<?php echo $url; ?>">Muggle</a>.

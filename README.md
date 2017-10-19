@@ -19,10 +19,20 @@ $ composer create-project rougin/basilisk:dev-master "acme"
 
 ## Getting Started
 
-**Run the application using PHP's built-in web server:**
+### Running migrations and seeds 
+
+Before running the migrations/seeds, kindly update the database credentials first in `.env`.
 
 ``` bash
-$ cp .env.example .env
+$ vendor/bin/phinx migrate -c app/config/phinx.php
+$ vendor/bin/phinx seed:run -c app/config/phinx.php
+```
+
+**NOTE**: Running `seed:run` will load the seeders in **alphabetical** order.
+
+### Running the application using PHP's built-in web server
+
+``` bash
 $ php -S localhost:8000 -t app/web
 ```
 
@@ -32,27 +42,14 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 ### Installed
 
+* [Blade](https://laravel.com/docs/5.5/blade) - a templating engine provided by [Laravel](https://laravel.com/)
+* [Eloquent](https://laravel.com/docs/5.5/eloquent) - a simple ActiveRecord implementation for [Laravel](https://laravel.com/)
+* [Phinx](https://phinx.org/) - a PHP Database Migrations for everyone (use `vendor/bin/phinx :command -c app/config/phinx.php`)
 * [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
 * [Slytherin](https://github.com/rougin/slytherin) - yet another extensible library/framework for PHP
-* [Weasley](https://github.com/rougin/weasley) - generators and helpers for Slytherin
-
-### Optional
-
-The skeleton is tailored to work for the following packages. You just need to install them manually through Composer:
-
-* [Eloquent](https://laravel.com/docs/5.5/eloquent) - a simple ActiveRecord implementation for Laravel
-* [Phinx](https://phinx.org/) - a PHP Database Migrations for everyone
-	* for seeding/migrating, use the following commands:
-		* `vendor/bin/phinx migrate -c app/config/phinx.php`
-		* `vendor/bin/phinx seed:run -c app/config/phinx.php`
 * [Valitron](http://vancelucas.com/blog/valitron-the-simple-validation-library-that-doesnt-suck) - a simple, elegant, stand-alone validation library
+* [Weasley](https://github.com/rougin/weasley) - generators and helpers for improving Slytherin worflow
 * [Whoops!](https://filp.github.io/whoops) - a PHP error handler for cool kids
-
-If you want to get all the optional packages, paste this command to your terminal:
-
-``` bash
-$ composer require filp/whoops robmorgan/phinx vlucas/valitron
-```
 
 ## Change log
 
