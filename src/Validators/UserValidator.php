@@ -39,7 +39,7 @@ class UserValidator extends AbstractValidator
         $this->validator->rule('required', 'email');
         $this->validator->rule('email', 'email');
 
-        if (! isset($data['id']) || (isset($data['id']) && (isset($data['password']) && ! empty($data['password'])))) {
+        if (isset($data['password']) && ! empty($data['password'])) {
             $this->validator->rule('lengthMin', 'password', 8)->message('{field} must be at least 8 characters');
             $this->validator->rule('required', 'password');
             $this->validator->rule('equals', 'password', 'password_confirmation');

@@ -22,10 +22,12 @@ abstract class AbstractValidator
 
     /**
      * Creates a validator instance.
+     *
+     * @param $validator \Valitron\Validator
      */
-    public function __construct()
+    public function __construct(\Valitron\Validator $validator)
     {
-        $this->validator = new \Valitron\Validator;
+        $this->validator = $validator;
     }
 
     /**

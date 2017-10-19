@@ -27,7 +27,7 @@ class ValidatorsTest extends TestCase
      */
     public function testValidateMethod()
     {
-        $validator = new Validators\UserValidator;
+        $validator = new Validators\UserValidator(new \Valitron\Validator);
 
         $data = array('name' => 'Harry James Potter');
 
