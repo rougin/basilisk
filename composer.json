@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "filp/whoops": "~2.0",
+        "filp/whoops": "~1.0 || ~2.0",
         "illuminate/events": "~5.0",
         "illuminate/view": "~5.0",
         "robmorgan/phinx": "~0.9",
