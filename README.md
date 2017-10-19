@@ -43,9 +43,9 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 ### Installed
 
 * [Blade](https://laravel.com/docs/5.5/blade) - a templating engine provided by [Laravel](https://laravel.com/)
+* [Dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
 * [Eloquent](https://laravel.com/docs/5.5/eloquent) - a simple ActiveRecord implementation for [Laravel](https://laravel.com/)
 * [Phinx](https://phinx.org/) - a PHP Database Migrations for everyone (use `vendor/bin/phinx :command -c app/config/phinx.php`)
-* [PHP dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
 * [Slytherin](https://github.com/rougin/slytherin) - yet another extensible library/framework for PHP
 * [Valitron](http://vancelucas.com/blog/valitron-the-simple-validation-library-that-doesnt-suck) - a simple, elegant, stand-alone validation library
 * [Weasley](https://github.com/rougin/weasley) - generators and helpers for improving Slytherin worflow
