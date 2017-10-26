@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A listing of available HTTP middlewares.
+ * A listing of HTTP middlewares that will be used in each route.
  *
  * @return array
  */

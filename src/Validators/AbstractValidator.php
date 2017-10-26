@@ -61,7 +61,7 @@ abstract class AbstractValidator
 
         $validated = $validator->validate();
 
-        $validated || $this->errors = $validator->errors();
+        $this->errors = $validator->errors();
 
         return $validated;
     }

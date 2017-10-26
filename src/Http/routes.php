@@ -10,6 +10,7 @@ $router = new Rougin\Slytherin\Routing\Router;
 
 $router->prefix('', 'App\Http\Controllers');
 
-$router->get('/', 'WelcomeController@index');
+$router->get('/auth/login', 'AuthController@login');
+$router->get('/', 'HomeController@index');
 
 return $router;

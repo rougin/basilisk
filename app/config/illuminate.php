@@ -10,6 +10,7 @@ return array(
      * Illuminate View
      *
      * @link https://github.com/illuminate/view
+     *
      * @var array
      */
     'view' => array(

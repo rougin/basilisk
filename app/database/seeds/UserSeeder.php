@@ -33,8 +33,6 @@ class UserSeeder extends AbstractSeed
             array_push($data, $item);
         }
 
-        $users = $this->table('users');
-
-        $users->insert($data)->save();
+        $this->table('users')->insert($data)->save();
     }
 }
