@@ -18,8 +18,9 @@
         "illuminate/events": "~5.0",
         "illuminate/view": "~5.0",
         "robmorgan/phinx": "~0.9",
+        "rougin/authsum": "dev-master",
         "rougin/slytherin": "~0.9",
-        "rougin/weasley": "~0.5",
+        "rougin/weasley": "dev-master",
         "vlucas/phpdotenv": "~2.0"
     },
     "require-dev": {

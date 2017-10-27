@@ -9,7 +9,7 @@ if (! function_exists('container')) {
      */
     function container($key = null)
     {
-        $container = \Rougin\Slytherin\Application::container();
+        $container = Rougin\Slytherin\Application::container();
 
         return (is_null($key)) ? $container : $container->get($key);
     }
@@ -25,7 +25,7 @@ if (! function_exists('config')) {
      */
     function config($key, $default = null)
     {
-        $config = container('Rougin\Slytherin\Integration\Configuration');
+        $config = container(Rougin\Slytherin\Integration\Configuration::class);
 
         return $config->get($key, $default);
     }
@@ -67,7 +67,7 @@ if (! function_exists('request')) {
      */
     function request()
     {
-        return container('Psr\Http\Message\ServerRequestInterface');
+        return container(Psr\Http\Message\ServerRequestInterface::class);
     }
 }
 
@@ -80,9 +80,18 @@ if (! function_exists('response')) {
      */
     function response($status = null)
     {
-        $response = container('Psr\Http\Message\ResponseInterface');
+        $response = container(Psr\Http\Message\ResponseInterface::class);
 
         return $response->withStatus($status ? $status : 200);
+    }
+}
+
+if (! function_exists('session')) {
+    function session($key = null)
+    {
+        $session = container(Rougin\Weasley\Session\SessionInterface::class);
+
+        return (is_null($key)) ? $session : $session->get($key);
     }
 }
 
@@ -111,8 +120,12 @@ if (! function_exists('view')) {
      */
     function view($template, $data = array())
     {
-        $renderer = container('Rougin\Slytherin\Template\RendererInterface');
+        $renderer = container(Rougin\Slytherin\Template\RendererInterface::class);
 
-        return $renderer->render($template, $data);
+        $view = $renderer->render($template, $data);
+
+        session()->delete('flash');
+
+        return $view;
     }
 }

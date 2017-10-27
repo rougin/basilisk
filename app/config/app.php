@@ -5,7 +5,7 @@
  *
  * @var array
  */
-return array(
+return [
     /**
      * Name of the application.
      *
@@ -53,7 +53,7 @@ return array(
      * Contains the global variables provided by PHP. It was intended to be
      * separated in order for the developers to easily mock these variables.
      */
-    'http' => array(
+    'http' => [
         /**
          * HTTP Cookies.
          *
@@ -88,14 +88,7 @@ return array(
          * @var array
          */
         'server' => $_SERVER,
-
-        /**
-         * Session variables.
-         *
-         * @var array
-         */
-        'session' => isset($_SESSION) ? $_SESSION : array(),
-    ),
+    ],
 
     /**
      * Contains the listing of available HTTP routes from a class object.
@@ -117,19 +110,22 @@ return array(
      *
      * @var array
      */
-    'integrations' => array(
+    'integrations' => [
         // Slytherin Integrations
-        'Rougin\Slytherin\Debug\ErrorHandlerIntegration',
-        'Rougin\Slytherin\Http\HttpIntegration',
-        'Rougin\Slytherin\Integration\ConfigurationIntegration',
-        'Rougin\Slytherin\Middleware\MiddlewareIntegration',
-        'Rougin\Slytherin\Routing\RoutingIntegration',
-        'Rougin\Slytherin\Template\RendererIntegration',
+        // Rougin\Slytherin\Debug\ErrorHandlerIntegration::class,
+        Rougin\Slytherin\Http\HttpIntegration::class,
+        Rougin\Slytherin\Integration\ConfigurationIntegration::class,
+        Rougin\Slytherin\Middleware\MiddlewareIntegration::class,
+        Rougin\Slytherin\Routing\RoutingIntegration::class,
+        Rougin\Slytherin\Template\RendererIntegration::class,
 
         // Application Integrations
-        'App\Integrations\AppIntegration',
+        App\Integrations\AppIntegration::class,
+        App\Integrations\AuthIntegration::class,
 
         // Weasley Integrations
-        'Rougin\Weasley\Integrations\Illuminate\ViewIntegration',
-    ),
-);
+        Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration::class,
+        Rougin\Weasley\Integrations\Illuminate\ViewIntegration::class,
+        Rougin\Weasley\Integrations\SessionIntegration::class,
+    ],
+];

@@ -1,9 +1,7 @@
 <?php
 
 // Loads the environment variables from an .env file.
-$dotenv = new Dotenv\Dotenv(path());
-
-$dotenv->load();
+(new Dotenv\Dotenv(path()))->load();
 
 /**
  * Phinx configurations.
@@ -12,34 +10,34 @@ $dotenv->load();
  *
  * @var array
  */
-return array(
+return [
     /**
      * List of paths.
      *
      * @var array
      */
-    'paths' => array(
+    'paths' => [
         /**
          * List of migration paths.
          *
          * @var array
          */
-        'migrations' => array(path('app/database/migrations')),
+        'migrations' => [ path('app/database/migrations') ],
 
         /**
          * List of seed paths.
          *
          * @var array
          */
-        'seeds' => array(path('app/database/seeds')),
-    ),
+        'seeds' => [ path('app/database/seeds') ],
+    ],
 
     /**
      * Configurations for specific environments.
      *
      * @var array
      */
-    'environments' => array(
+    'environments' => [
         /**
          * Name of the default migration table.
          *
@@ -59,7 +57,7 @@ return array(
          *
          * @var array
          */
-        getenv('APP_ENVIRONMENT') => array(
+        getenv('APP_ENVIRONMENT') => [
             /**
              * Name of the database adapter.
              *
@@ -108,6 +106,6 @@ return array(
              * @var string
              */
             'charset' => getenv('MYSQL_CHARSET'),
-        ),
-    ),
-);
+        ],
+    ],
+];

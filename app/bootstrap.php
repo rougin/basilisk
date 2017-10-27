@@ -11,13 +11,10 @@
  * @return array
  */
 
-// Starts the session if it's called from a web server
-// if (php_sapi_name() !== 'cli') session_start();
-
 $reflection = new Rougin\Slytherin\Container\ReflectionContainer;
 
 // Loads the container based on \Psr\Container\ContainerInterface
-$container = new Rougin\Slytherin\Container\Container(array(), $reflection);
+$container = new Rougin\Slytherin\Container\Container([], $reflection);
 
 // Set your definitions to the container here...
 
@@ -32,4 +29,4 @@ $dotenv->load() && $config->load(__DIR__ . '/config');
 
 // This must return \Rougin\Slytherin\Integration\Configuration and
 // \Psr\Container\ContainerInterface in the same order.
-return array($config, $container);
+return [ $config, $container ];

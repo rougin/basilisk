@@ -13,7 +13,7 @@ abstract class AbstractValidator
     /**
      * @var array
      */
-    public $errors = array();
+    protected $errors = array();
 
     /**
      * @var \Valitron\Validator
@@ -31,19 +31,14 @@ abstract class AbstractValidator
     }
 
     /**
-     * Sets the labels in the validator.
+     * Returns a listing of errors after validation (if any).
      *
      * @return array
      */
-    abstract protected function labels();
-
-    /**
-     * Sets the rules in the validator.
-     *
-     * @param  array $data
-     * @return void
-     */
-    abstract protected function rules(array $data = array());
+    public function errors()
+    {
+        return $this->errors;
+    }
 
     /**
      * Validates the data from the based rules.
@@ -65,4 +60,19 @@ abstract class AbstractValidator
 
         return $validated;
     }
+
+    /**
+     * Sets the labels in the validator.
+     *
+     * @return array
+     */
+    abstract protected function labels();
+
+    /**
+     * Sets the rules in the validator.
+     *
+     * @param  array $data
+     * @return void
+     */
+    abstract protected function rules(array $data = array());
 }

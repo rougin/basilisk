@@ -5,7 +5,7 @@
  *
  * @var array
  */
-return array(
+return [
     /**
      * Default connection to be used.
      *
@@ -18,7 +18,7 @@ return array(
      *
      * @link https://www.mysql.com
      */
-    'mysql' => array(
+    'mysql' => [
         /**
          * Name of the driver.
          *
@@ -67,14 +67,14 @@ return array(
          * @var string
          */
         'charset' => getenv('MYSQL_CHARSET'),
-    ),
+    ],
 
     /**
      * Configuration for the SQLite connection.
      *
      * @link https://www.sqlite.org
      */
-    'sqlite' => array(
+    'sqlite' => [
         /**
          * Name of the driver.
          *
@@ -88,5 +88,5 @@ return array(
          * @var string
          */
         'database' => getenv('SQLITE_DATABASE'),
-    ),
-);
+    ],
+];

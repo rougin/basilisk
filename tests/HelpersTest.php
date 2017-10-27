@@ -13,6 +13,8 @@ class HelpersTest extends TestCase
     /**
      * Tests config().
      *
+     * @runInSeparateProcess
+     *
      * @return void
      */
     public function testConfigMethod()
@@ -24,6 +26,8 @@ class HelpersTest extends TestCase
 
     /**
      * Tests path().
+     *
+     * @runInSeparateProcess
      *
      * @return void
      */
@@ -51,6 +55,8 @@ class HelpersTest extends TestCase
     /**
      * Tests request().
      *
+     * @runInSeparateProcess
+     *
      * @return void
      */
     public function testRequestMethod()
@@ -63,6 +69,8 @@ class HelpersTest extends TestCase
     /**
      * Tests response().
      *
+     * @runInSeparateProcess
+     *
      * @return void
      */
     public function testResponseMethod()
@@ -74,6 +82,8 @@ class HelpersTest extends TestCase
 
     /**
      * Tests url().
+     *
+     * @runInSeparateProcess
      *
      * @return void
      */

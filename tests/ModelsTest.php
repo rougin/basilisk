@@ -13,6 +13,8 @@ class ModelsTest extends TestCase
     /**
      * Tests App\Models\User model.
      *
+     * @runInSeparateProcess
+     *
      * @return void
      */
     public function testUserModel()
