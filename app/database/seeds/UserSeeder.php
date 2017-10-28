@@ -7,11 +7,11 @@ class UserSeeder extends AbstractSeed
     /**
      * @var array
      */
-    protected $items = array(
-        array('name' => 'Harry James Potter', 'email' => 'hjpotter@hogwarts.co.uk'),
-        array('name' => 'Hermione Jane Granger', 'email' => 'hjgranger@hogwarts.co.uk'),
-        array('name' => 'Ronald Bilius Weasley', 'email' => 'rbweasley@hogwarts.co.uk'),
-    );
+    protected $items = [
+        [ 'name' => 'Harry James Potter', 'email' => 'hjpotter@hogwarts.co.uk' ],
+        [ 'name' => 'Hermione Jane Granger', 'email' => 'hjgranger@hogwarts.co.uk' ],
+        [ 'name' => 'Ronald Bilius Weasley', 'email' => 'rbweasley@hogwarts.co.uk' ],
+    ];
 
     /**
      * Run Method.
@@ -23,7 +23,7 @@ class UserSeeder extends AbstractSeed
      */
     public function run()
     {
-        $data = array();
+        $data = [];
 
         foreach ($this->items as $item) {
             $item['created_at'] = date('Y-m-d H:i:s');

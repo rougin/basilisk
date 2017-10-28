@@ -112,20 +112,20 @@ return [
      */
     'integrations' => [
         // Slytherin Integrations
-        // Rougin\Slytherin\Debug\ErrorHandlerIntegration::class,
-        Rougin\Slytherin\Http\HttpIntegration::class,
-        Rougin\Slytherin\Integration\ConfigurationIntegration::class,
-        Rougin\Slytherin\Middleware\MiddlewareIntegration::class,
-        Rougin\Slytherin\Routing\RoutingIntegration::class,
-        Rougin\Slytherin\Template\RendererIntegration::class,
+        'Rougin\Slytherin\Debug\ErrorHandlerIntegration',
+        'Rougin\Slytherin\Http\HttpIntegration',
+        'Rougin\Slytherin\Integration\ConfigurationIntegration',
+        'Rougin\Slytherin\Middleware\MiddlewareIntegration',
+        'Rougin\Slytherin\Routing\RoutingIntegration',
+        'Rougin\Slytherin\Template\RendererIntegration',
 
         // Application Integrations
-        App\Integrations\AppIntegration::class,
-        App\Integrations\AuthIntegration::class,
+        'App\Integrations\AppIntegration',
+        'App\Integrations\AuthIntegration',
 
         // Weasley Integrations
-        Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration::class,
-        Rougin\Weasley\Integrations\Illuminate\ViewIntegration::class,
-        Rougin\Weasley\Integrations\SessionIntegration::class,
+        'Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration',
+        'Rougin\Weasley\Integrations\Illuminate\ViewIntegration',
+        'Rougin\Weasley\Integrations\SessionIntegration',
     ],
 ];

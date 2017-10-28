@@ -47,6 +47,6 @@ return [
          *
          * @var string
          */
-        'file' => Rougin\Weasley\Session\FileSessionHandler::class
+        'file' => 'Rougin\Weasley\Session\FileSessionHandler'
     ],
 ];
