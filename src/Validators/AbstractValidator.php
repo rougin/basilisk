@@ -11,11 +11,6 @@ namespace App\Validators;
 abstract class AbstractValidator
 {
     /**
-     * @var array
-     */
-    protected $errors = array();
-
-    /**
      * @var \Valitron\Validator
      */
     protected $validator;
@@ -37,7 +32,7 @@ abstract class AbstractValidator
      */
     public function errors()
     {
-        return $this->errors;
+        return $this->validator->errors();
     }
 
     /**
@@ -46,19 +41,15 @@ abstract class AbstractValidator
      * @param  array $data
      * @return boolean
      */
-    public function validate(array $data)
+    public function validate($data = [])
     {
         $this->validator->labels($this->labels());
 
         $this->rules($data);
 
-        $validator = $this->validator->withData($data);
+        $this->validator = $this->validator->withData($data);
 
-        $validated = $validator->validate();
-
-        $this->errors = $validator->errors();
-
-        return $validated;
+        return $this->validator->validate();
     }
 
     /**
@@ -74,5 +65,5 @@ abstract class AbstractValidator
      * @param  array $data
      * @return void
      */
-    abstract protected function rules(array $data = array());
+    abstract protected function rules($data = []);
 }

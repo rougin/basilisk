@@ -15,14 +15,14 @@ class User extends \Illuminate\Database\Eloquent\Model
      *
      * @var array
      */
-    protected $fillable = array('name', 'email', 'password');
+    protected $fillable = [ 'name', 'email', 'password' ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array
      */
-    protected $hidden = array('password');
+    protected $hidden = [ 'password' ];
 
     /**
      * The table associated with the model.

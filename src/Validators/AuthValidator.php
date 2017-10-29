@@ -17,7 +17,7 @@ class AuthValidator extends AbstractValidator
      */
     protected function labels()
     {
-        $labels = array();
+        $labels = [];
 
         $labels['email'] = 'Email';
 
@@ -32,7 +32,7 @@ class AuthValidator extends AbstractValidator
      * @param  array $data
      * @return void
      */
-    protected function rules(array $data = array())
+    protected function rules($data = [])
     {
         $this->validator->rule('required', 'email');
 

@@ -5,6 +5,8 @@ namespace App;
 /**
  * Models Test
  *
+ * @runTestsInSeparateProcesses
+ *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
@@ -12,8 +14,6 @@ class ModelsTest extends TestCase
 {
     /**
      * Tests App\Models\User model.
-     *
-     * @runInSeparateProcess
      *
      * @return void
      */

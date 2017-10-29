@@ -25,7 +25,7 @@ if (! function_exists('config')) {
      */
     function config($key, $default = null)
     {
-        $config = container(Rougin\Slytherin\Integration\Configuration::class);
+        $config = container('Rougin\Slytherin\Integration\Configuration');
 
         return $config->get($key, $default);
     }
@@ -40,7 +40,7 @@ if (! function_exists('path')) {
      */
     function path($item = null)
     {
-        $item = str_replace(array('\\', '/'), DIRECTORY_SEPARATOR, $item);
+        $item = str_replace([ '\\', '/' ], DIRECTORY_SEPARATOR, $item);
 
         return str_replace('src', '', __DIR__) . $item;
     }
@@ -67,7 +67,7 @@ if (! function_exists('request')) {
      */
     function request()
     {
-        return container(Psr\Http\Message\ServerRequestInterface::class);
+        return container('Psr\Http\Message\ServerRequestInterface');
     }
 }
 
@@ -80,7 +80,7 @@ if (! function_exists('response')) {
      */
     function response($status = null)
     {
-        $response = container(Psr\Http\Message\ResponseInterface::class);
+        $response = container('Psr\Http\Message\ResponseInterface');
 
         return $response->withStatus($status ? $status : 200);
     }
@@ -89,7 +89,7 @@ if (! function_exists('response')) {
 if (! function_exists('session')) {
     function session($key = null)
     {
-        $session = container(Rougin\Weasley\Session\SessionInterface::class);
+        $session = container('Rougin\Weasley\Session\SessionInterface');
 
         return (is_null($key)) ? $session : $session->get($key);
     }
@@ -118,9 +118,9 @@ if (! function_exists('view')) {
      * @param  array  $data
      * @return string
      */
-    function view($template, $data = array())
+    function view($template, $data = [])
     {
-        $renderer = container(Rougin\Slytherin\Template\RendererInterface::class);
+        $renderer = container('Rougin\Slytherin\Template\RendererInterface');
 
         $view = $renderer->render($template, $data);
 

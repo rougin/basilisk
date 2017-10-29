@@ -24,9 +24,9 @@ class AuthIntegration implements \Rougin\Slytherin\Integration\IntegrationInterf
      */
     public function define(ContainerInterface $container, Configuration $config)
     {
-        $interface = \Rougin\Authsum\Checker\CheckerInterface::class;
+        $interface = 'Rougin\Authsum\Checker\CheckerInterface';
 
-        $model = \App\Models\User::class;
+        $model = 'App\Models\User';
 
         $checker = new \Rougin\Authsum\Checker\EloquentChecker($model);
 

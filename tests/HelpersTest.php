@@ -5,6 +5,8 @@ namespace App;
 /**
  * Helpers Test
  *
+ * @runTestsInSeparateProcesses
+ *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
@@ -12,8 +14,6 @@ class HelpersTest extends TestCase
 {
     /**
      * Tests config().
-     *
-     * @runInSeparateProcess
      *
      * @return void
      */
@@ -27,8 +27,6 @@ class HelpersTest extends TestCase
     /**
      * Tests path().
      *
-     * @runInSeparateProcess
-     *
      * @return void
      */
     public function testPathMethod()
@@ -40,8 +38,6 @@ class HelpersTest extends TestCase
 
     /**
      * Tests redirect().
-     *
-     * @runInSeparateProcess
      *
      * @return void
      */
@@ -55,8 +51,6 @@ class HelpersTest extends TestCase
     /**
      * Tests request().
      *
-     * @runInSeparateProcess
-     *
      * @return void
      */
     public function testRequestMethod()
@@ -68,8 +62,6 @@ class HelpersTest extends TestCase
 
     /**
      * Tests response().
-     *
-     * @runInSeparateProcess
      *
      * @return void
      */
@@ -83,8 +75,6 @@ class HelpersTest extends TestCase
     /**
      * Tests url().
      *
-     * @runInSeparateProcess
-     *
      * @return void
      */
     public function testUrl()
@@ -96,8 +86,6 @@ class HelpersTest extends TestCase
 
     /**
      * Tests view().
-     *
-     * @runInSeparateProcess
      *
      * @return void
      */
