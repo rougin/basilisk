@@ -44,13 +44,11 @@ class AuthController extends \Rougin\Authsum\Authentication
      */
     public function login()
     {
-        $post = request()->getParsedBody() ?: array();
+        $post = is_null($post = request()->getParsedBody()) ? array() : $post;
 
         $response = $this->authenticate($this->checker, $post);
 
-        $view = view('auth.login');
-
-        return isset($post['email']) ? $response : $view;
+        return isset($post['email']) ? $response : view('auth.login');
     }
 
     /**

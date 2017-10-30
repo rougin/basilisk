@@ -25,9 +25,11 @@ if (! function_exists('config')) {
      */
     function config($key = null, $default = null)
     {
-        $config = container('Rougin\Slytherin\Integration\Configuration');
+        $class = 'Rougin\Slytherin\Integration\Configuration';
 
-        return (is_null($key)) ? $config : $config->get($key, $default);
+        $config = container($class);
+
+        return (! $key) ? $config : $config->get($key, $default);
     }
 }
 
