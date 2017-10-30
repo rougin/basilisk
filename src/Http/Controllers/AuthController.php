@@ -44,13 +44,13 @@ class AuthController extends \Rougin\Authsum\Authentication
      */
     public function login()
     {
-        if (request()->getAttribute('email') !== null) {
-            $post = request()->getParsedBody();
+        $post = request()->getParsedBody() ?: array();
 
-            return $this->authenticate($this->checker, $post);
-        }
+        $response = $this->authenticate($this->checker, $post);
 
-        return view('auth.login');
+        $view = view('auth.login');
+
+        return isset($post['email']) ? $response : $view;
     }
 
     /**
@@ -60,7 +60,9 @@ class AuthController extends \Rougin\Authsum\Authentication
      */
     public function logout()
     {
-        session()->delete('user');
+        $exists = method_exists(session(), 'delete');
+
+        ! $exists || session()->delete('user');
 
         return redirect('/');
     }

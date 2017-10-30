@@ -87,6 +87,6 @@ return [
          *
          * @var string
          */
-        'database' => getenv('SQLITE_DATABASE'),
+        'database' => path(getenv('SQLITE_DATABASE')),
     ],
 ];

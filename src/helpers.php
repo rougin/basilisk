@@ -19,15 +19,15 @@ if (! function_exists('config')) {
     /**
      * Gets the configuration from the specified file.
      *
-     * @param  string      $key
+     * @param  string|null $key
      * @param  string|null $default
      * @return mixed
      */
-    function config($key, $default = null)
+    function config($key = null, $default = null)
     {
         $config = container('Rougin\Slytherin\Integration\Configuration');
 
-        return $config->get($key, $default);
+        return (is_null($key)) ? $config : $config->get($key, $default);
     }
 }
 
@@ -89,7 +89,9 @@ if (! function_exists('response')) {
 if (! function_exists('session')) {
     function session($key = null)
     {
-        $session = container('Rougin\Weasley\Session\SessionInterface');
+        $class = 'Rougin\Weasley\Session\SessionInterface';
+
+        $session = (container()->has($class)) ? container($class) : config();
 
         return (is_null($key)) ? $session : $session->get($key);
     }
@@ -120,11 +122,13 @@ if (! function_exists('view')) {
      */
     function view($template, $data = [])
     {
-        $renderer = container('Rougin\Slytherin\Template\RendererInterface');
+        $exists = method_exists(session(), 'delete');
 
-        $view = $renderer->render($template, $data);
+        $interface = 'Rougin\Slytherin\Template\RendererInterface';
 
-        session()->delete('flash');
+        $view = container($interface)->render($template, $data);
+
+        ! $exists || session()->delete('flash');
 
         return $view;
     }

@@ -5,8 +5,6 @@ namespace App;
 /**
  * Helpers Test
  *
- * @runTestsInSeparateProcesses
- *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
