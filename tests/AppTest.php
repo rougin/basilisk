@@ -29,14 +29,14 @@ class AppTest extends TestCase
      *
      * @return void
      */
-    public function testGetAuthLogin()
-    {
-        $request = $this->request('GET', '/auth/login');
+    // public function testGetAuthLogin()
+    // {
+    //     $request = $this->request('GET', '/auth/login');
 
-        $response = $this->app->handle($request);
+    //     $response = $this->app->handle($request);
 
-        $stream = (string) $response->getBody();
+    //     $stream = (string) $response->getBody();
 
-        $this->assertRegExp('/E-Mail Address/i', $stream);
-    }
+    //     $this->assertRegExp('/E-Mail Address/i', $stream);
+    // }
 }
