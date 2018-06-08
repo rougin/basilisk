@@ -1,6 +1,6 @@
 .env
-app/storage/compiled
-app/storage/session
+app/cache/compiled
+app/cache/session
 build
 composer.lock
 docs

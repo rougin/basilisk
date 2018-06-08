@@ -6,38 +6,36 @@
 /**
  * Phinx configurations.
  *
- * @link https://phinx.org
- *
  * @var array
  */
-return [
+return array(
     /**
      * List of paths.
      *
      * @var array
      */
-    'paths' => [
+    'paths' => array(
         /**
          * List of migration paths.
          *
          * @var array
          */
-        'migrations' => [ path('app/database/migrations') ],
+        'migrations' => array(path('app/phinx/migrations')),
 
         /**
          * List of seed paths.
          *
          * @var array
          */
-        'seeds' => [ path('app/database/seeds') ],
-    ],
+        'seeds' => array(path('app/phinx/seeders')),
+    ),
 
     /**
      * Configurations for specific environments.
      *
      * @var array
      */
-    'environments' => [
+    'environments' => array(
         /**
          * Name of the default migration table.
          *
@@ -57,7 +55,7 @@ return [
          *
          * @var array
          */
-        'mysql_' . getenv('APP_ENVIRONMENT') => [
+        'mysql_' . getenv('APP_ENVIRONMENT') => array(
             /**
              * Name of the database adapter.
              *
@@ -106,14 +104,14 @@ return [
              * @var string
              */
             'charset' => getenv('MYSQL_CHARSET'),
-        ],
+        ),
 
         /**
          * SQLite connection for a specified environment.
          *
          * @var array
          */
-        'sqlite_' . getenv('APP_ENVIRONMENT') => [
+        'sqlite_' . getenv('APP_ENVIRONMENT') => array(
             /**
              * Name of the database adapter.
              *
@@ -127,6 +125,6 @@ return [
              * @var string
              */
             'name' => getenv('SQLITE_DATABASE'),
-        ],
-    ],
-];
+        ),
+    ),
+);

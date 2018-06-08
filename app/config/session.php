@@ -1,6 +1,6 @@
 <?php
 
-return [
+return array(
     /**
      * Name of the the session in $_COOKIE superglobal.
      *
@@ -13,7 +13,7 @@ return [
      *
      * @var string
      */
-    'path' => __DIR__ . '/../storage/session',
+    'path' => path('app/cache/session'),
 
     /**
      * Time of expiration of each session.
@@ -41,12 +41,12 @@ return [
      *
      * @var array
      */
-    'handlers' => [
+    'handlers' => array(
         /**
          * Store sessions in a file.
          *
          * @var string
          */
         'file' => 'Rougin\Weasley\Session\FileSessionHandler'
-    ],
-];
+    ),
+);

@@ -5,7 +5,7 @@
  *
  * @return array
  */
-return [
+return array(
     /**
      * Illuminate View
      *
@@ -13,19 +13,19 @@ return [
      *
      * @var array
      */
-    'view' => [
+    'view' => array(
         /**
          * Path for the compiled view templates.
          *
          * @var string
          */
-        'compiled' => __DIR__ . '/../storage/compiled',
+        'compiled' => path('app/cache/compiled'),
 
         /**
          * Path for the view templates.
          *
          * @var string|array
          */
-        'templates' => __DIR__ . '/../resources/views',
-    ],
-];
+        'templates' => (string) path('app/blades'),
+    ),
+);

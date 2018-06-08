@@ -5,7 +5,7 @@
  *
  * @var array
  */
-return [
+return array(
     /**
      * Name of the application.
      *
@@ -53,7 +53,7 @@ return [
      * Contains the global variables provided by PHP. It was intended to be
      * separated in order for the developers to easily mock these variables.
      */
-    'http' => [
+    'http' => array(
         /**
          * HTTP Cookies.
          *
@@ -88,7 +88,7 @@ return [
          * @var array
          */
         'server' => $_SERVER,
-    ],
+    ),
 
     /**
      * Contains the listing of available HTTP routes from a class object.
@@ -96,21 +96,21 @@ return [
      *
      * @var \Rougin\Slytherin\Routing\RouterInterface
      */
-    'router' => require path('src/Http/routes.php'),
+    'router' => new App\RouteCollection,
 
     /**
      * A listing of middlewares available to be injected in all routes.
      *
      * @var array
      */
-    'middlewares' => require path('src/Http/middlewares.php'),
+    'middlewares' => App\KernelCollection::items(),
 
     /**
      * The list of integrations to be included in Slytherin core.
      *
      * @var array
      */
-    'integrations' => [
+    'integrations' => array(
         // Slytherin Integrations
         'Rougin\Slytherin\Debug\ErrorHandlerIntegration',
         'Rougin\Slytherin\Http\HttpIntegration',
@@ -124,8 +124,8 @@ return [
         'App\Integrations\AuthIntegration',
 
         // Weasley Integrations
-        'Rougin\Weasley\Integrations\Illuminate\DatabaseIntegration',
-        'Rougin\Weasley\Integrations\Illuminate\ViewIntegration',
-        'Rougin\Weasley\Integrations\SessionIntegration',
-    ],
-];
+        'Rougin\Weasley\Illuminate\DatabaseIntegration',
+        'Rougin\Weasley\Illuminate\ViewIntegration',
+        // 'Rougin\Weasley\Session\SessionIntegration',
+    ),
+);

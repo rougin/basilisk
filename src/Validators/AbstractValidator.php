@@ -41,7 +41,7 @@ abstract class AbstractValidator
      * @param  array $data
      * @return boolean
      */
-    public function validate($data = [])
+    public function validate($data = array())
     {
         $this->validator->labels($this->labels());
 
@@ -65,5 +65,5 @@ abstract class AbstractValidator
      * @param  array $data
      * @return void
      */
-    abstract protected function rules($data = []);
+    abstract protected function rules($data = array());
 }

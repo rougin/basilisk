@@ -2,18 +2,18 @@
 
 namespace App\Integrations;
 
-use Rougin\Slytherin\Integration\Configuration;
+use Rougin\Authsum\Checker\EloquentChecker;
 use Rougin\Slytherin\Container\ContainerInterface;
+use Rougin\Slytherin\Integration\Configuration;
+use Rougin\Slytherin\Integration\IntegrationInterface;
 
 /**
  * Authentication Integration
  *
- * Bootstraps the additional definitions and integrate it to Slytherin.
- *
  * @package App
  * @author  Rougin Royce Gutib <rougingutib@gmail.com>
  */
-class AuthIntegration implements \Rougin\Slytherin\Integration\IntegrationInterface
+class AuthIntegration implements IntegrationInterface
 {
     /**
      * Defines the specified integration.
@@ -24,11 +24,11 @@ class AuthIntegration implements \Rougin\Slytherin\Integration\IntegrationInterf
      */
     public function define(ContainerInterface $container, Configuration $config)
     {
+        $model = (string) 'App\Entities\User';
+
         $interface = 'Rougin\Authsum\Checker\CheckerInterface';
 
-        $model = 'App\Models\User';
-
-        $checker = new \Rougin\Authsum\Checker\EloquentChecker($model);
+        $checker = new EloquentChecker($model);
 
         return $container->set($interface, $checker);
     }
