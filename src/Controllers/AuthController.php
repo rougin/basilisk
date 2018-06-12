@@ -50,7 +50,7 @@ class AuthController extends Authentication
             return $this->authenticate($this->checker, $post);
         }
 
-        return view('auth.login');
+        return view('login');
     }
 
     /**
