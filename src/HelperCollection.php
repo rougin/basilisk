@@ -57,6 +57,8 @@ if (! function_exists('redirect')) {
      */
     function redirect($url)
     {
+        $url = $url[0] !== '/' ? '/' . $url : (string) $url;
+
         return response(302)->withHeader('Location', $url);
     }
 }
