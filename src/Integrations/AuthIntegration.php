@@ -24,12 +24,10 @@ class AuthIntegration implements IntegrationInterface
      */
     public function define(ContainerInterface $container, Configuration $config)
     {
-        $model = (string) 'App\Entities\User';
+        $checker = new EloquentChecker('App\Entities\User');
 
         $interface = 'Rougin\Authsum\Checker\CheckerInterface';
 
-        $checker = new EloquentChecker($model);
-
-        return $container->set($interface, $checker);
+        return $container->set((string) $interface, $checker);
     }
 }
