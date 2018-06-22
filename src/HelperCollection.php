@@ -29,7 +29,7 @@ if (! function_exists('config')) {
 
         $config = container($class);
 
-        return (! $key) ? $config : $config->get($key, $default);
+        return ! $key ? $config : $config->get($key, $default);
     }
 }
 
