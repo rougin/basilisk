@@ -11,7 +11,7 @@ if (! function_exists('container')) {
     {
         $container = Rougin\Slytherin\Application::container();
 
-        return (is_null($key)) ? $container : $container->get($key);
+        return $key === null ? $container : $container->get($key);
     }
 }
 
