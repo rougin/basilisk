@@ -1,7 +1,7 @@
 {
     "name": "rougin/basilisk",
-    "description": "Skeleton application for Slytherin framework.",
-    "keywords": ["basilisk", "skeleton application", "slytherin"],
+    "description": "A skeleton application for the Slytherin framework.",
+    "keywords": ["application", "basilisk", "skeleton", "slytherin"],
     "homepage": "https://github.com/rougin/basilisk",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "filp/whoops": "~1.0 || ~2.0",
+        "filp/whoops": "~1.0|~2.0",
         "illuminate/database": "~5.0",
         "illuminate/events": "~5.0",
         "illuminate/view": "~5.0",
