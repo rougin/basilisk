@@ -43,7 +43,7 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 * [Authsum](https://github.com/rougin/authsum) - yet another PHP authentication library
 * [Blade](https://laravel.com/docs/5.5/blade) - a templating engine provided by [Laravel](https://laravel.com/)
 * [Dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
-* [Phinx](https://phinx.org/) - a PHP database migrations for everyone (use `vendor/bin/phinx :command -c app/config/phinx.php`)
+* [Phinx](https://phinx.org/) - a PHP database migrations for everyone
 * [Slytherin](https://rougin.github.io/slytherin/) - an extensible and SOLID-based micro-framework
 * [Valitron](https://github.com/vlucas/valitron) - a simple, elegant, stand-alone validation library
 * [Weasley](https://github.com/rougin/weasley) - generators and helpers for the Slytherin framework
