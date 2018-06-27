@@ -90,7 +90,7 @@ if (! function_exists('response')) {
     {
         $response = container('Psr\Http\Message\ResponseInterface');
 
-        return $response->withStatus($status ? $status : 200);
+        return $response->withStatus($status !== null ? $status : 200);
     }
 }
 
