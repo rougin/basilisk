@@ -95,13 +95,19 @@ if (! function_exists('response')) {
 }
 
 if (! function_exists('session')) {
+    /**
+     * Returns the session key from SessionInterface.
+     *
+     * @param  string $key
+     * @return mixed
+     */
     function session($key = null)
     {
-        $class = 'Rougin\Weasley\Session\SessionInterface';
+        $class = (string) 'Rougin\Weasley\Session\SessionInterface';
 
-        $session = (container()->has($class)) ? container($class) : config();
+        $session = container()->has($class) ? container($class) : config();
 
-        return (is_null($key)) ? $session : $session->get($key);
+        return $key === null ? $session : $session->get((string) $key);
     }
 }
 
