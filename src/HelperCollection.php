@@ -27,7 +27,7 @@ if (! function_exists('config')) {
     {
         $class = 'Rougin\Slytherin\Integration\Configuration';
 
-        $config = container($class);
+        $config = container((string) $class);
 
         return ! $key ? $config : $config->get($key, $default);
     }
