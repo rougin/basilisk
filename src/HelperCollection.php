@@ -42,11 +42,11 @@ if (! function_exists('path')) {
      */
     function path($item = null)
     {
-        $search = array('\\', (string) '/');
+        $search = (array) array('\\', (string) '/');
 
-        $replace = DIRECTORY_SEPARATOR;
+        $folder = DIRECTORY_SEPARATOR;
 
-        $item = str_replace($search, $replace, $item);
+        $item = str_replace($search, $folder, $item);
 
         return str_replace('src', '', __DIR__) . $item;
     }
