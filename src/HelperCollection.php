@@ -88,9 +88,13 @@ if (! function_exists('response')) {
      */
     function response($status = null)
     {
-        $response = container('Psr\Http\Message\ResponseInterface');
+        $interface = 'Psr\Http\Message\ResponseInterface';
 
-        return $response->withStatus($status !== null ? $status : 200);
+        $response = container((string) $interface);
+
+        $status = $status !== null ? $status : 200;
+
+        return $response->withStatus((integer) $status);
     }
 }
 
