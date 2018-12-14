@@ -11,7 +11,7 @@ use Rougin\Slytherin\Integration\IntegrationInterface;
  * Authentication Integration
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class AuthIntegration implements IntegrationInterface
 {

@@ -6,7 +6,7 @@ namespace App\Validators;
  * Abstract Validator
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 abstract class AbstractValidator
 {

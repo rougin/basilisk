@@ -11,7 +11,7 @@ use Rougin\Slytherin\Container\ReflectionContainer;
  * Basilisk Boostrap
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class BasiliskBootstrap
 {

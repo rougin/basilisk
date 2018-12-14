@@ -6,7 +6,7 @@ namespace App\Controllers;
  * Home Controller
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class HomeController
 {
