@@ -9,7 +9,7 @@ use App\AbstractTestCase;
  * Authentication Validator Test
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class AuthValidatorTest extends AbstractTestCase
 {

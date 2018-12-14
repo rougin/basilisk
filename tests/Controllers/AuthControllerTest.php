@@ -8,7 +8,7 @@ use App\AbstractTestCase;
  * Authentication Controller Test
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class AuthControllerTest extends AbstractTestCase
 {

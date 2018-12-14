@@ -8,7 +8,7 @@ use App\AbstractTestCase;
  * User Test
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class UserTest extends AbstractTestCase
 {

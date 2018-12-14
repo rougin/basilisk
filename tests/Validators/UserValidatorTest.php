@@ -9,7 +9,7 @@ use App\AbstractTestCase;
  * User Validator Test
  *
  * @package App
- * @author  Rougin Royce Gutib <rougingutib@gmail.com>
+ * @author  Rougin Gutib <rougingutib@gmail.com>
  */
 class UserValidatorTest extends AbstractTestCase
 {
