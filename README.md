@@ -7,11 +7,11 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-A skeleton application for the [Slytherin](https://rougin.github.io/slytherin/) framework.
+Basilisk is a skeleton application exclusively for the [Slytherin](https://rougin.github.io/slytherin/) framework. It enables developers to create new PHP projects with easy to understand code structure and tries to follow [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
-## Install
+## Installation
 
-Install Basilisk via [Composer](https://getcomposer.org):
+Install `Basilisk` via [Composer](https://getcomposer.org/):
 
 ``` bash
 $ composer create-project rougin/basilisk:dev-master "acme"
@@ -40,15 +40,17 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 ## What's inside?
 
-* [Authsum](https://github.com/rougin/authsum) - yet another PHP authentication library
-* [Blade](https://laravel.com/docs/5.5/blade) - a templating engine provided by [Laravel](https://laravel.com/)
-* [Dotenv](https://github.com/vlucas/phpdotenv) - loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER`
-* [Phinx](https://phinx.org/) - a PHP database migrations for everyone
-* [Slytherin](https://rougin.github.io/slytherin/) - an extensible and SOLID-based micro-framework
-* [Valitron](https://github.com/vlucas/valitron) - a simple, elegant, stand-alone validation library
-* [Weasley](https://github.com/rougin/weasley) - generators and helpers for the Slytherin framework
+| Package | Description |
+| ------- | ----------- |
+| [Authsum](https://rougin.github.io/authsum/) | yet another PHP authentication library |
+| [Blade](https://laravel.com/docs/5.5/blade) | a templating engine provided by [Laravel](https://laravel.com/) |
+| [Dotenv](https://github.com/vlucas/phpdotenv) | loads environment variables from `.env` to `getenv()` |
+| [Phinx](https://phinx.org/) | a PHP database migrations for everyone |
+| [Slytherin](https://rougin.github.io/slytherin/) | an extensible and SOLID-based micro-framework |
+| [Valitron](https://github.com/vlucas/valitron) | a simple, elegant, stand-alone validation library |
+| [Weasley](https://rougin.github.io/weasley/) | generators and helpers for the Slytherin framework |
 
-## Change log
+## Changelog
 
 Please see [CHANGELOG][link-changelog] for more information what has changed recently.
 
@@ -62,14 +64,13 @@ $ vendor/bin/phpunit
 
 The MIT License (MIT). Please see [LICENSE][link-license] for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/rougin/basilisk.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/rougin/basilisk/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/rougin/basilisk.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/rougin/basilisk.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/rougin/basilisk.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/rougin/basilisk.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/rougin/basilisk/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/rougin/basilisk.svg?style=flat-square
 
-[link-author]: https://rougin.github.io
 [link-changelog]: https://github.com/rougin/basilisk/blob/master/CHANGELOG.md
 [link-code-quality]: https://scrutinizer-ci.com/g/rougin/basilisk
 [link-contributors]: https://github.com/rougin/basilisk/contributors
