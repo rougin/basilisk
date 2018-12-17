@@ -37,7 +37,8 @@
         {
             "App\\": "src"
         },
-        "files": [
+        "files":
+        [
             "src/HelperCollection.php"
         ]
     },
