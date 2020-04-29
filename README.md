@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Basilisk is a skeleton application exclusively for the [Slytherin](https://rougin.github.io/slytherin/) framework. It enables developers to create new PHP projects with easy to understand code structure and tries to follow [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
+Basilisk is a skeleton application exclusively for the [Slytherin](https://roug.in/slytherin/) framework. It enables developers to create new PHP projects with easy to understand code structure and tries to follow [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
 ## Installation
 
@@ -42,13 +42,13 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 | Package | Description |
 | ------- | ----------- |
-| [Authsum](https://rougin.github.io/authsum/) | yet another PHP authentication library |
+| [Authsum](https://roug.in/authsum/) | yet another PHP authentication library |
 | [Blade](https://laravel.com/docs/5.5/blade) | a templating engine provided by [Laravel](https://laravel.com/) |
 | [Dotenv](https://github.com/vlucas/phpdotenv) | loads environment variables from `.env` to `getenv()` |
 | [Phinx](https://phinx.org/) | a PHP database migrations for everyone |
-| [Slytherin](https://rougin.github.io/slytherin/) | an extensible and SOLID-based micro-framework |
+| [Slytherin](https://roug.in/slytherin/) | an extensible and SOLID-based micro-framework |
 | [Valitron](https://github.com/vlucas/valitron) | a simple, elegant, stand-alone validation library |
-| [Weasley](https://rougin.github.io/weasley/) | generators and helpers for the Slytherin framework |
+| [Weasley](https://roug.in/weasley/) | generators and helpers for the Slytherin framework |
 
 ## Changelog
 
