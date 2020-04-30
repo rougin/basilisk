@@ -22,7 +22,7 @@
 
     <main role="main" class="inner cover">
       <h1 class="cover-heading">Hello, {{ session()->get('user.name', 'Muggle-born') }}.</h1>
-      <p class="lead">Basilisk is a skeleton application on top of the <a href="https://rougin.github.io/slytherin/">Slytherin</a> framework.</p>
+      <p class="lead">Basilisk is a skeleton application on top of the <a href="https://roug.in/slytherin/">Slytherin</a> framework.</p>
       <h2>What's Inside?</h2>
       <ul>
         <li class="lead"><a href="https://github.com/rougin/authsum">Authsum</a> - yet another PHP authentication library</li>
