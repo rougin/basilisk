@@ -8,7 +8,7 @@
   <form class="form-signin" action="{{ url('auth/login') }}" method="POST">
     <div class="text-center mb-4">
       <h3 class="h3 mb-3">Basilisk</h3>
-      <p>A skeleton application for the <a href="https://rougin.github.io/slytherin/">Slytherin</a> framework.</p>
+      <p>A skeleton application for the <a href="https://roug.in/slytherin/">Slytherin</a> framework.</p>
     </div>
 
     <div class="form-label-group">
