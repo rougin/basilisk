@@ -2,13 +2,13 @@
     "name": "rougin/basilisk",
     "description": "Skeleton application for the Slytherin framework.",
     "keywords": ["application", "basilisk", "skeleton", "slytherin"],
-    "homepage": "https://rougin.github.io/basilisk/",
+    "homepage": "https://roug.in/basilisk/",
     "license": "MIT",
     "authors":
     [
         {
             "email": "rougingutib@gmail.com",
-            "homepage": "https://rougin.github.io/",
+            "homepage": "https://roug.in/",
             "name": "Rougin Gutib",
             "role": "Software Engineer"
         }
