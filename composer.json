@@ -1,7 +1,7 @@
 {
   "name": "rougin/basilisk",
-  "description": "A skeleton project for the Slytherin framework.",
-  "keywords": [ "basilisk", "skeleton", "slytherin" ],
+  "description": "A project skeleton for Slytherin.",
+  "keywords": [ "basilisk", "project skeleton" ],
   "homepage": "https://roug.in/basilisk/",
   "license": "MIT",
   "authors":
@@ -21,7 +21,6 @@
     "illuminate/events": "~5.0|~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
     "illuminate/view": "~5.0|~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
     "robmorgan/phinx": "~0.8",
-    "rougin/authsum": "dev-master",
     "rougin/weasley": "~0.6",
     "vlucas/phpdotenv": "~2.0"
   },
@@ -51,12 +50,5 @@
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
     ],
     "test": "phpunit"
-  },
-  "extra":
-  {
-    "branch-alias":
-    {
-      "dev-master": "1.0-dev"
-    }
   }
 }
