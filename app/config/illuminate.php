@@ -1,31 +1,32 @@
 <?php
 
 /**
- * A listing of configurations for Illuminate components.
+ * A listing of configurations for Illuminate components (Laravel).
  *
- * @return array
+ * @return array<string, mixed>
  */
 return array(
     /**
-     * Illuminate View
+     * Available configurations for the View component.
      *
      * @link https://github.com/illuminate/view
      *
      * @var array
      */
-    'view' => array(
+    'view' =>
+    [
         /**
          * Path for the compiled view templates.
          *
          * @var string
          */
-        'compiled' => path('app/cache/compiled'),
+        'compiled' => __DIR__ . '/../cache/compiled',
 
         /**
          * Path for the view templates.
          *
-         * @var string|array
+         * @var string|string[]
          */
-        'templates' => (string) path('app/blades'),
-    ),
+        'templates' => __DIR__ . '/../blades',
+    ],
 );

@@ -1,14 +1,17 @@
 <?php
 
-use App\BasiliskBootstrap;
+use App\System;
 
-// Sets up the root directory to be used later
-$search = 'app' . DIRECTORY_SEPARATOR . 'public';
+// Defines the root directory --------
+$root = realpath(__DIR__ . '/../../');
+// -----------------------------------
 
-$root = str_replace($search, '', __DIR__);
+// Loads the "autoload.php" from Composer ---
+require $root . '/vendor/autoload.php';
+// ------------------------------------------
 
-// Loads the "autoload.php" from Composer
-require $root . 'vendor/autoload.php';
+// Runs the application ---
+$app = new System($root);
 
-// Runs the BasiliskBootstrap instance.
-BasiliskBootstrap::boot($root)->run();
+$app->make()->run();
+// ------------------------

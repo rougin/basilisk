@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Configurations for your database.
+ * Configurations for the database.
  *
- * @var array
+ * @var array<string, mixed>
  */
 return array(
     /**
@@ -87,6 +87,6 @@ return array(
          *
          * @var string
          */
-        'database' => path(getenv('SQLITE_DATABASE')),
+        'database' => __DIR__ . '/../../' . getenv('SQLITE_DATABASE'),
     ),
 );
