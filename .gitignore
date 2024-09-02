@@ -1,4 +1,6 @@
 .env
+.php-cs-fixer.cache
+.phpunit.result.cache
 app/cache/compiled
 app/cache/session
 build

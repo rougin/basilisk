@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Configurations for your application.
+ * Configurations for the application.
  *
- * @var array
+ * @var array<string, mixed>
  */
 return array(
     /**
@@ -21,7 +21,7 @@ return array(
     'version' => getenv('APP_VERSION'),
 
     /**
-     * The URL of your application root.
+     * The URL of the application root.
      *
      * @var string
      */
@@ -43,17 +43,11 @@ return array(
     'timezone' => getenv('APP_TIMEZONE'),
 
     /**
-     * The directory name which contains the template files.
-     *
-     * @var string
-     */
-    'views' => path('app/views'),
-
-    /**
      * Contains the global variables provided by PHP. It was intended to be
      * separated in order for the developers to easily mock these variables.
      */
-    'http' => array(
+    'http' =>
+    [
         /**
          * HTTP Cookies.
          *
@@ -88,7 +82,7 @@ return array(
          * @var array
          */
         'server' => $_SERVER,
-    ),
+    ],
 
     /**
      * Contains the listing of available HTTP routes from a class object.
@@ -96,36 +90,32 @@ return array(
      *
      * @var \Rougin\Slytherin\Routing\RouterInterface
      */
-    'router' => new App\RouteCollection,
+    'router' => new \App\Router,
 
     /**
      * A listing of middlewares available to be injected in all routes.
      *
      * @var array
      */
-    'middlewares' => App\KernelCollection::items(),
+    'middlewares' => \App\Kernel::items(),
 
     /**
-     * The list of integrations to be included in Slytherin core.
+     * The list of packages to be included in the application.
      *
      * @var array
      */
-    'integrations' => array(
-        // Slytherin Integrations
-        'Rougin\Slytherin\Debug\ErrorHandlerIntegration',
+    'packages' =>
+    [
+        // Slytherin Integrations ------------------------------
         'Rougin\Slytherin\Http\HttpIntegration',
         'Rougin\Slytherin\Integration\ConfigurationIntegration',
         'Rougin\Slytherin\Middleware\MiddlewareIntegration',
         'Rougin\Slytherin\Routing\RoutingIntegration',
-        'Rougin\Slytherin\Template\RendererIntegration',
+        // -----------------------------------------------------
 
-        // Application Integrations
-        'App\Integrations\AppIntegration',
-        'App\Integrations\AuthIntegration',
+        // Application Packages
+        'App\Package',
 
-        // Weasley Integrations
-        'Rougin\Weasley\Illuminate\DatabaseIntegration',
-        'Rougin\Weasley\Illuminate\ViewIntegration',
-        // 'Rougin\Weasley\Session\SessionIntegration',
-    ),
+        // Weasley Packages
+    ],
 );

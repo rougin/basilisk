@@ -1,12 +1,15 @@
 <?php
 
-// Loads the environment variables from an .env file.
-(new Dotenv\Dotenv(path()))->load();
+// Defines the root directory --------
+$root = realpath(__DIR__ . '/../../');
+// -----------------------------------
+
+// Loads the environment variables ---
+(new Dotenv\Dotenv($root))->load();
+// -----------------------------------
 
 /**
- * Phinx configurations.
- *
- * @var array
+ * @var array<string, mixed>
  */
 return array(
     /**
@@ -14,28 +17,36 @@ return array(
      *
      * @var array
      */
-    'paths' => array(
+    'paths' =>
+    [
         /**
          * List of migration paths.
          *
          * @var array
          */
-        'migrations' => array(path('app/phinx/migrations')),
+        'migrations' =>
+        [
+            $root . '/src/Phinx/Scripts',
+        ],
 
         /**
          * List of seed paths.
          *
          * @var array
          */
-        'seeds' => array(path('app/phinx/seeders')),
-    ),
+        'seeds' =>
+        [
+            $root . '/src/Phinx/Seeders',
+        ],
+    ],
 
     /**
      * Configurations for specific environments.
      *
      * @var array
      */
-    'environments' => array(
+    'environments' =>
+    [
         /**
          * Name of the default migration table.
          *
@@ -55,7 +66,8 @@ return array(
          *
          * @var array
          */
-        'mysql_' . getenv('APP_ENVIRONMENT') => array(
+        'mysql_' . getenv('APP_ENVIRONMENT') =>
+        [
             /**
              * Name of the database adapter.
              *
@@ -104,14 +116,15 @@ return array(
              * @var string
              */
             'charset' => getenv('MYSQL_CHARSET'),
-        ),
+        ],
 
         /**
          * SQLite connection for a specified environment.
          *
          * @var array
          */
-        'sqlite_' . getenv('APP_ENVIRONMENT') => array(
+        'sqlite_' . getenv('APP_ENVIRONMENT') =>
+        [
             /**
              * Name of the database adapter.
              *
@@ -125,6 +138,6 @@ return array(
              * @var string
              */
             'name' => getenv('SQLITE_DATABASE'),
-        ),
-    ),
+        ],
+    ],
 );
