@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Psr\Container\ContainerInterface;
 use Rougin\Slytherin\Container\Container;
+use Rougin\Slytherin\Container\ContainerInterface;
 use Rougin\Slytherin\Integration\Configuration;
 use Rougin\Slytherin\System as Slytherin;
 
@@ -15,7 +15,7 @@ use Rougin\Slytherin\System as Slytherin;
 class System
 {
     /**
-     * @var \Psr\Container\ContainerInterface
+     * @var \Rougin\Slytherin\Container\ContainerInterface
      */
     protected $container;
 
@@ -44,7 +44,7 @@ class System
     }
 
     /**
-     * @return \Psr\Container\ContainerInterface
+     * @return \Rougin\Slytherin\Container\ContainerInterface
      */
     public function getContainer()
     {
@@ -52,7 +52,7 @@ class System
     }
 
     /**
-     * @param \Psr\Container\ContainerInterface $container
+     * @param \Rougin\Slytherin\Container\ContainerInterface $container
      *
      * @return self
      */
