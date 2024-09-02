@@ -31,13 +31,15 @@ class HelloTest extends Testcase
      */
     public function test_simple_route()
     {
+        $expected = (string) 'Hello, Muggle!';
+
         $response = $this->handle('GET', '/');
 
-        $expected = 'Hello, Muggle!';
+        $actual = $response->getBody()->__toString();
 
-        $actual = (string) $response->getBody();
+        $exists = strpos($actual, $expected) !== false;
 
-        $this->assertStringContainsString($expected, $actual);
+        $this->assertTrue($exists);
     }
 
     /**
