@@ -6,14 +6,14 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Basilisk is a skeleton project made for [Slytherin](https://roug.in/slytherin/) which provides a code structure that is based on my [experiences](https://roug.in/) creating projects using Slytherin as it's foundation. The said code structure should be easy to understand and be based on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
+Basilisk is a skeleton project made for [Slytherin](https://roug.in/slytherin/) which provides a code structure that is based on [my experiences](https://roug.in/) creating projects using Slytherin as it's framework. The said code structure should be easy to understand and be based on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
 ## Installation
 
-Install `Basilisk` via [Composer](https://getcomposer.org/):
+Create a new project using `Basilisk` via [Composer](https://getcomposer.org/):
 
 ``` bash
-$ composer create-project rougin/basilisk "acme"
+$ composer create-project rougin/basilisk:dev-master "hogwarts"
 ```
 
 ## What's inside?
