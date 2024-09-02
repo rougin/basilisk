@@ -5,7 +5,6 @@ namespace App;
 use Rougin\Slytherin\Container\ContainerInterface;
 use Rougin\Slytherin\Integration\Configuration;
 use Rougin\Slytherin\Integration\IntegrationInterface;
-use Rougin\Slytherin\Routing\RouterInterface;
 
 /**
  * @package App
@@ -24,15 +23,15 @@ class Package implements IntegrationInterface
     {
         $current = new Router;
 
-        if ($container->has(RouterInterface::class))
+        $interface = 'Rougin\Slytherin\Routing\RouterInterface';
+
+        if ($container->has($interface))
         {
             /** @var \Rougin\Slytherin\Routing\RouterInterface */
-            $router = $container->get(RouterInterface::class);
+            $router = $container->get($interface);
 
             $current = $router->merge($current->routes());
         }
-
-        $interface = RouterInterface::class;
 
         return $container->set($interface, $current);
     }
