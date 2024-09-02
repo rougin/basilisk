@@ -59,14 +59,14 @@ return array(
          *
          * @var string
          */
-        'default_database' => 'mysql_' . getenv('APP_ENVIRONMENT'),
+        'default_database' => getenv('APP_DEFAULT_DB'),
 
         /**
          * MySQL connection for a specified environment.
          *
          * @var array
          */
-        'mysql_' . getenv('APP_ENVIRONMENT') =>
+        'mysql' =>
         [
             /**
              * Name of the database adapter.
@@ -123,7 +123,7 @@ return array(
          *
          * @var array
          */
-        'sqlite_' . getenv('APP_ENVIRONMENT') =>
+        'sqlite' =>
         [
             /**
              * Name of the database adapter.
@@ -138,6 +138,13 @@ return array(
              * @var string
              */
             'name' => getenv('SQLITE_DATABASE'),
+
+            /**
+             * Suffix of the SQLite database file.
+             *
+             * @var string
+             */
+            'suffix' => '',
         ],
     ],
 );
