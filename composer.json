@@ -22,7 +22,6 @@
     "illuminate/view": "~5.0|~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
     "robmorgan/phinx": "~0.8",
     "rougin/authsum": "dev-master",
-    "rougin/slytherin": "~0.9",
     "rougin/weasley": "~0.6",
     "vlucas/phpdotenv": "~2.0"
   },
