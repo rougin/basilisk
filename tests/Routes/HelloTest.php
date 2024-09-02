@@ -37,9 +37,9 @@ class HelloTest extends Testcase
 
         $actual = $response->getBody()->__toString();
 
-        $exists = strpos($actual, $expected) !== false;
+        $exists = strpos($actual, $expected);
 
-        $this->assertTrue($exists);
+        $this->assertTrue($exists !== false);
     }
 
     /**
