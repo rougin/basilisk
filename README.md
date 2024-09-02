@@ -6,7 +6,7 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Basilisk is a skeleton project made for [Slytherin](https://roug.in/slytherin/) which provides a code structure that is based on my [experiences](https://roug.in/) creating projects using Slytherin as it's foundation. The said code structure should be easy to understand and based on on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
+Basilisk is a skeleton project made for [Slytherin](https://roug.in/slytherin/) which provides a code structure that is based on my [experiences](https://roug.in/) creating projects using Slytherin as it's foundation. The said code structure should be easy to understand and be based on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
 ## Installation
 
@@ -32,7 +32,24 @@ $ composer create-project rougin/basilisk "acme"
 > [!NOTE]
 > The following directory names below are only the preferred names based on my experience building projects under Slytherin. But they can be easily be extended or removed as Slytherin not does not conform to those said preferences.
 
-### `Checks`
+```
+src/
+├─ Checks/
+├─ Depots/
+├─ Models/
+├─ Phinx/
+│  ├─ Scripts/
+│  ├─ Seeders/
+├─ Routes/
+├─ Scripts/
+```
+
+### Checks
+
+```
+src/
+├─ Checks/
+```
 
 This directory contains classes that are used for validation. Those classes may be extended to the `Check` class of [Weasley](https://roug.in/weasley/):
 
@@ -57,7 +74,12 @@ class UserCheck extends Check
 }
 ```
 
-### `Depots`
+### Depots
+
+```
+src/
+├─ Depots/
+```
 
 The main directory that should contain the logic of a project:
 
@@ -109,9 +131,14 @@ class UserDepot
 > [!NOTE]
 > Prior in using depots, or may be best known as the [Repository pattern](https://designpatternsphp.readthedocs.io/en/latest/More/Repository/README.html), I implemented most of the logic in the `Routes` or `Models` directories. However, it presents a challenge to me in organizing their code. With using depots, I can reuse the same logic in to either `Routes` (for receiving user request) or in `Scripts` directory (for handling terminal-based actions).
 
-### `Models`
+### Models
 
-Here is the directory where for storing the models (for [`Eloquent`](https://laravel.com/docs/eloquent)) or entities (if using [`Doctrine`](https://www.doctrine-project.org/index.html)). The classes in this directory should represent a database table (e.g., if having a `users` table, it should be represented as `User` class):
+```
+src/
+├─ Models/
+```
+
+It is the directory where for storing the models (for [`Eloquent`](https://laravel.com/docs/eloquent)) or entities (if using [`Doctrine`](https://www.doctrine-project.org/index.html)). The classes in this directory should represent a database table (e.g., if having a `users` table, it should be represented as `User` class):
 
 ``` php
 <?php
@@ -148,7 +175,14 @@ class User extends Model
 
 ```
 
-### `Phinx`
+### Phinx
+
+```
+src/
+├─ Phinx/
+│  ├─ Scripts/
+│  ├─ Seeders/
+```
 
 This directory is for the storage of related files for the [`Phinx` package](https://phinx.org/). The `Scripts` directory contains the generated database migrations while the `Seeders` directory must contain the database seeders.
 
@@ -229,9 +263,14 @@ $ vendor/bin/phinx seed:run -c app/config/phinx.php
 > [!NOTE]
 > The command above will load the seeders in **alphabetical** order.
 
-### `Routes`
+### Routes
 
-The gateway of the project wherein the routes (or commonly known as `Controllers`) are stored. The said class can call or instantiate the classes found from the previously mentioned directories.
+```
+src/
+├─ Routes/
+```
+
+The gateway of the project wherein the routes are stored. The said class can call or instantiate the classes found from the previously mentioned directories.
 
 ``` php
 namespace App\Routes;
@@ -252,7 +291,15 @@ class Hello
 }
 ```
 
-### `Scripts`
+> [!NOTE]
+> In other frameworks, `Routes` is commonly known as `Controllers`.
+
+### Scripts
+
+```
+src/
+├─ Scripts/
+```
 
 The directory where the scripts are stored. These scripts can be executed directly using the `php` command in the terminal:
 
