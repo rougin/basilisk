@@ -4,6 +4,7 @@ namespace App\Routes;
 
 use App\System;
 use App\Testcase;
+use Rougin\Slytherin\Http\ServerRequest;
 
 /**
  * @package App
@@ -26,22 +27,24 @@ class HelloTest extends Testcase
     }
 
     /**
-     * @runInSeparateProcess
-     *
      * @return void
      */
     public function test_simple_route()
     {
-        $this->expectOutputString('Hello, Muggle!');
+        $response = $this->handle('GET', '/');
 
-        $this->handle('GET', '/');
+        $expected = 'Hello, Muggle!';
+
+        $actual = (string) $response->getBody();
+
+        $this->assertStringContainsString($expected, $actual);
     }
 
     /**
      * @param string $method
      * @param string $uri
      *
-     * @return void
+     * @return \Psr\Http\Message\ResponseInterface
      */
     protected function handle($method, $uri)
     {
@@ -50,6 +53,10 @@ class HelloTest extends Testcase
         $_SERVER['SERVER_NAME'] = 'localhost';
         $_SERVER['SERVER_PORT'] = '8000';
 
-        $this->app->make()->run();
+        $request = new ServerRequest($_SERVER);
+
+        $app = $this->app->make();
+
+        return $app->handle($request);
     }
 }

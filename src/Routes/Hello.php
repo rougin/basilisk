@@ -2,6 +2,8 @@
 
 namespace App\Routes;
 
+use Rougin\Slytherin\Template\RendererInterface;
+
 /**
  * @package App
  *
@@ -14,8 +16,8 @@ class Hello
      *
      * @return string
      */
-    public function index()
+    public function index(RendererInterface $renderer)
     {
-        return 'Hello, Muggle!';
+        return $renderer->render('index');
     }
 }
