@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property integer $id
+ * @property string  $name
+ * @property string  $password
+ * @property string  $email
+ *
+ * @method \App\Models\User[] all()
+ *
  * @package App
  *
  * @author Rougin Gutib <rougingutib@gmail.com>
@@ -35,6 +42,8 @@ class User extends Model
     protected $table = 'users';
 
     /**
+     * @codeCoverageIgnore
+     *
      * Sets the user's password as hashed.
      *
      * @param string $value

@@ -117,6 +117,7 @@ return array(
         'App\Package',
 
         // Weasley Packages
+        'Rougin\Weasley\Packages\Laravel\Eloquent',
         'Rougin\Weasley\Packages\Laravel\Blade',
     ],
 );

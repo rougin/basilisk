@@ -27,7 +27,8 @@ $ vendor/bin/phinx migrate -c app/config/phinx.php
 $ vendor/bin/phinx seed:run -c app/config/phinx.php
 ```
 
-**NOTE**: Running `seed:run` will load the seeders in **alphabetical** order.
+> [!NOTE]
+> Running `seed:run` will load the seeders in **alphabetical** order.
 
 ### Running the application using PHP's built-in web server
 
@@ -41,11 +42,11 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 | Package | Description |
 | ------- | ----------- |
-| [Blade](https://laravel.com/docs/5.5/blade) | a templating engine provided by [Laravel](https://laravel.com/) |
-| [Dotenv](https://github.com/vlucas/phpdotenv) | loads environment variables from `.env` to `getenv()` |
-| [Phinx](https://phinx.org/) | a PHP database migrations for everyone |
-| [Slytherin](https://roug.in/slytherin/) | an extensible and SOLID-based micro-framework |
-| [Weasley](https://roug.in/weasley/) | generators and helpers for the Slytherin framework |
+| [Blade](https://laravel.com/docs/5.5/blade) | A templating engine provided by [Laravel](https://laravel.com/) |
+| [Dotenv](https://github.com/vlucas/phpdotenv) | Loads variables from `.env` to `getenv()` |
+| [Phinx](https://phinx.org/) | A PHP database migrations for everyone |
+| [Slytherin](https://roug.in/slytherin/) | An extensible and SOLID-based micro-framework |
+| [Weasley](https://roug.in/weasley/) | Generators and helpers for the Slytherin framework |
 
 ## Changelog
 
