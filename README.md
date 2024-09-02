@@ -42,7 +42,7 @@ Now open your web browser and go to [http://localhost:8000](http://localhost:800
 
 | Package | Description |
 | ------- | ----------- |
-| [Blade](https://laravel.com/docs/5.5/blade) | A templating engine provided by [Laravel](https://laravel.com/) |
+| [Blade](https://laravel.com/docs/blade) | A templating engine provided by [Laravel](https://laravel.com/) |
 | [Dotenv](https://github.com/vlucas/phpdotenv) | Loads variables from `.env` to `getenv()` |
 | [Phinx](https://phinx.org/) | A PHP database migrations for everyone |
 | [Slytherin](https://roug.in/slytherin/) | An extensible and SOLID-based micro-framework |
