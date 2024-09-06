@@ -13,7 +13,7 @@ Basilisk is a skeleton project made for [Slytherin](https://roug.in/slytherin/) 
 Create a new project using `Basilisk` via [Composer](https://getcomposer.org/):
 
 ``` bash
-$ composer create-project rougin/basilisk:dev-master "hogwarts"
+$ composer create-project rougin/basilisk "hogwarts"
 ```
 
 ## What's inside?
@@ -25,7 +25,7 @@ $ composer create-project rougin/basilisk:dev-master "hogwarts"
 | [Dotenv](https://github.com/vlucas/phpdotenv) | Loads variables from `.env` to `getenv()` |
 | [Phinx](https://phinx.org/) | A PHP database migrations for everyone |
 | [Slytherin](https://roug.in/slytherin/) | An extensible and SOLID-based micro-framework |
-| [Weasley](https://roug.in/weasley/) | Generators and helpers for the Slytherin framework |
+| [Weasley](https://roug.in/weasley/) | Generators and helpers for Slytherin |
 
 ## Directory Structure
 
@@ -60,12 +60,18 @@ use Rougin\Weasley\Check;
 
 class UserCheck extends Check
 {
+    /**
+     * @var array<string, string>
+     */
     protected $labels =
     [
         'name' => 'Name',
         'email' => 'Email',
     ];
 
+    /**
+     * @var array<string, string>
+     */
     protected $rules =
     [
         'name' => 'required',
