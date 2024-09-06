@@ -27,13 +27,6 @@ $ composer create-project rougin/basilisk:dev-master "hogwarts"
 | [Slytherin](https://roug.in/slytherin/) | An extensible and SOLID-based micro-framework |
 | [Weasley](https://roug.in/weasley/) | Generators and helpers for the Slytherin framework |
 
-> [!NOTE]
-> `Blade` and `Eloquent` must be installed manually:
->
-> ``` bash
-> $ composer install illuminate/database illuminate/events illuminate/view
-> ```
-
 ## Directory Structure
 
 > [!NOTE]
