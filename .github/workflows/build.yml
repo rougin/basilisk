@@ -36,6 +36,9 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-plugins
 
+    - name: Install Laravel packages
+      run: composer require illuminate/database illuminate/events illuminate/view --dev
+
     - name: Set up new environment
       run: cp .env.example .env
 
