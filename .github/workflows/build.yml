@@ -30,6 +30,9 @@ jobs:
     - name: Check the PHP version
       run: php -v
 
+    - name: Delete composer.lock
+      run: rm composer.lock
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
