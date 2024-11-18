@@ -559,14 +559,13 @@ $ composer global require friendsofphp/php-cs-fixer --dev
 After its installation, kindly use the `php-cs-fixer` command in the same `Authsum` directory:
 
 ``` bash
-$ cd Sample
 $ php-cs-fixer fix --config=phpstyle.php
 ```
 
 The `phpstyle.php` file provided by `Basilisk` currently follows the [PSR-12](https://www.php-fig.org/psr/psr-12/) standard as its baseline for the coding style and uses [Allman](https://en.wikipedia.org/wiki/Indentation_style#Allman_style) as its indentation style.
 
 > [!NOTE]
-> Installing both `PHPStan` and `PHP Coding Standards Fixer` requires a version of PHP at least `7.4`.
+> Installing both `PHPStan` and `PHP Coding Standards Fixer` requires a minimum version of PHP at least `7.4`.
 
 ## Changelog
 
