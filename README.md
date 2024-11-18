@@ -148,6 +148,20 @@ $ vendor/bin/phinx create CreateUsersTable -c app/config/phinx.php
   ``` php
   // app/config/app.php
 
+  // ...
+
+  /**
+   * This section specifies the core integrations that are
+   * required to run in Slytherin. The following will use
+   * the defined HTTP variables, available HTTP routes, and
+   * the specified HTTP middlewares (if they're available).
+   */
+  'Rougin\Slytherin\Http\HttpIntegration',
+  'Rougin\Slytherin\Integration\ConfigurationIntegration',
+  'Rougin\Slytherin\Middleware\MiddlewareIntegration',
+  'Rougin\Slytherin\Routing\RoutingIntegration',
+  // 'Rougin\Slytherin\Template\RendererIntegration', // comment this line
+
   /**
    * This section specifies the packages came from Weasley.
    * Please see Weasley's documentation for all of its
