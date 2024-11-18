@@ -55,45 +55,45 @@ After running, open a web browser then proceed to http://localhost in a new tab.
 
 * `Laravel\Eloquent` enables to usage of [Eloquent](https://laravel.com/docs/11.x/eloquent) to the project. To use this package, kindly install its required package first in `Composer`:
 
-``` bash
-$ composer require illuminate/database
-```
+  ``` bash
+  $ composer require illuminate/database
+  ```
 
 * `Laravel\Blade` allows a `Basilisk` project to use [Blade](https://laravel.com/docs/11.x/blade) for creating PHP templates using the `Blade` template engine. To use this package, kindly uncomment its related code first in the `app/config/app.php` file:
 
-``` diff
- /**
-  * This section specifies the packages came from Weasley.
-  * Please see Weasley's documentation for all of its
-  * available packages and integrations that can be used.
-  *
-  * @link https://roug.in/weasley/
-  */
-- 'Rougin\Weasley\Packages\Laravel\Eloquent',
-+ // 'Rougin\Weasley\Packages\Laravel\Blade',
-```
+  ``` php
+  /**
+   * This section specifies the packages came from Weasley.
+   * Please see Weasley's documentation for all of its
+   * available packages and integrations that can be used.
+   *
+   * @link https://roug.in/weasley/
+   */
+  'Rougin\Weasley\Packages\Laravel\Eloquent',
+  'Rougin\Weasley\Packages\Laravel\Blade', // uncomment this line
+  ```
 
-Then proceed to install its required package from `Composer`:
+  Then proceed to install its required package from `Composer`:
 
-``` bash
-$ composer require illuminate/view
-```
+  ``` bash
+  $ composer require illuminate/view
+  ```
 
-Once installed, kindly the `Blade` templates in the `app/blades` directory:
+  Once installed, kindly the `Blade` templates in the `app/blades` directory:
 
-``` php
-// app/blades/index.blade.php
+  ``` php
+  // app/blades/index.blade.php
 
-@extends('main')
+  @extends('main')
 
-@section('content')
-  <div class="container">
-    <div class="p-5">
-      <h1 class="text-center">Hello, Muggle!</h1>
+  @section('content')
+    <div class="container">
+      <div class="p-5">
+        <h1 class="text-center">Hello, Muggle!</h1>
+      </div>
     </div>
-  </div>
-@endsection
-```
+  @endsection
+  ```
 
 ### 
 
