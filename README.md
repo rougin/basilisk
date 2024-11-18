@@ -6,7 +6,7 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Basilisk is a project skeleton specifically for the [Slytherin](https://roug.in/slytherin/) micro-framework which provides an opinionated code structure that is based on [my experiences](https://roug.in/) creating projects using Slytherin as the project's foundation. The code structure should be easy to understand and be based on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
+Basilisk is a project skeleton specifically for the [Slytherin](https://roug.in/slytherin/) micro-framework which provides an opinionated code structure that is based on [my experiences](https://roug.in/) creating projects using Slytherin as its foundation. The code structure should be easy to understand and be under [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
 ## Installation
 
@@ -36,6 +36,66 @@ After running, open a web browser then proceed to http://localhost in a new tab.
 > This command should only be used for development purposes. It is recommended to use [Apache](https://httpd.apache.org/) or [Nginx](https://nginx.org/en/) in running this project.
 
 ## What's inside?
+
+`Basilisk` contains a configuration of the following packages:
+
+### Slytherin
+
+[Slytherin](https://github.com/rougin/slytherin) is a simple and extensible PHP micro-framework that tries to achieve a [SOLID-based design](https://en.wikipedia.org/wiki/SOLID) for creating web applications. Being the project's foundation, `Basilisk` has also configured the following of its packages out of the box:
+
+* [HttpIntegration](https://github.com/rougin/slytherin/wiki/Http) allows to use PHP's superglobals (e.g., `$_GET`, `$_POST`, etc.) to the project;
+* [ConfigurationIntegration](https://github.com/rougin/slytherin/wiki/IntegrationInterface-Implementation) allows to use the `Configuration` class of Slytherin across the project through dependency injection;
+* [MiddlewareIntegration](https://github.com/rougin/slytherin/wiki/Middleware) provides a simple way in integrating [PSR-15](https://www.php-fig.org/psr/psr-15/) middlewares;
+* [RoutingIntegration](https://github.com/rougin/slytherin/wiki/Routing) adds a systematic way of configuring HTTP routes and its routers; and
+* [RendererIntegration](https://github.com/rougin/slytherin/wiki/Template) for providing directories in loading PHP templates.
+
+### Weasley
+
+[Weasley](https://github.com/rougin/weasley) is a utility package that provides generators, helpers, and utilities for Slytherin. The following packages are also configured within a `Basilisk` project:
+
+* `Laravel\Eloquent` enables to usage of [Eloquent](https://laravel.com/docs/11.x/eloquent) to the project. To use this package, kindly install its required package first in `Composer`:
+
+``` bash
+$ composer require illuminate/database
+```
+
+* `Laravel\Blade` allows a `Basilisk` project to use [Blade](https://laravel.com/docs/11.x/blade) for creating PHP templates using the `Blade` template engine. To use this package, kindly uncomment its related code first in the `app/config/app.php` file:
+
+``` diff
+ /**
+  * This section specifies the packages came from Weasley.
+  * Please see Weasley's documentation for all of its
+  * available packages and integrations that can be used.
+  *
+  * @link https://roug.in/weasley/
+  */
+- 'Rougin\Weasley\Packages\Laravel\Eloquent',
++ // 'Rougin\Weasley\Packages\Laravel\Blade',
+```
+
+Then proceed to install its required package from `Composer`:
+
+``` bash
+$ composer require illuminate/view
+```
+
+Once installed, kindly the `Blade` templates in the `app/blades` directory:
+
+``` php
+// app/blades/index.blade.php
+
+@extends('main')
+
+@section('content')
+  <div class="container">
+    <div class="p-5">
+      <h1 class="text-center">Hello, Muggle!</h1>
+    </div>
+  </div>
+@endsection
+```
+
+### 
 
 | Package | Description |
 | ------- | ----------- |
