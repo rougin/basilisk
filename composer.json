@@ -16,7 +16,6 @@
   "require":
   {
     "php": ">=5.3.0",
-    "robmorgan/phinx": "~0.8",
     "rougin/weasley": "~0.6",
     "vlucas/phpdotenv": "~2.0"
   },
