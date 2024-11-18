@@ -21,20 +21,18 @@ class User extends Model
     /**
      * @var string[]
      */
-    protected $fillable =
-    [
+    protected $fillable = array(
         'name',
         'password',
         'email',
-    ];
+    );
 
     /**
      * @var string[]
      */
-    protected $hidden =
-    [
+    protected $hidden = array(
         'password'
-    ];
+    );
 
     /**
      * @var string

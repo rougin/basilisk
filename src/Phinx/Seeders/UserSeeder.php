@@ -14,16 +14,18 @@ class UserSeeder extends AbstractSeed
     /**
      * @var array<string, string>[]
      */
-    protected $items =
-    [
-        ['name' => 'Harry Jonathans Potter', 'email' => 'hjpotter@hogwarts.co.uk'],
-        ['name' => 'Hermione Jane Granger', 'email' => 'hjgranger@hogwarts.co.uk'],
-        ['name' => 'Ronald Bilius Weasley', 'email' => 'rbweasley@hogwarts.co.uk'],
-    ];
+    protected $items = array(
+        array('name' => 'Harry Jonathans Potter', 'email' => 'hjpotter@hogwarts.co.uk'),
+        array('name' => 'Hermione Jane Granger', 'email' => 'hjgranger@hogwarts.co.uk'),
+        array('name' => 'Ronald Bilius Weasley', 'email' => 'rbweasley@hogwarts.co.uk'),
+    );
 
+    /**
+     * @return void
+     */
     public function run(): void
     {
-        $data = array();
+        $items = array();
 
         foreach ($this->items as $item)
         {
@@ -31,9 +33,11 @@ class UserSeeder extends AbstractSeed
 
             $item['password'] = password_hash('12345', PASSWORD_BCRYPT);
 
-            array_push($data, (array) $item);
+            $items[] = $item;
         }
 
-        $this->table('users')->insert($data)->save();
+        $table = $this->table('users');
+
+        $table->insert($items)->save();
     }
 }

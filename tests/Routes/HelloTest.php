@@ -16,7 +16,7 @@ class HelloTest extends UsingApp
      */
     public function test_simple_route()
     {
-        $expected = (string) 'Hello, Muggle!';
+        $expected = 'Hello, Muggle!';
 
         $response = $this->handle('GET', '/');
 

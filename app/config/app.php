@@ -46,8 +46,7 @@ return array(
      * Contains the global variables provided by PHP. It was intended to be
      * separated in order for the developers to easily mock these variables.
      */
-    'http' =>
-    [
+    'http' => array(
         /**
          * HTTP Cookies.
          *
@@ -82,7 +81,7 @@ return array(
          * @var array
          */
         'server' => $_SERVER,
-    ],
+    ),
 
     /**
      * Contains the listing of available HTTP routes from a class object.
@@ -104,8 +103,7 @@ return array(
      *
      * @var array
      */
-    'packages' =>
-    [
+    'packages' => array(
         // Slytherin Integrations ------------------------------
         'Rougin\Slytherin\Http\HttpIntegration',
         'Rougin\Slytherin\Integration\ConfigurationIntegration',
@@ -119,5 +117,5 @@ return array(
         // Weasley Packages
         'Rougin\Weasley\Packages\Laravel\Eloquent',
         'Rougin\Weasley\Packages\Laravel\Blade',
-    ],
+    ),
 );

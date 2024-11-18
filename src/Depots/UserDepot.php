@@ -35,7 +35,7 @@ class UserDepot
 
         foreach ($result as $item)
         {
-            $row = ['id' => $item->id];
+            $row = array('id' => $item->id);
 
             $row['name'] = $item->name;
 
@@ -44,6 +44,6 @@ class UserDepot
             $items[] = $row;
         }
 
-        return (array) $items;
+        return $items;
     }
 }

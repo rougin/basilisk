@@ -44,13 +44,12 @@ return array(
      *
      * @var array
      */
-    'handlers' =>
-    [
+    'handlers' => array(
         /**
          * Store sessions in a file.
          *
          * @var string
          */
         'file' => 'Rougin\Weasley\Session\FileSessionHandler'
-    ],
+    ),
 );

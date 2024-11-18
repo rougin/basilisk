@@ -30,9 +30,6 @@ jobs:
     - name: Check the PHP version
       run: php -v
 
-    - name: Delete composer.lock
-      run: rm composer.lock
-
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
@@ -41,6 +38,61 @@ jobs:
 
     - name: Set up new environment
       run: cp .env.example .env
+
+    # Currently has issues in running PHP 5.3
+    # Error: Class 'Illuminate\View\Factory' not found
+    # Package: rougin/weasley (Packages\Laravel\Blade)
+    - name: Install Composer packages for PHP 5.3
+      if: ${{ matrix.php-versions == '5.3' }}
+      run: composer require illuminate/database:"~4.1|~5.0" illuminate/events:"~4.1|~5.0" illuminate/view:"~4.1|~5.0" vcorbacho/sessionhandlerinterface:dev-master ircmaxell/password-compat --no-plugins --dev
+
+    - name: Install Composer packages for PHP 5.4
+      if: ${{ matrix.php-versions == '5.4' }}
+      run: composer require illuminate/database:"~4.1|~5.0" illuminate/events:"~4.1|~5.0" illuminate/filesystem:"~4.1|~5.0" illuminate/view:"~4.1|~5.0" --no-plugins --dev
+
+    - name: Install Composer packages for PHP 5.5
+      if: ${{ matrix.php-versions == '5.5' }}
+      run: composer require illuminate/database:"~4.1|~5.0" illuminate/events:"~4.1|~5.0" illuminate/filesystem:"~4.1|~5.0" illuminate/view:"~4.1|~5.0" --no-plugins --dev
+
+    - name: Install Composer packages for PHP 5.6
+      if: ${{ matrix.php-versions == '5.6' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 7.0
+      if: ${{ matrix.php-versions == '7.0' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 7.1
+      if: ${{ matrix.php-versions == '7.1' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 7.2
+      if: ${{ matrix.php-versions == '7.2' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 7.3
+      if: ${{ matrix.php-versions == '7.3' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 7.4
+      if: ${{ matrix.php-versions == '7.4' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 8.0
+      if: ${{ matrix.php-versions == '8.0' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 8.1
+      if: ${{ matrix.php-versions == '8.1' }}
+      run: composer require illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 8.2
+      if: ${{ matrix.php-versions == '8.2' }}
+      run: composer require laravel/serializable-closure illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 8.3
+      if: ${{ matrix.php-versions == '8.3' }}
+      run: composer require laravel/serializable-closure illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
 
     - name: Run test suite
       run: vendor/bin/phpunit --coverage-clover=coverage.clover

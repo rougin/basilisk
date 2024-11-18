@@ -16,7 +16,7 @@ class UsersTest extends UsingApp
      */
     public function test_route_with_depot()
     {
-        $expected = (array) $this->items();
+        $expected = $this->items();
 
         $response = $this->handle('GET', '/users');
 
@@ -48,6 +48,6 @@ class UsersTest extends UsingApp
         $row['email'] = 'rbweasley@hogwarts.co.uk';
         $items[] = $row;
 
-        return (array) $items;
+        return $items;
     }
 }

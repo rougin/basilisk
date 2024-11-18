@@ -34,11 +34,13 @@ class System
      */
     public function __construct($root)
     {
-        // Loads the environment variables ---
-        (new \Dotenv\Dotenv($root))->load();
-        // -----------------------------------
+        // Load variables from ".env" ---
+        $env = new \Dotenv\Dotenv($root);
 
-        $this->root = (string) $root;
+        $env->load();
+        // ------------------------------
+
+        $this->root = $root;
 
         $this->setContainer(new Container);
     }
@@ -83,6 +85,6 @@ class System
 
         $app = new Slytherin($container, $config);
 
-        return $app->integrate((array) $packages);
+        return $app->integrate($packages);
     }
 }
