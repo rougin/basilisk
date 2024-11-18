@@ -11,18 +11,22 @@ $env->load();
 // ------------------------------
 
 /**
+ * Returns a configuration file specifically for Phinx.
+ *
+ * @link https://book.cakephp.org/phinx/0/en/index.html
+ *
  * @var array<string, mixed>
  */
 return array(
+
     /**
-     * List of paths.
+     * Paths to be used for database migration.
      *
-     * @var array
+     * @var array<string, string[]>
      */
     'paths' => array(
+
         /**
-         * List of migration paths.
-         *
          * @var array
          */
         'migrations' => array(
@@ -30,107 +34,100 @@ return array(
         ),
 
         /**
-         * List of seed paths.
-         *
          * @var array
          */
         'seeds' => array(
             $root . '/src/Phinx/Seeders',
         ),
+
     ),
 
     /**
-     * Configurations for specific environments.
+     * Returns an array of configurations exclusive
+     * for a specified environment (e.g., "test").
      *
      * @var array
      */
     'environments' => array(
+
         /**
-         * Name of the default migration table.
+         * Name of the database table in storing the
+         * logs during migration (e.g., "phinxlog").
          *
          * @var string
          */
         'default_migration_table' => 'phinxlog',
 
         /**
-         * Name of the default database.
+         * Defines the default configuration to be used
+         * if the configuration is not specified when
+         * running database migrations (e.g., "test").
          *
          * @var string
          */
         'default_database' => getenv('APP_DEFAULT_DB'),
 
         /**
-         * MySQL connection for a specified environment.
+         * Configuration for a MySQL connection.
          *
-         * @var array
+         * @link https://www.mysql.com
+         *
+         * @var array<string, string>
          */
         'mysql' => array(
-            /**
-             * Name of the database adapter.
-             *
-             * @var string
-             */
-            'adapter' => getenv('MYSQL_DRIVER'),
 
             /**
-             * Name of the database hostname.
-             *
+             * @var string
+             */
+            'adapter' => 'mysql',
+
+            /**
              * @var string
              */
             'host' => getenv('MYSQL_HOSTNAME'),
 
             /**
-             * Name of the database.
-             *
              * @var string
              */
             'name' => getenv('MYSQL_DATABASE'),
 
             /**
-             * Name of the database username.
-             *
              * @var string
              */
             'user' => getenv('MYSQL_USERNAME'),
 
             /**
-             * Name of the database password.
-             *
              * @var string
              */
             'pass' => getenv('MYSQL_PASSWORD'),
 
             /**
-             * Name of the database port number.
-             *
              * @var integer
              */
             'port' => getenv('MYSQL_PORT'),
 
             /**
-             * Name of the database character set.
-             *
              * @var string
              */
             'charset' => getenv('MYSQL_CHARSET'),
+
         ),
 
         /**
-         * SQLite connection for a specified environment.
+         * Configuration for a SQLite connection.
          *
-         * @var array
+         * @link https://www.sqlite.org
+         *
+         * @var array<string, string>
          */
         'sqlite' => array(
-            /**
-             * Name of the database adapter.
-             *
-             * @var string
-             */
-            'adapter' => getenv('SQLITE_DRIVER'),
 
             /**
-             * Path of the database file.
-             *
+             * @var string
+             */
+            'adapter' => 'sqlite',
+
+            /**
              * @var string
              */
             'name' => getenv('SQLITE_DATABASE'),
@@ -141,6 +138,9 @@ return array(
              * @var string
              */
             'suffix' => '',
+
         ),
+
     ),
+
 );

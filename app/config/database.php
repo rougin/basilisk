@@ -1,92 +1,85 @@
 <?php
 
 /**
- * Configurations for the database.
+ * Returns an array of database connections.
  *
  * @var array<string, mixed>
  */
 return array(
+
     /**
-     * Default connection to be used.
+     * Defines the default connection to be used
+     * if the connection is not yet specified.
      *
      * @var string
      */
     'default' => 'sqlite',
 
     /**
-     * Configuration for the MySQL connection.
+     * Configuration for a MySQL connection.
      *
      * @link https://www.mysql.com
+     *
+     * @var array<string, string>
      */
     'mysql' => array(
+
         /**
-         * Name of the driver.
-         *
          * @var string
          */
         'driver' => 'mysql',
 
         /**
-         * Hostname to be used.
-         *
          * @var string
          */
         'host' => getenv('MYSQL_HOSTNAME'),
 
         /**
-         * Username to be used when connecting.
-         *
          * @var string
          */
         'username' => getenv('MYSQL_USERNAME'),
 
         /**
-         * Password to be used when connecting.
-         *
          * @var string
          */
         'password' => getenv('MYSQL_PASSWORD'),
 
         /**
-         * Name of the database.
-         *
          * @var string
          */
         'database' => getenv('MYSQL_DATABASE'),
 
         /**
-         * Port to be used when accessing the database.
-         *
          * @var integer
          */
         'port' => getenv('MYSQL_PORT'),
 
         /**
-         * Character set to be used in the database.
-         *
          * @var string
          */
         'charset' => getenv('MYSQL_CHARSET'),
+
     ),
 
     /**
-     * Configuration for the SQLite connection.
+     * Configuration for a SQLite connection.
      *
      * @link https://www.sqlite.org
+     *
+     * @var array<string, string>
      */
     'sqlite' => array(
-        /**
-         * Name of the driver.
-         *
-         * @var string
-         */
-        'driver' => getenv('SQLITE_DRIVER'),
 
         /**
-         * Path to SQLite database.
-         *
+         * @var string
+         */
+        'driver' => 'sqlite',
+
+        /**
          * @var string
          */
         'database' => __DIR__ . '/../../' . getenv('SQLITE_DATABASE'),
+
     ),
+
 );

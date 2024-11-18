@@ -1,19 +1,22 @@
 <?php
 
 /**
- * A listing of configurations for Illuminate components (Laravel).
+ * Returns an array of configurations related to Laravel.
+ * These are being used on Laravel packages under Weasley.
  *
  * @return array<string, mixed>
  */
 return array(
+
     /**
-     * Available configurations for the View component.
+     * Available configurations for Laravel Blade.
      *
      * @link https://github.com/illuminate/view
      *
-     * @var array
+     * @var array<string, string>
      */
     'view' => array(
+
         /**
          * Path for the compiled view templates.
          *
@@ -27,5 +30,7 @@ return array(
          * @var string|string[]
          */
         'templates' => __DIR__ . '/../blades',
+
     ),
+
 );

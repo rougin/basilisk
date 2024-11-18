@@ -6,9 +6,9 @@ use App\System;
 $root = __DIR__ . '/../../';
 // -----------------------------
 
-// Load the "autoload.php" from Composer ---
+// Load the Composer autoloader -------
 require $root . '/vendor/autoload.php';
-// -----------------------------------------
+// ------------------------------------
 
 // Run the application ---
 $app = new System($root);

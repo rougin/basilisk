@@ -1,7 +1,7 @@
 {
   "name": "rougin/basilisk",
   "description": "A project skeleton for Slytherin.",
-  "keywords": [ "basilisk", "project skeleton" ],
+  "keywords": [ "php-app", "php-mvc", "mini-app" ],
   "homepage": "https://roug.in/basilisk/",
   "license": "MIT",
   "authors":
