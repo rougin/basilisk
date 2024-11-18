@@ -37,7 +37,7 @@ After running, open a web browser then proceed to http://localhost in a new tab.
 
 ## What's inside?
 
-`Basilisk` contains a configuration of the following packages:
+A `Basilisk` project contains a configuration of the following packages:
 
 ### Slytherin
 
@@ -49,9 +49,81 @@ After running, open a web browser then proceed to http://localhost in a new tab.
 * [RoutingIntegration](https://github.com/rougin/slytherin/wiki/Routing) adds a systematic way of configuring HTTP routes and its routers; and
 * [RendererIntegration](https://github.com/rougin/slytherin/wiki/Template) for providing directories in loading PHP templates.
 
+> [!NOTE]
+> Kindly see the [Slytherin's documentation](https://github.com/rougin/slytherin/wiki) on how to use the above-mentioned packages.
+
+### Dotenv
+
+[Dotenv](https://github.com/vlucas/phpdotenv) is a simple PHP package that loads environment variables from `.env` files to `getenv()`, `$_ENV` and `$_SERVER` automagically. This is one of the core packages of `Basilisk` as it uses environment variables in most of its configuration in the `app/config` directory:
+
+``` php
+// app/config/app.php
+
+return array(
+
+    'name' => getenv('APP_NAME'),
+
+    // ...
+
+    'version' => getenv('APP_VERSION'),
+
+    // ...
+
+);
+```
+
+### Phinx
+
+[Phinx](https://phinx.org/) is a tool made for PHP in performing database migrations. Due to the package as framework-agnostic, this package can create, write and run database migrations easily. To use this package, kindly install it first from `Composer`:
+
+``` bash
+$ composer require robmorgan/phinx
+```
+
+Once installed, kindly check the `app/config/phinx.php` file on what variables that needs to be updated:
+
+``` php
+// app/config/phinx.php
+
+return array(
+
+    /**
+     * Paths to be used for database migration.
+     *
+     * @var array<string, string[]>
+     */
+    'paths' => array(
+
+        /**
+         * @var array
+         */
+        'migrations' => array(
+            $root . '/src/Phinx/Scripts',
+        ),
+
+        /**
+         * @var array
+         */
+        'seeds' => array(
+            $root . '/src/Phinx/Seeders',
+        ),
+
+    ),
+
+    // ...
+
+);
+```
+
+When creating or performing database migrations using `Phinx`, always use the configuration file provided by `Basilisk`:
+
+``` bash
+$ vendor/bin/phinx create CreateUsersTable -c app/config/phinx.php
+```
+
 ### Weasley
 
-[Weasley](https://github.com/rougin/weasley) is a utility package that provides generators, helpers, and utilities for Slytherin. The following packages are also configured within a `Basilisk` project:
+[Weasley](https://github.com/rougin/weasley) is a utility package in PHP that provides generators, helpers, and utilities for Slytherin. The following packages are also configured within `Basilisk`:
 
 * `Laravel\Eloquent` enables to usage of [Eloquent](https://laravel.com/docs/11.x/eloquent) to the project. To use this package, kindly install its required package first in `Composer`:
 
@@ -59,9 +131,11 @@ After running, open a web browser then proceed to http://localhost in a new tab.
   $ composer require illuminate/database
   ```
 
-* `Laravel\Blade` allows a `Basilisk` project to use [Blade](https://laravel.com/docs/11.x/blade) for creating PHP templates using the `Blade` template engine. To use this package, kindly uncomment its related code first in the `app/config/app.php` file:
+* `Laravel\Blade` allows `Basilisk` to use [Blade](https://laravel.com/docs/11.x/blade) for creating PHP templates using the `Blade` template engine. To use this package, kindly uncomment its related code first in the `app/config/app.php` file:
 
   ``` php
+  // app/config/app.php
+
   /**
    * This section specifies the packages came from Weasley.
    * Please see Weasley's documentation for all of its
@@ -95,21 +169,9 @@ After running, open a web browser then proceed to http://localhost in a new tab.
   @endsection
   ```
 
-### 
-
-| Package | Description |
-| ------- | ----------- |
-| [Blade](https://laravel.com/docs/blade) | A templating engine provided by [Laravel](https://laravel.com/) |
-| [Eloquent](https://laravel.com/docs/eloquent) | An object-relational mapper (ORM) by [Laravel](https://laravel.com/) |
-| [Dotenv](https://github.com/vlucas/phpdotenv) | Loads variables from `.env` to `getenv()` |
-| [Phinx](https://phinx.org/) | A PHP database migrations for everyone |
-| [Slytherin](https://roug.in/slytherin/) | An extensible and SOLID-based micro-framework |
-| [Weasley](https://roug.in/weasley/) | Generators and helpers for Slytherin |
-
 ## Directory Structure
 
-> [!NOTE]
-> The following directory names below are only the preferred names based on my experience building projects under Slytherin. But they can be easily be extended or removed as Slytherin not does not conform to those said preferences.
+The following directory names below are only the preferred names [based on my experience](https://roug.in/work/) building projects using Slytherin. However, they can be easily be extended or removed as Slytherin not does not conform to any of the specified preferences:
 
 ```
 src/
@@ -159,6 +221,9 @@ class UserCheck extends Check
 }
 ```
 
+> [!NOTE]
+> For more information on how to create a validation class, please see the [Validation section](https://github.com/rougin/weasley?tab=readme-ov-file#validation) of the Weasley documentation.
+
 ### Depots
 
 ```
@@ -166,7 +231,7 @@ src/
 ├─ Depots/
 ```
 
-The main directory that should contain the logic of a project:
+This is the main directory that should contain the business logic of `Basilisk`:
 
 ``` php
 namespace App\Depots;
@@ -213,8 +278,7 @@ class UserDepot
 }
 ```
 
-> [!NOTE]
-> Prior in using depots, or may be best known as the [Repository pattern](https://designpatternsphp.readthedocs.io/en/latest/More/Repository/README.html), I implemented most of the logic in the `Routes` or `Models` directories. However, it presents a challenge to me in organizing their code. With using depots, I can reuse the same logic in to either `Routes` (for receiving user request) or in `Scripts` directory (for handling terminal-based actions).
+Prior in using depots, or may be best known as the [Repository pattern](https://designpatternsphp.readthedocs.io/en/latest/More/Repository/README.html), I implemented most of the logic in the `Routes` or `Models` directories. However, it presents a challenge to me in organizing code when implementing new features. In using depots, I can reuse the same logic in to either `Routes` (for receiving user request) or in `Scripts` directory (for handling terminal-based actions).
 
 ### Models
 
@@ -223,7 +287,7 @@ src/
 ├─ Models/
 ```
 
-It is the directory where for storing the models (for [`Eloquent`](https://laravel.com/docs/eloquent)) or entities (if using [`Doctrine`](https://www.doctrine-project.org/index.html)). The classes in this directory should represent a database table (e.g., if having a `users` table, it should be represented as `User` class):
+This is the directory where for storing the models (for [`Eloquent`](https://laravel.com/docs/eloquent)) or entities (if using [`Doctrine`](https://www.doctrine-project.org/index.html)). In my experience, my best practice is that the class names added in this directory should represent a database table (e.g., if having a `users` table, it should be represented as `User` class):
 
 ``` php
 <?php
@@ -269,7 +333,7 @@ src/
 │  ├─ Seeders/
 ```
 
-This directory is for the storage of related files for the [`Phinx` package](https://phinx.org/). The `Scripts` directory contains the generated database migrations while the `Seeders` directory must contain the database seeders.
+This is the directory for the storage of related files to the [`Phinx` package](https://phinx.org/). The `Scripts` directory must contain the generated database migrations while the `Seeders` directory must contain the custom database seeders.
 
 ``` php
 // src/Phinx/Scripts/20171012020230_create_users_table.php
@@ -326,7 +390,7 @@ class UserSeeder extends AbstractSeed
 }
 ```
 
-The said directory will be used for running the database migrations and seeders. To migrate the database scripts, kindly run the `migrate` command:
+This directory will be used for running the database migrations and seeders. To migrate the database scripts, kindly run the `migrate` command:
 
 ``` bash
 $ vendor/bin/phinx migrate -c app/config/phinx.php
@@ -355,7 +419,7 @@ src/
 ├─ Routes/
 ```
 
-The gateway of the project wherein the routes are stored. The said class can call or instantiate the classes found from the previously mentioned directories.
+This is the gateway of `Basilisk` wherein the [HTTP routes](https://github.com/rougin/slytherin/wiki/Defining-HTTP-Routes) are stored. The said class can call or instantiate the classes found from the previously mentioned directories.
 
 ``` php
 namespace App\Routes;
@@ -376,8 +440,41 @@ class Hello
 }
 ```
 
+Once a HTTP route was created to the directory, it should be added to the `Router` for it to be recognized by `Slytherin`:
+
+``` php
+namespace App;
+
+use Rougin\Slytherin\Routing\Router as Slytherin;
+
+class Router extends Slytherin
+{
+    /**
+     * @var string
+     */
+    protected $namespace = 'App\Routes';
+
+    /**
+     * @var string
+     */
+    protected $prefix = '/';
+
+    /**
+     * @return \Rougin\Slytherin\Routing\RouteInterface[]
+     */
+    public function routes()
+    {
+        $this->get('/', 'Hello@index');
+
+        // ...
+
+        return $this->routes;
+    }
+}
+```
+
 > [!NOTE]
-> In other frameworks, `Routes` is commonly known as `Controllers`.
+> In other PHP frameworks, `Routes` is commonly known as `Controllers`.
 
 ### Scripts
 
@@ -386,7 +483,7 @@ src/
 ├─ Scripts/
 ```
 
-The directory where the scripts are stored. These scripts can be executed directly using the `php` command in the terminal:
+This is the directory to store commands or scripts. These scripts can be executed directly using the `php` command in the terminal:
 
 ``` php
 // src/Scripts/HelloWorld.php
@@ -400,15 +497,62 @@ $ php src/Scripts/HelloWorld.php
 Hello world!
 ```
 
+## Development
+
+`Basilisk` also provides unit testing and static code analysis when implementing new features while minimizing the introduction of errors during development. It also has an opinionated coding style which can be configured after the installation.
+
+### Testing
+
+The sample unit tests provided in `Basilisk` are written in [PHPUnit](https://phpunit.de/index.html):
+
+``` bash
+$ composer test
+```
+
+It is recommended to run the above command to always check if the updated code introduces errors when creating fixes or implementing new features.
+
+> [!NOTE]
+> Please see the [official documentation](https://phpunit.de/documentation.html) of `PHPUnit` on how to write unit tests to the specified testing framework.
+
+### Code quality
+
+To retain the code quality of `Basilisk`, a static code analysis code tool named [PHPStan](https://phpstan.org/) can be used during development. To start, kindly install the specified package in global environment of `Composer`:
+
+``` bash
+$ composer global require phpstan/phpstan --dev
+```
+
+Once installed, `PHPStan` can now be run using its namesake command:
+
+``` bash
+$ phpstan
+```
+
+When running the specified command, it will use the `phpstan.neon` file which is already provided by `Basilisk`.
+
+### Coding style
+
+Aside from code quality, `Basilisk` also uses a tool named [PHP Coding Standards Fixer](https://cs.symfony.com/) for maintaining an opinionated style guide. The said tool needs also to be installed in the `Composer`'s global environment:
+
+``` bash
+$ composer global require friendsofphp/php-cs-fixer --dev
+```
+
+After being installed, kindly use the `php-cs-fixer` command in the same `Authsum` directory:
+
+``` bash
+$ cd Sample
+$ php-cs-fixer fix --config=phpstyle.php
+```
+
+The `phpstyle.php` file provided by `Basilisk` currently follows the [PSR-12](https://www.php-fig.org/psr/psr-12/) standard as its baseline for the coding style and uses [Allman](https://en.wikipedia.org/wiki/Indentation_style#Allman_style) as its indentation style.
+
+> [!NOTE]
+> Installing `PHPStan` and `PHP Coding Standards Fixer` requires a version of PHP that is `7.4` and above.
+
 ## Changelog
 
 Please see [CHANGELOG][link-changelog] for more information what has changed recently.
-
-## Testing
-
-``` bash
-$ vendor/bin/phpunit
-```
 
 ## License
 
