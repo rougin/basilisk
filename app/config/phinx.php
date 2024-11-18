@@ -1,12 +1,14 @@
 <?php
 
-// Defines the root directory --------
-$root = realpath(__DIR__ . '/../../');
-// -----------------------------------
+// Define the root directory ---
+$root = __DIR__ . '/../../';
+// -----------------------------
 
-// Loads the environment variables ---
-(new Dotenv\Dotenv($root))->load();
-// -----------------------------------
+// Load variables from ".env" ---
+$env = new Dotenv\Dotenv($root);
+
+$env->load();
+// ------------------------------
 
 /**
  * @var array<string, mixed>
@@ -17,36 +19,32 @@ return array(
      *
      * @var array
      */
-    'paths' =>
-    [
+    'paths' => array(
         /**
          * List of migration paths.
          *
          * @var array
          */
-        'migrations' =>
-        [
+        'migrations' => array(
             $root . '/src/Phinx/Scripts',
-        ],
+        ),
 
         /**
          * List of seed paths.
          *
          * @var array
          */
-        'seeds' =>
-        [
+        'seeds' => array(
             $root . '/src/Phinx/Seeders',
-        ],
-    ],
+        ),
+    ),
 
     /**
      * Configurations for specific environments.
      *
      * @var array
      */
-    'environments' =>
-    [
+    'environments' => array(
         /**
          * Name of the default migration table.
          *
@@ -66,8 +64,7 @@ return array(
          *
          * @var array
          */
-        'mysql' =>
-        [
+        'mysql' => array(
             /**
              * Name of the database adapter.
              *
@@ -116,15 +113,14 @@ return array(
              * @var string
              */
             'charset' => getenv('MYSQL_CHARSET'),
-        ],
+        ),
 
         /**
          * SQLite connection for a specified environment.
          *
          * @var array
          */
-        'sqlite' =>
-        [
+        'sqlite' => array(
             /**
              * Name of the database adapter.
              *
@@ -145,6 +141,6 @@ return array(
              * @var string
              */
             'suffix' => '',
-        ],
-    ],
+        ),
+    ),
 );

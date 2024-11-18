@@ -13,8 +13,7 @@ return array(
      *
      * @var array
      */
-    'view' =>
-    [
+    'view' => array(
         /**
          * Path for the compiled view templates.
          *
@@ -28,5 +27,5 @@ return array(
          * @var string|string[]
          */
         'templates' => __DIR__ . '/../blades',
-    ],
+    ),
 );

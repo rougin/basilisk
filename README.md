@@ -129,7 +129,7 @@ class UserDepot
             $items[] = $row;
         }
 
-        return (array) $items;
+        return $items;
     }
 }
 ```

@@ -85,6 +85,6 @@ class System
 
         $app = new Slytherin($container, $config);
 
-        return $app->integrate((array) $packages);
+        return $app->integrate($packages);
     }
 }

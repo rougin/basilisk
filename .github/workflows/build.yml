@@ -41,7 +41,7 @@ jobs:
 
     - name: Install Composer packages for PHP 5.3
       if: ${{ matrix.php-versions == '5.3' }}
-      run: composer require illuminate/database:"~4.1|~5.0" illuminate/events:"~4.1|~5.0" illuminate/view:"~4.1|~5.0" vcorbacho/sessionhandlerinterface:dev-master --no-plugins --dev
+      run: composer require illuminate/database:"~4.1|~5.0" illuminate/events:"~4.1|~5.0" illuminate/view:"~4.1|~5.0" vcorbacho/sessionhandlerinterface:dev-master ircmaxell/password-compat --no-plugins --dev
 
     - name: Install Composer packages for PHP 5.4
       if: ${{ matrix.php-versions == '5.4' }}
