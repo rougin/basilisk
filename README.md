@@ -6,15 +6,34 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Basilisk is a skeleton project made for [Slytherin](https://roug.in/slytherin/) which provides a code structure that is based on [my experiences](https://roug.in/) creating projects using Slytherin as it's framework. The said code structure should be easy to understand and be based on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
+Basilisk is a project skeleton specifically for the [Slytherin](https://roug.in/slytherin/) micro-framework which provides an opinionated code structure that is based on [my experiences](https://roug.in/) creating projects using Slytherin as the project's foundation. The code structure should be easy to understand and be based on [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
 ## Installation
 
-Create a new project using `Basilisk` via [Composer](https://getcomposer.org/):
+Create a new `Basilisk` project via [Composer](https://getcomposer.org/):
 
 ``` bash
 $ composer create-project rougin/basilisk "hogwarts"
 ```
+
+Once created, kindly execute the one-time setup to the project:
+
+``` bash
+$ php setup.php
+```
+
+## Running the project
+
+To run the project in a web browser, the [PHP's built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) can be used:
+
+``` bash
+$ php -S localhost:80 -t app/public
+```
+
+After running, open a web browser then proceed to http://localhost in a new tab.
+
+> [!WARNING]
+> This command should only be used for development purposes. It is recommended to use [Apache](https://httpd.apache.org/) or [Nginx](https://nginx.org/en/) in running this project.
 
 ## What's inside?
 
@@ -320,16 +339,6 @@ $ php src/Scripts/HelloWorld.php
 
 Hello world!
 ```
-
-## Running the application
-
-The PHP's built-in web server can be used for running the project during development: 
-
-``` bash
-$ php -S localhost:8000 -t app/public
-```
-
-Then open a web browser and proceed to go to [http://localhost:8000](http://localhost:8000).
 
 ## Changelog
 
