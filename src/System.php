@@ -34,11 +34,13 @@ class System
      */
     public function __construct($root)
     {
-        // Loads the environment variables ---
-        (new \Dotenv\Dotenv($root))->load();
-        // -----------------------------------
+        // Load variables from ".env" ---
+        $env = new \Dotenv\Dotenv($root);
 
-        $this->root = (string) $root;
+        $env->load();
+        // ------------------------------
+
+        $this->root = $root;
 
         $this->setContainer(new Container);
     }
