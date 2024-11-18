@@ -39,9 +39,6 @@ jobs:
     - name: Set up new environment
       run: cp .env.example .env
 
-    - name: Run test suite
-      run: vendor/bin/phpunit --coverage-clover=coverage.clover
-
     - name: Install Composer packages for PHP 5.3
       if: ${{ matrix.php-versions == '5.3' }}
       run: composer require illuminate/database:"~4.1|~5.0" illuminate/events:"~4.1|~5.0" illuminate/view:"~4.1|~5.0" vcorbacho/sessionhandlerinterface:dev-master http-interop/http-middleware:^0.4.1 --no-plugins --dev
@@ -93,6 +90,9 @@ jobs:
     - name: Install Composer packages for PHP 8.3
       if: ${{ matrix.php-versions == '8.2' }}
       run: composer require laravel/serializable-closure illuminate/database illuminate/pagination illuminate/view http-interop/http-middleware:^0.4.1 --no-plugins --dev
+
+    - name: Run test suite
+      run: vendor/bin/phpunit --coverage-clover=coverage.clover
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4-beta
