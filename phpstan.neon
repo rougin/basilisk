@@ -4,3 +4,6 @@ parameters:
     - app
     - src
     - tests
+  excludePaths:
+    analyse:
+      - app/cache/compiled
