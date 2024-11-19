@@ -6,7 +6,7 @@
 [![Coverage Status][ico-coverage]][link-coverage]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-`Basilisk` is a project skeleton specifically for the [Slytherin](https://roug.in/slytherin/) micro-framework which provides an opinionated code structure that is based on [my experiences](https://roug.in/) creating projects using `Slytherin` as its foundation. The code structure should be easy to understand and be under [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
+`Basilisk` is a project skeleton specifically for the [Slytherin](https://roug.in/slytherin/) PHP micro-framework which contains an opinionated code structure based on [my experiences](https://roug.in/) creating projects using `Slytherin` as its foundation. The code structure should be easy to understand and be under [SOLID](https://en.wikipedia.org/wiki/SOLID) principles.
 
 ## Installation
 
@@ -44,10 +44,10 @@ A `Basilisk` project contains a configuration of the following packages:
 [Slytherin](https://github.com/rougin/slytherin) is a simple and extensible PHP micro-framework that tries to achieve a [SOLID-based design](https://en.wikipedia.org/wiki/SOLID) for creating web applications. As `Slytherin` is the core foundation of `Basilisk`, `Basilisk` has also configured the following packages of `Slytherin` out of the box:
 
 * [HttpIntegration](https://github.com/rougin/slytherin/wiki/Http) allows to use PHP's superglobals (e.g., `$_GET`, `$_POST`, etc.) to `Basilisk`;
-* [ConfigurationIntegration](https://github.com/rougin/slytherin/wiki/IntegrationInterface-Implementation) allows to use the `Configuration` class of Slytherin across `Basilisk` through dependency injection;
-* [MiddlewareIntegration](https://github.com/rougin/slytherin/wiki/Middleware) provides a simple way in integrating [PSR-15](https://www.php-fig.org/psr/psr-15/) middlewares;
+* [ConfigurationIntegration](https://github.com/rougin/slytherin/wiki/IntegrationInterface-Implementation) allows to use the `Configuration` class of `Slytherin` in any part of the code structure through dependency injection;
+* [MiddlewareIntegration](https://github.com/rougin/slytherin/wiki/Middleware) provides a simple way in integrating [PSR-15](https://www.php-fig.org/psr/psr-15/) middlewares to HTTP requests and HTTP responses;
 * [RoutingIntegration](https://github.com/rougin/slytherin/wiki/Routing) adds a systematic way of configuring HTTP routes and its routers; and
-* [RendererIntegration](https://github.com/rougin/slytherin/wiki/Template) for providing directories in loading PHP templates.
+* [RendererIntegration](https://github.com/rougin/slytherin/wiki/Template) provides a simple logic for loading PHP templates.
 
 > [!NOTE]
 > Kindly see the [Slytherin's documentation](https://github.com/rougin/slytherin/wiki) on how to use the above-mentioned packages.
@@ -73,11 +73,13 @@ APP_VERSION="0.1.0"
 
 return array(
 
-    'name' => getenv('APP_NAME'),
+    // ...
+
+    'name' => getenv('APP_NAME'), // returns "Basilisk"
 
     // ...
 
-    'version' => getenv('APP_VERSION'),
+    'version' => getenv('APP_VERSION'), // returns "0.1.0"
 
     // ...
 
@@ -86,7 +88,7 @@ return array(
 
 ### Phinx
 
-[Phinx](https://phinx.org/) is a tool made for PHP in performing database migrations. Due to the package as framework-agnostic, this package can create, write and perform database migrations easily. To use this package, kindly install it first using `Composer`:
+[Phinx](https://phinx.org/) is a tool made for PHP in performing database migrations. Being a framework-agnostic package, `Phinx` can create, write and perform database migrations easily. To use this package, kindly install it first using `Composer`:
 
 ``` bash
 $ composer require robmorgan/phinx
@@ -137,13 +139,13 @@ $ vendor/bin/phinx create CreateUsersTable -c app/config/phinx.php
 
 [Weasley](https://github.com/rougin/weasley) is a utility package in PHP that provides generators, helpers, and utilities for Slytherin. The following packages are also configured within `Basilisk`:
 
-* `Laravel\Eloquent` enables to usage of [Eloquent](https://laravel.com/docs/11.x/eloquent) to the project. To use this package, kindly install its required package first in `Composer`:
+* `Laravel\Eloquent` enables the usage of [Eloquent](https://laravel.com/docs/eloquent) to `Basilisk` which is an [Object-relational mapper (ORM)](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) from [Laravel](https://laravel.com). To use this package, kindly install its required package first in `Composer`:
 
   ``` bash
   $ composer require illuminate/database
   ```
 
-* `Laravel\Blade` allows `Basilisk` to use [Blade](https://laravel.com/docs/11.x/blade) for creating PHP templates using the `Blade` template engine. To use this package, kindly uncomment its related code first in the `app/config/app.php` file:
+* `Laravel\Blade` allows `Basilisk` to use [Blade](https://laravel.com/docs/blade) from `Laravel` for creating PHP templates using the `Blade` templating engine. To use this package, kindly uncomment its related code first in the `app/config/app.php` file:
 
   ``` php
   // app/config/app.php
@@ -195,7 +197,7 @@ $ vendor/bin/phinx create CreateUsersTable -c app/config/phinx.php
   @endsection
   ```
 
-## Directory Structure
+## Directory structure
 
 The following directory names below are only the preferred names [based on my experience](https://roug.in/work/) building projects using `Slytherin`. However, they can be easily be extended or removed as `Slytherin` not does not conform to any of the specified preferences:
 
@@ -211,12 +213,7 @@ src/
 ├─ Scripts/
 ```
 
-### Checks
-
-```
-src/
-├─ Checks/
-```
+### `Checks`
 
 This directory contains PHP classes that are used specifically for validation. The said PHP classes may be extended to the `Check` class of [Weasley](https://roug.in/weasley/):
 
@@ -250,12 +247,7 @@ class UserCheck extends Check
 > [!NOTE]
 > For more information on how to create a validation class, please see the [Validation section](https://github.com/rougin/weasley?tab=readme-ov-file#validation) of the `Weasley` documentation.
 
-### Depots
-
-```
-src/
-├─ Depots/
-```
+### `Depots`
 
 This is the main directory that should contain the business logic of `Basilisk`:
 
@@ -288,16 +280,7 @@ class UserDepot
 
         $items = array();
 
-        foreach ($result as $item)
-        {
-            $row = ['id' => $item->id];
-
-            $row['name'] = $item->name;
-
-            $row['email'] = $item->email;
-
-            $items[] = $row;
-        }
+        // ...
 
         return $items;
     }
@@ -309,14 +292,9 @@ Prior in using depots, I implemented most of the logic in the `Routes` or `Model
 > [!NOTE]
 > In other PHP frameworks and other guides, `Depot` is also known as the [Repository pattern](https://designpatternsphp.readthedocs.io/en/latest/More/Repository/README.html).
 
-### Models
+### `Models`
 
-```
-src/
-├─ Models/
-```
-
-This is the directory where for storing the models (for [`Eloquent`](https://laravel.com/docs/eloquent)) or entities (if using [`Doctrine`](https://www.doctrine-project.org/index.html)). In my experience, my best practice is that the class names added in this directory should represent a database table (e.g., if having a `users` table from the database, it should be represented in `Basilisk` as `User` class):
+This is the directory where for storing the models (if using [`Eloquent`](https://laravel.com/docs/eloquent)) or entities (if using [`Doctrine`](https://www.doctrine-project.org/index.html)). In my experience, my best practice is that the class names added in this directory should represent a database table (e.g., if having a `users` table from the database, it should be represented in `Basilisk` as `User` class):
 
 ``` php
 <?php
@@ -354,18 +332,11 @@ class User extends Model
 ```
 
 > [!NOTE]
-> As `Basilisk` provided a `User` model based on `Eloquent`, kindly see its [official discussion](https://laravel.com/docs/11.x/eloquent) for its usage and configuration.
+> As `Basilisk` provided a `User` model based on `Eloquent`, kindly see its [official discussion](https://laravel.com/docs/eloquent) for its usage and configuration.
 
-### Phinx
+### `Phinx`
 
-```
-src/
-├─ Phinx/
-│  ├─ Scripts/
-│  ├─ Seeders/
-```
-
-This is the directory for the storage of related files to the [`Phinx` package](https://phinx.org/). The `Scripts` directory must contain the generated database migrations while the `Seeders` directory must contain the custom database seeders:
+This is the directory for the storage of related files to the [Phinx](https://phinx.org/) package. The `Scripts` directory must contain the generated database migrations while the `Seeders` directory must contain the custom database seeders:
 
 ``` php
 // src/Phinx/Scripts/20171012020230_create_users_table.php
@@ -443,12 +414,7 @@ When executed, the command above will perform the database seeders in **alphabet
 > $ cp .env.example .env
 > ```
 
-### Routes
-
-```
-src/
-├─ Routes/
-```
+### `Routes`
 
 This is the gateway of `Basilisk` wherein the [HTTP routes](https://github.com/rougin/slytherin/wiki/Defining-HTTP-Routes) are stored and configured as a PHP class. The PHP class can call or instantiate the classes found from the previously mentioned directories:
 
@@ -507,12 +473,7 @@ class Router extends Slytherin
 > [!NOTE]
 > In other PHP frameworks, `Routes` is commonly known as `Controllers`.
 
-### Scripts
-
-```
-src/
-├─ Scripts/
-```
+### `Scripts`
 
 This is the directory to store commands or scripts. These scripts can be executed directly using the `php` command in the terminal:
 
@@ -528,7 +489,7 @@ $ php src/Scripts/HelloWorld.php
 Hello world!
 ```
 
-## Development
+## Development workflow
 
 `Basilisk` also provides unit testing and static code analysis out of the box when implementing new features to minimize the introduction of errors during development. It also has an opinionated coding style which can be configured after the installation.
 
