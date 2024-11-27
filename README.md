@@ -41,10 +41,10 @@ A `Basilisk` project contains a configuration of the following packages:
 
 ### Slytherin
 
-[Slytherin](https://github.com/rougin/slytherin) is a simple and extensible PHP micro-framework that tries to achieve a [SOLID-based design](https://en.wikipedia.org/wiki/SOLID) for creating web applications. As `Slytherin` is the core foundation of `Basilisk`, `Basilisk` has also configured the following packages of `Slytherin` out of the box:
+[Slytherin](https://github.com/rougin/slytherin) is a simple and extensible PHP micro-framework that tries to achieve a [SOLID-based design](https://en.wikipedia.org/wiki/SOLID) for creating web applications. As `Slytherin` is the core foundation of `Basilisk`, the following packages of `Slytherin` has already been configured out of the box:
 
-* [HttpIntegration](https://github.com/rougin/slytherin/wiki/Http) allows to use PHP's superglobals (e.g., `$_GET`, `$_POST`, etc.) to `Basilisk`;
-* [ConfigurationIntegration](https://github.com/rougin/slytherin/wiki/IntegrationInterface-Implementation) allows to use the `Configuration` class of `Slytherin` in any part of the code structure through dependency injection;
+* [HttpIntegration](https://github.com/rougin/slytherin/wiki/Http) allows to use PHP's superglobals (e.g., `$_GET`, `$_POST`, etc.);
+* [ConfigurationIntegration](https://github.com/rougin/slytherin/wiki/IntegrationInterface-Implementation) allows to use the `Configuration` class in any part of the code structure through dependency injection;
 * [MiddlewareIntegration](https://github.com/rougin/slytherin/wiki/Middleware) provides a simple way in integrating [PSR-15](https://www.php-fig.org/psr/psr-15/) middlewares to HTTP requests and HTTP responses;
 * [RoutingIntegration](https://github.com/rougin/slytherin/wiki/Routing) adds a systematic way of configuring HTTP routes and its routers; and
 * [RendererIntegration](https://github.com/rougin/slytherin/wiki/Template) provides a simple logic for loading PHP templates.
@@ -181,7 +181,7 @@ $ vendor/bin/phinx create CreateUsersTable -c app/config/phinx.php
   $ composer require illuminate/view
   ```
 
-  Once installed, kindly the `Blade` templates in the `app/blades` directory:
+  Once installed, the `Blade` templates can now be added in the `app/blades` directory:
 
   ``` php
   // app/blades/index.blade.php
