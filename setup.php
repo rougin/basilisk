@@ -229,13 +229,15 @@ $texts['[LINK]'] = $link;
 replace_in_file($readme . '.md', $texts);
 // -----------------------------------------
 
-// Change details in CHANGELOG.md --------------
+// Change details in CHANGELOG.md -----
+$changelog = __DIR__ . '/CHANGELOG.md';
+
 $texts = array('[NAME]' => $name);
 
 $texts['[VERSION]'] = $version;
 
-replace_in_file(__DIR__ . '/README.md', $texts);
-// ---------------------------------------------
+replace_in_file($changelog, $texts);
+// ------------------------------------
 
 // Change details in composer.json ---------------
 $composer = __DIR__ . '/composer';
