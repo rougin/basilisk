@@ -256,6 +256,8 @@ $texts['[DESCRIPTION]'] = $desc;
 remove_file($composer . '.bak');
 
 replace_in_file($composer . '.json', $texts);
+
+run('composer update');
 // -----------------------------------------------
 
 // Search PHP files with @package and @author ---
