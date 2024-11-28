@@ -5,9 +5,9 @@ namespace App\Depots;
 use App\Models\User;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class UserDepot
 {

@@ -7,9 +7,9 @@ use Rougin\Slytherin\Integration\Configuration;
 use Rougin\Slytherin\Integration\IntegrationInterface;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class Package implements IntegrationInterface
 {

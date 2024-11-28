@@ -5,9 +5,9 @@ namespace App\Routes;
 use Rougin\Slytherin\Template\RendererInterface;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class Hello
 {

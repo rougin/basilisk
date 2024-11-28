@@ -5,9 +5,9 @@ use Phinx\Migration\AbstractMigration;
 /**
  * @codeCoverageIgnore
  *
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class CreateUsersTable extends AbstractMigration
 {

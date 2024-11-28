@@ -5,7 +5,7 @@ namespace App\Routes;
 use App\UsingApp;
 
 /**
- * @package App
+ * @package Basilisk
  *
  * @author Rougin Gutib <rougingutib@gmail.com>
  */

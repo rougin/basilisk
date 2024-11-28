@@ -7,7 +7,7 @@ use LegacyPHPUnit\TestCase as Legacy;
 /**
  * @codeCoverageIgnore
  *
- * @package App
+ * @package Basilisk
  *
  * @author Rougin Gutib <rougingutib@gmail.com>
  */

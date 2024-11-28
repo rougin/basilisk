@@ -5,7 +5,7 @@ namespace App;
 use Rougin\Slytherin\Http\ServerRequest;
 
 /**
- * @package App
+ * @package Basilisk
  *
  * @author Rougin Gutib <rougingutib@gmail.com>
  */

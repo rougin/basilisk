@@ -3,9 +3,9 @@
 namespace App;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class Kernel
 {

@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @method \App\Models\User[] all()
  *
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class User extends Model
 {

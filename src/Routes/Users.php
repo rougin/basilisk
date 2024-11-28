@@ -6,9 +6,9 @@ use App\Depots\UserDepot;
 use Rougin\Weasley\Route;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class Users extends Route
 {

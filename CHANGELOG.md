@@ -1,8 +1,8 @@
 # Changelog
 
-All notable changes to `App` will be documented in this file.
+All notable changes to `[NAME]` will be documented in this file.
 
-## 0.1.0 - Unreleased
+## [VERSION] - Unreleased
 
 ### Added
-- `App` file and directory structure
+- `[NAME]` file and directory structure

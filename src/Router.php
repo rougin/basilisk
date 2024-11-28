@@ -5,9 +5,9 @@ namespace App;
 use Rougin\Slytherin\Routing\Router as Slytherin;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class Router extends Slytherin
 {

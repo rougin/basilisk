@@ -5,9 +5,9 @@ use Phinx\Seed\AbstractSeed;
 /**
  * @codeCoverageIgnore
  *
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class UserSeeder extends AbstractSeed
 {

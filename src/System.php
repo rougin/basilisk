@@ -8,9 +8,9 @@ use Rougin\Slytherin\Integration\Configuration;
 use Rougin\Slytherin\System as Slytherin;
 
 /**
- * @package App
+ * @package [NAME]
  *
- * @author Rougin Gutib <rougingutib@gmail.com>
+ * @author [AUTHOR] <[EMAIL]>
  */
 class System
 {
