@@ -290,6 +290,7 @@ remove_dir(__DIR__ . '/.github');
 
 $app = __DIR__ . '/app';
 $src = __DIR__ . '/src';
+$space = str_repeat(' ', 8);
 
 // Replace namespace in "index.php" --------
 $index = $app . '/public/index.php';
@@ -297,6 +298,17 @@ $texts = array('use App' => 'use ' . $name);
 
 replace_in_file($index, $texts);
 // -----------------------------------------
+
+// Replace names in "blades" and "plates" folder ------------
+$texts = array('Basilisk' => $name);
+$text = 'A skeleton application for the Slytherin framework';
+$texts[$text] = $desc;
+$texts['Muggle'] = $author;
+
+replace_in_file($app . '/plates/index.php', $texts);
+
+replace_in_file($app . '/blades/index.blade.php', $texts);
+// ----------------------------------------------------------
 
 if (! $useAssets)
 {
@@ -324,8 +336,6 @@ if ($useBlade)
 
     $render = "'Rougin\Slytherin\Template\RendererIntegration'";
 
-    $space = str_repeat(' ', 8);
-
     $texts = array();
 
     $texts[$space . $render] = $space . '// ' . $render;
@@ -336,6 +346,15 @@ if ($useBlade)
     remove_dir($app . '/plates');
 
     run('composer require illuminate/view');
+
+    // Always use "cache" folder ---
+    $useCache = true;
+    // -----------------------------
+}
+
+if (! $useCache)
+{
+    remove_dir($app . '/cache');
 }
 
 if ($useEloquent)
@@ -346,8 +365,6 @@ if ($useEloquent)
 if (! $useEloquent)
 {
     $text = "'Rougin\Weasley\Packages\Laravel\Eloquent'";
-
-    $space = str_repeat(' ', 8);
 
     $texts = array($space . $text => $space . '// ' . $text);
 
