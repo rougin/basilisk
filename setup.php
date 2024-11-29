@@ -273,25 +273,30 @@ if ($rmSample && file_exists($router . '.bak'))
 }
 // --------------------------------------------
 
-// Search PHP files with @package and @author ---------
-$files = get_src_files();
-
+// Search PHP files with @package and @author -------------
 $texts = array('[NAME]' => $name);
 $texts['[EMAIL]'] = $email;
 $texts['[AUTHOR]'] = $author;
 $texts['namespace = \'App'] = 'namespace = \'' . $name;
 $texts['namespace App'] = 'namespace ' . $name;
 
-foreach ($files as $file)
+foreach (get_src_files() as $file)
 {
     replace_in_file($file, $texts);
 }
-// ----------------------------------------------------
+// --------------------------------------------------------
 
 remove_dir(__DIR__ . '/.github');
 
 $app = __DIR__ . '/app';
 $src = __DIR__ . '/src';
+
+// Replace namespace in "index.php" --------
+$index = $app . '/public/index.php';
+$texts = array('use App' => 'use ' . $name);
+
+replace_in_file($index, $texts);
+// -----------------------------------------
 
 if (! $useAssets)
 {

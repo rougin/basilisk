@@ -19,6 +19,7 @@ $ composer create-project rougin/basilisk "hogwarts"
 Once created, kindly execute the one-time setup to the project:
 
 ``` bash
+$ cd hogwarts
 $ php setup.php
 ```
 
