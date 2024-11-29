@@ -189,7 +189,7 @@ function run($command)
 }
 
 $name = ask('Name of project:', 'App');
-$desc = ask('Project description', 'A simple app');
+$desc = ask('Project description', 'A Basilisk app');
 $author = ask('Project author', 'Rougin Gutib');
 $email = ask('Email of author', 'rougingutib@gmail.com');
 $guess = guess_link($name, $author, $email);
@@ -262,19 +262,31 @@ replace_in_file($composer . '.json', $texts);
 run('composer update');
 // -----------------------------------------------
 
-// Search PHP files with @package and @author ---
+// Change details in Router.php ---------------
+$router = __DIR__ . '/src/Router';
+
+if ($rmSample && file_exists($router . '.bak'))
+{
+    copy($router . '.bak', $router . '.php');
+
+    remove_file($router . '.bak');
+}
+// --------------------------------------------
+
+// Search PHP files with @package and @author ---------
 $files = get_src_files();
 
 $texts = array('[NAME]' => $name);
 $texts['[EMAIL]'] = $email;
 $texts['[AUTHOR]'] = $author;
+$texts['namespace = \'App'] = 'namespace = \'' . $name;
 $texts['namespace App'] = 'namespace ' . $name;
 
 foreach ($files as $file)
 {
     replace_in_file($file, $texts);
 }
-// ----------------------------------------------
+// ----------------------------------------------------
 
 remove_dir(__DIR__ . '/.github');
 
