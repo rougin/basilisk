@@ -118,6 +118,23 @@ function guess_link($name, $author)
 }
 
 /**
+ * @param string $name
+ * @param string $author
+ *
+ * @return string
+ */
+function guess_namespace($name, $author)
+{
+    $author = guess_username($author);
+    $author = ucfirst($author);
+
+    $texts = explode(' ', $name);
+    $name = ucfirst($texts[0]);
+
+    return $author . '\\' . $name;
+}
+
+/**
  * @param string $author
  *
  * @return string
@@ -192,6 +209,8 @@ $name = ask('Name of project:', 'App');
 $desc = ask('Project description', 'A Basilisk app');
 $author = ask('Project author', 'Rougin Gutib');
 $email = ask('Email of author', 'rougingutib@gmail.com');
+$guess = guess_namespace($name, $author);
+$namespace = ask('Project namespace:', $guess);
 $guess = guess_link($name, $author, $email);
 $link = ask('URL to the project', $guess);
 $version = ask('Initial version', '0.1.0');
@@ -273,18 +292,18 @@ if ($rmSample && file_exists($router . '.bak'))
 }
 // --------------------------------------------
 
-// Search PHP files with @package and @author -------------
+// Search PHP files with @package and @author --------------
 $texts = array('[NAME]' => $name);
 $texts['[EMAIL]'] = $email;
 $texts['[AUTHOR]'] = $author;
-$texts['namespace = \'App'] = 'namespace = \'' . $name;
-$texts['namespace App'] = 'namespace ' . $name;
+$texts['namespace = \'App'] = 'namespace = \'' . $namespace;
+$texts['namespace App'] = 'namespace ' . $namespace;
 
 foreach (get_src_files() as $file)
 {
     replace_in_file($file, $texts);
 }
-// --------------------------------------------------------
+// ---------------------------------------------------------
 
 remove_dir(__DIR__ . '/.github');
 
@@ -292,12 +311,12 @@ $app = __DIR__ . '/app';
 $src = __DIR__ . '/src';
 $space = str_repeat(' ', 8);
 
-// Replace namespace in "index.php" --------
+// Replace namespace in "index.php" -------------
 $index = $app . '/public/index.php';
-$texts = array('use App' => 'use ' . $name);
+$texts = array('use App' => 'use ' . $namespace);
 
 replace_in_file($index, $texts);
-// -----------------------------------------
+// ----------------------------------------------
 
 // Replace names in "blades" and "plates" folder ------------
 $texts = array('Basilisk' => $name);
@@ -325,7 +344,7 @@ if (! $useBlade)
 }
 
 // Replace namespace in "app.php" ------------
-$texts = array('App' => $name);
+$texts = array('App' => $namespace);
 
 replace_in_file($config . '/app.php', $texts);
 // -------------------------------------------
