@@ -259,7 +259,7 @@ remove_file($composer . '.bak');
 
 replace_in_file($composer . '.json', $texts);
 
-run('composer update');
+run('composer dump-autoload');
 // -----------------------------------------------
 
 // Change details in Router.php ---------------
@@ -311,6 +311,12 @@ if (! $useBlade)
 
     remove_file($config . '/illuminate.php');
 }
+
+// Replace namespace in "app.php" ------------
+$texts = array('App' => $name);
+
+replace_in_file($config . '/app.php', $texts);
+// -------------------------------------------
 
 if ($useBlade)
 {
