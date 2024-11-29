@@ -13,7 +13,7 @@ return array(
      *
      * @var string
      */
-    'default' => 'sqlite',
+    'default' => getenv('APP_DEFAULT_DB'),
 
     /**
      * Configuration for a MySQL connection.
