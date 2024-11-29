@@ -273,6 +273,8 @@ $texts['[S_NAME]'] = strtolower($name);
 $texts['[USERNAME]'] = guess_username($author);
 $texts['[AUTHOR]'] = $author;
 $texts['[DESCRIPTION]'] = $desc;
+$parsed = str_replace('\\', '\\\\', $namespace);
+$texts['[NAMESPACE]'] = $parsed;
 
 remove_file($composer . '.bak');
 

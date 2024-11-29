@@ -25,14 +25,14 @@
   {
     "psr-4":
     {
-      "[NAME]\\": "src"
+      "[NAMESPACE]\\": "src"
     }
   },
   "autoload-dev":
   {
     "psr-4":
     {
-      "[NAME]\\": "tests"
+      "[NAMESPACE]\\": "tests"
     }
   },
   "scripts":
