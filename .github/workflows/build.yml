@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ '5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3' ]
+        php-versions: [ '5.3', '5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5' ]
 
     name: Run Unit Test on PHP ${{ matrix.php-versions }}
 
@@ -89,6 +89,14 @@ jobs:
 
     - name: Install Composer packages for PHP 8.3
       if: ${{ matrix.php-versions == '8.3' }}
+      run: composer require laravel/serializable-closure illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 8.4
+      if: ${{ matrix.php-versions == '8.4' }}
+      run: composer require laravel/serializable-closure illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
+
+    - name: Install Composer packages for PHP 8.5
+      if: ${{ matrix.php-versions == '8.5' }}
       run: composer require laravel/serializable-closure illuminate/database illuminate/pagination illuminate/view --no-plugins --dev
 
     - name: Run test suite
