@@ -509,16 +509,16 @@ It is recommended to run the above command to always check if the updated code i
 
 ### Code quality
 
-To retain the code quality of `Basilisk`, a static code analysis code tool named [PHPStan](https://phpstan.org/) can be used during development. To start, kindly install the specified package in the global environment of `Composer`:
+To retain the code quality of `Basilisk`, a static code analysis code tool named [PHPStan](https://phpstan.org/) can be used during development. To start, install the specified package in the global environment:
 
 ``` bash
 $ composer global require phpstan/phpstan --dev
 ```
 
-Once installed, `PHPStan` can now be run using its namesake command:
+Once installed, `PHPStan` can now be run from `Composer`:
 
 ``` bash
-$ phpstan
+$ composer analyze
 ```
 
 > [!NOTE]
@@ -532,10 +532,10 @@ Aside from code quality, `Basilisk` also uses a tool named [PHP Coding Standards
 $ composer global require friendsofphp/php-cs-fixer --dev
 ```
 
-After its installation, kindly use the `php-cs-fixer` command in the same `Authsum` directory:
+After its installation, kindly use the `composer restyle` command:
 
 ``` bash
-$ php-cs-fixer fix --config=phpstyle.php
+$ composer restyle
 ```
 
 The `phpstyle.php` file provided by `Basilisk` currently follows the [PSR-12](https://www.php-fig.org/psr/psr-12/) standard as its baseline for the coding style and uses [Allman](https://en.wikipedia.org/wiki/Indentation_style#Allman_style) as its indentation style.
