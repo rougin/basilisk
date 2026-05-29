@@ -22,8 +22,6 @@ class Router extends Slytherin
     protected $prefix = '/';
 
     /**
-     * Returns a listing of available routes.
-     *
      * @return \Rougin\Slytherin\Routing\RouteInterface[]
      */
     public function routes()
